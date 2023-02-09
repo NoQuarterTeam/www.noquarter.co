@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro"
+import Counter from "../components/Counter.svelte"
 ---
 
 <Layout title="Welcome to No Quarter">
@@ -9,5 +10,6 @@ import Layout from "../layouts/Layout.astro"
       To get started, open the directory <code>src/pages</code> in your project.<br />
       <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
     </p>
+    <Counter client:load />
   </main>
 </Layout>

@@ -2,15 +2,9 @@
   import { filters } from "../lib/stores"
   import { join } from "../lib/tailwind"
 
-  function toggleTag(tag: string) {
+  const toggleTag = (tag: string) => {
     filters.update((current) => {
-      const tags = current.tags
-      const index = tags.indexOf(tag)
-      if (index === -1) {
-        tags.push(tag)
-      } else {
-        tags.splice(index, 1)
-      }
+      const tags = current.tags.includes(tag) ? current.tags.filter((t) => t !== tag) : [...current.tags, tag]
       return { ...current, tags }
     })
   }
@@ -20,7 +14,7 @@
   <div class="flex space-x-2">
     <input
       bind:value={$filters.search}
-      class="w-full rounded-lg border border-neutral-700 bg-neutral-800 py-3 px-6 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:bg-neutral-700/70 focus:bg-neutral-700"
+      class="relative w-full rounded-lg border border-neutral-700 bg-neutral-800 py-3 px-6 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
       placeholder="What do they do?"
     />
     <button class="rounded-lg bg-neutral-700 py-3 px-8 transition-colors hover:bg-neutral-600">Search</button>

@@ -18,7 +18,7 @@
     {#each tags as tag}
       <span
         class={join(
-          "px-3 py-1 text-sm text-neutral-100 rounded-xl",
+          "px-3 py-1 text-sm text-neutral-100 rounded-full",
           tag === "About" && "bg-yellow-500/60",
           tag === "Projects" && "bg-teal-500/60",
           tag === "Team" && "bg-purple-500/60",

@@ -29,28 +29,28 @@
     <button
       on:click={() => toggleTag("About")}
       class={join(
-        "rounded-full border border-yellow-600 px-4 py-2 hover:opacity-90 transition-colors",
+        "rounded-full text-center min-w-[100px] border border-yellow-600 px-4 py-2 hover:opacity-90 transition-colors",
         $filters.tags.includes("About") ? "bg-yellow-500/60" : "hover:bg-yellow-400/5",
       )}>About</button
     >
     <button
       on:click={() => toggleTag("Projects")}
       class={join(
-        "rounded-full border border-teal-700 px-4 py-2 hover:opacity-90 transition-colors",
+        "rounded-full text-center min-w-[100px] border border-teal-700 px-4 py-2 hover:opacity-90 transition-colors",
         $filters.tags.includes("Projects") ? "bg-teal-500/60" : "hover:bg-teal-400/5",
       )}>Projects</button
     >
     <button
       on:click={() => toggleTag("Team")}
       class={join(
-        "rounded-full border border-purple-700 px-4 py-2 hover:opacity-90 transition-colors",
+        "rounded-full text-center min-w-[100px] border border-purple-700 px-4 py-2 hover:opacity-90 transition-colors",
         $filters.tags.includes("Team") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
       )}>Team</button
     >
     <button
       on:click={() => toggleTag("Stuff")}
       class={join(
-        "rounded-full border border-pink-700 px-4 py-2 hover:opacity-90 transition-colors",
+        "rounded-full text-center min-w-[100px] border border-pink-700 px-4 py-2 hover:opacity-90 transition-colors",
         $filters.tags.includes("Stuff") ? "bg-pink-500/60" : "hover:bg-pink-400/5",
       )}>Stuff</button
     >

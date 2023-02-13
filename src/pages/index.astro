@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Card from "../components/Card.astro"
+import Card from "../components/Card.svelte"
 ---
 
 <Layout title="No Quarter">
@@ -37,12 +37,16 @@ import Card from "../components/Card.astro"
     <div class="space-y-4">
       <div class="grid grid-cols-3 gap-4">
         <Card
+          client:visible
           title="About us"
           desciption="Come get lit with the boys, Reprehenderit magna veniam sint incididunt. Eu laboris enim nulla aliqua."
+          tags={["Lit"]}
         />
         <Card
+          client:visible
           title="Our work"
           desciption="Our stuff is super sick and really nice. Esse officia nisi adipisicing eiusmod ex quis tempor esse ea consectetur ipsum."
+          tags={["Cool"]}
         />
       </div>
     </div>

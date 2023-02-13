@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@astrojs/svelte': ^2.0.1
   '@astrojs/tailwind': ^3.0.1
+  '@formkit/auto-animate': 1.0.0-beta.6
   '@typescript-eslint/parser': ^5.51.0
   astro: ^2.0.9
   eslint: ^8.33.0
@@ -20,6 +21,7 @@ specifiers:
 dependencies:
   '@astrojs/svelte': 2.0.1_y6bmpad7qpssx22hzchonhvvey
   '@astrojs/tailwind': 3.0.1_yroyefrquwvghcn3xhop6h6pcy
+  '@formkit/auto-animate': 1.0.0-beta.6
   astro: 2.0.9
   match-sorter: 6.3.1
   svelte: 3.55.1
@@ -601,6 +603,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@formkit/auto-animate/1.0.0-beta.6:
+    resolution: {integrity: sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==}
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}

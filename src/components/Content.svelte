@@ -1,4 +1,5 @@
 <script lang="ts">
+  import autoAnimate from "@formkit/auto-animate"
   import { onDestroy } from "svelte"
   import { matchSorter } from "match-sorter"
   import Card from "./Card.svelte"
@@ -18,7 +19,7 @@
   onDestroy(unsubscribe)
 </script>
 
-<div class="grid grid-cols-3 gap-4">
+<div use:autoAnimate class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
   {#each content as item}
     <Card {...item} />
   {/each}

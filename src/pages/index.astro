@@ -1,15 +1,50 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Counter from "../components/Counter.svelte"
+import Card from "../components/Card.astro"
 ---
 
 <Layout title="Welcome to No Quarter">
-  <main class="space-y-4">
-    <h1 class="text-5xl">Welcome to <span class="bg-green-500">No Quarter</span></h1>
-    <p>
-      To get started, open the directory <code>src/pages</code> in your project.<br />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-    </p>
-    <Counter client:load />
-  </main>
+  <div class="space-y-8">
+    <div class="grid gap-8 md:gap-10 grid-cols-1 md:grid-cols-2 w-full -order-1 md:order-1">
+      <div class="flex flex-col justify-between h-full">
+        <h1 class="text-6xl">No Quarter</h1>
+        <div class="space-y-4">
+          <div class="flex space-x-2">
+            <input
+              class="bg-neutral-800 py-3 px-6 rounded-lg placeholder:text-neutral-500 hover:bg-neutral-700/70 focus:bg-neutral-700 transition-colors"
+              placeholder="What do they do?"
+            />
+            <button class="bg-neutral-700 rounded-lg py-3 px-8 hover:bg-neutral-600 transition-colors"
+              >Search</button
+            >
+          </div>
+          <div class="flex space-x-2 font-mono">
+            <button class="bg-yellow-800 px-4 py-2 rounded-full hover:opacity-80">about</button>
+            <button class="bg-teal-800 px-4 py-2 rounded-full hover:opacity-80">projects</button>
+            <button class="bg-purple-800 px-4 py-2 rounded-full hover:opacity-80">team</button>
+            <button class="bg-pink-800 px-4 py-2 rounded-full hover:opacity-80">thing</button>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <h2 class="text-5xl max-w-xl text-right">
+          We <span class="text-teal-500">design and build</span> tools that <span class="text-pink-500"
+            >contribute</span
+          > to a more <span class="text-purple-500">equitable</span> future.
+        </h2>
+      </div>
+    </div>
+    <div class="space-y-4">
+      <div class="grid grid-cols-3 gap-4">
+        <Card
+          title="About us"
+          desciption="Come get lit with the boys, Reprehenderit magna veniam sint incididunt. Eu laboris enim nulla aliqua."
+        />
+        <Card
+          title="Our work"
+          desciption="Our stuff is super sick and really nice. Esse officia nisi adipisicing eiusmod ex quis tempor esse ea consectetur ipsum."
+        />
+      </div>
+    </div>
+  </div>
 </Layout>

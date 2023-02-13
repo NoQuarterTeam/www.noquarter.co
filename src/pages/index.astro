@@ -1,63 +1,33 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Card from "../components/Card.svelte"
+import Filters from "../components/Filters.svelte"
+import Content from "../components/Content.svelte"
+import Subheader from "../components/Subheader.astro"
 ---
 
 <Layout title="No Quarter">
-  <div class="space-y-8">
-    <div class="-order-1 grid w-full grid-cols-1 gap-8 md:order-1 md:grid-cols-2 md:gap-10">
-      <div class="flex h-full flex-col justify-between">
-        <h1 class="text-6xl">No Quarter</h1>
+  <div class="space-y-4 lg:space-y-8">
+    <div class="grid w-full grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2">
+      <div class="flex flex-col justify-between">
         <div class="space-y-4">
-          <div class="flex space-x-2">
-            <input
-              class="w-full rounded-lg border border-neutral-700 bg-neutral-800 py-3 px-6 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:bg-neutral-700/70 focus:bg-neutral-700"
-              placeholder="What do they do?"
-            />
-            <button class="rounded-lg bg-neutral-700 py-3 px-8 transition-colors hover:bg-neutral-600"
-              >Search</button
-            >
-          </div>
-          <div class="flex space-x-2 font-mono">
-            <button
-              class="rounded-full border border-yellow-500/70 bg-yellow-500/60 px-4 py-2 hover:opacity-80"
-              >about</button
-            >
-            <button class="rounded-full border border-teal-700 bg-teal-800 px-4 py-2 hover:opacity-80"
-              >projects</button
-            >
-            <button class="rounded-full border border-purple-700 bg-purple-800 px-4 py-2 hover:opacity-80"
-              >team</button
-            >
-            <button class="rounded-full border border-pink-700 bg-pink-800 px-4 py-2 hover:opacity-80"
-              >thing</button
-            >
-          </div>
+          <h1 class="text-6xl">No Quarter</h1>
+          <h2 class="block pb-4 text-4xl lg:hidden">
+            <Subheader />
+          </h2>
+        </div>
+        <div>
+          <Filters client:visible />
         </div>
       </div>
-      <div class="flex justify-end">
+      <div class="hidden justify-end lg:flex">
         <h2 class="max-w-xl text-right text-5xl">
-          We <span class="text-[#00F5D4]">design and build</span> tools that <span class="text-[#F15BB5]"
-            >contribute</span
-          > to a more <span class="text-[#9B5DE5]">equitable</span> future.
+          <Subheader />
         </h2>
       </div>
     </div>
-    <div class="space-y-4">
-      <div class="grid grid-cols-3 gap-4">
-        <Card
-          client:visible
-          title="About us"
-          desciption="Come get lit with the boys, Reprehenderit magna veniam sint incididunt. Eu laboris enim nulla aliqua."
-          tags={["Lit"]}
-        />
-        <Card
-          client:visible
-          title="Our work"
-          desciption="Our stuff is super sick and really nice. Esse officia nisi adipisicing eiusmod ex quis tempor esse ea consectetur ipsum."
-          tags={["Cool"]}
-        />
-      </div>
+
+    <div>
+      <Content client:visible />
     </div>
   </div>
 </Layout>

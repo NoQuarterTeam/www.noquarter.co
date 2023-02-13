@@ -9,7 +9,7 @@
   let content = CONTENT
   const unsubscribe = filters.subscribe(({ search, tags }) => {
     let filtered = CONTENT
-    filtered = matchSorter(CONTENT, search, { keys: ["title", "description", "tags"] })
+    filtered = matchSorter(CONTENT, search, { keys: ["title", "description", "tags", "meta"] })
     if (tags.length > 0) {
       filtered = filtered.filter((item) => item.tags.find((tag) => tags.includes(tag)))
     }

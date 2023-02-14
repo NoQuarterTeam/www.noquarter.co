@@ -1,5 +1,5 @@
 function getSettings(settings = {}) {
-  return { scale: 1, max: 10, reverse: true, ...settings }
+  return { scale: 1, max: 5, reverse: true, ...settings }
 }
 
 const TRANSITION_MS = 300

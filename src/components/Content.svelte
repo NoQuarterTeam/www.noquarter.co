@@ -34,7 +34,7 @@
   onDestroy(unsubscribe)
 </script>
 
-<div use:autoAnimate class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div use:autoAnimate class="w-full grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
   {#each content as { meta, ...item } (item.link)}
     <Card {...item} />
   {/each}

@@ -1,5 +1,5 @@
 function getSettings(settings = {}) {
-  return { max: 2, reverse: true, ...settings }
+  return { max: 1, reverse: false, ...settings }
 }
 
 const TRANSITION_MS = 300
@@ -25,7 +25,7 @@ export function tilt(node: any, settingsObj?: Record<string, any>) {
       `rotateY(${reverse * tiltX}deg)`
   }
 
-  let transitionId: number
+  let transitionId: NodeJS.Timeout
   function smoothTransition() {
     clearTimeout(transitionId)
     node.style.willChange = "transform"

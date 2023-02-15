@@ -17,7 +17,7 @@
   }
 </script>
 
-<Card title="Contact us" isLikeable={false} link={undefined} description={undefined} tags={[]}>
+<Card title="Contact us" isLikeable={false} link={undefined} description={undefined} tags={[]} images={[]}>
   <form action="/api/contact" method="post" on:submit|preventDefault={handleSubmit}>
     {#if isSubmitted}
       <div class="text-center py-9 space-y-2">

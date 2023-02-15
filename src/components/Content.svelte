@@ -5,6 +5,7 @@
   import Card from "./Card.svelte"
   import { filters } from "../lib/stores"
   import { CONTENT } from "../lib/content"
+  import Contact from "./Contact.svelte"
 
   let content = CONTENT
   const unsubscribe = filters.subscribe(({ search, tags, showLiked }) => {
@@ -18,10 +19,17 @@
     if (showLiked) {
       const storage = localStorage.getItem("nq.likes")
       const likes: string[] = storage ? JSON.parse(storage) : []
-      filtered = filtered.filter((item) => likes.includes(item.link))
+      filtered = filtered.filter((item) => likes.includes(item.title))
     }
     content = filtered
   })
+
+  $: shouldShowContact =
+    $filters.tags.length === 0 &&
+    !$filters.showLiked &&
+    matchSorter([{ title: "Contact", meta: "get in contact with us" }], $filters.search, {
+      keys: ["title", "meta"],
+    }).length > 0
 
   onDestroy(unsubscribe)
 </script>
@@ -30,4 +38,7 @@
   {#each content as { meta, ...item } (item.link)}
     <Card {...item} />
   {/each}
+  {#if shouldShowContact}
+    <Contact />
+  {/if}
 </div>

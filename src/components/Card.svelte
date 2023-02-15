@@ -4,17 +4,20 @@
   import { tilt } from "../lib/tilt"
 
   export let title: string
-  export let description: string
+  export let description: string | undefined
   export let tags: string[]
-  export let link: string
+  export let link: string | undefined
+  export let isLikeable: boolean
 
   let isLiked = false
   let isLoaded = false
 
   onMount(() => {
-    const storage = localStorage.getItem("nq.likes")
-    const likes: string[] = storage ? JSON.parse(storage) : []
-    isLiked = likes.includes(link)
+    if (isLikeable) {
+      const storage = localStorage.getItem("nq.likes")
+      const likes: string[] = storage ? JSON.parse(storage) : []
+      isLiked = likes.includes(title)
+    }
     isLoaded = true
   })
 
@@ -22,10 +25,10 @@
     const storage = localStorage.getItem("nq.likes")
     const likes: string[] = storage ? JSON.parse(storage) : []
     if (isLiked) {
-      localStorage.setItem("nq.likes", JSON.stringify(likes.filter((item) => item !== link)))
+      localStorage.setItem("nq.likes", JSON.stringify(likes.filter((item) => item !== title)))
       isLiked = false
     } else {
-      localStorage.setItem("nq.likes", JSON.stringify([...likes, link]))
+      localStorage.setItem("nq.likes", JSON.stringify([...likes, title]))
       isLiked = true
     }
   }
@@ -38,7 +41,10 @@
     >
       <div>
         <p class="text-3xl">{title}</p>
-        <p class="opacity-70 h-28">{description}</p>
+        {#if description}
+          <p class="opacity-70 h-28">{description}</p>
+        {/if}
+        <slot />
       </div>
       <div class="flex space-x-2">
         {#each tags as tag}
@@ -57,7 +63,7 @@
       </div>
     </div>
   </a>
-  {#if isLoaded}
+  {#if isLoaded && isLikeable}
     <button class="absolute top-5 right-5" on:click={toggleSave}>
       {#if isLiked}
         <svg

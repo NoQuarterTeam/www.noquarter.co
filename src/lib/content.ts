@@ -1,4 +1,11 @@
-export const CONTENT: { title: string; description: string; tags: string[]; meta: string; link: string }[] = [
+export const CONTENT: {
+  title: string
+  description: string | undefined
+  tags: string[]
+  meta: string
+  link: string | undefined
+  isLikeable: boolean
+}[] = [
   {
     title: "About us",
     description:
@@ -6,6 +13,7 @@ export const CONTENT: { title: string; description: string; tags: string[]; meta
     tags: ["About"],
     meta: "about us why how when where",
     link: "/about",
+    isLikeable: true,
   },
   {
     title: "Team",
@@ -14,6 +22,7 @@ export const CONTENT: { title: string; description: string; tags: string[]; meta
     tags: ["About"],
     meta: "about the team why how when where who are we",
     link: "/team",
+    isLikeable: true,
   },
   {
     title: "Warehouse",
@@ -22,6 +31,7 @@ export const CONTENT: { title: string; description: string; tags: string[]; meta
     tags: ["About"],
     meta: "warehouse office space co working",
     link: "/warehouse",
+    isLikeable: true,
   },
   {
     title: "Amplify",
@@ -29,6 +39,7 @@ export const CONTENT: { title: string; description: string; tags: string[]; meta
     tags: ["Projects"],
     meta: "amplify trendwatching web app platform innovations trends react",
     link: "/amplify",
+    isLikeable: true,
   },
   {
     title: "Noa",
@@ -36,14 +47,16 @@ export const CONTENT: { title: string; description: string; tags: string[]; meta
     tags: ["Projects"],
     meta: "noa web app platform bikes iot react native mobile",
     link: "/noa",
+    isLikeable: true,
   },
   {
     title: "Notion",
     description:
       "Notion is a tool we use for everuthing, its a good thing it helps with doing stuff and thats cool.",
     tags: ["Inspiration"],
+    link: undefined,
     meta: "notion inspiration motivation quotes ideas",
-    link: "/notion",
+    isLikeable: true,
   },
   {
     title: "Scrambler",
@@ -51,5 +64,6 @@ export const CONTENT: { title: string; description: string; tags: string[]; meta
     tags: ["Internals"],
     meta: "scrambler electric bike iot sustainability",
     link: "/scrambler",
+    isLikeable: true,
   },
 ]

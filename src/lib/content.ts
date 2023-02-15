@@ -38,11 +38,12 @@ export const CONTENT: { title: string; description: string; tags: string[]; meta
     link: "/noa",
   },
   {
-    title: "Inspiration",
-    description: "Inspiration is a good thing it helps with doing stuff and thats cool.",
+    title: "Notion",
+    description:
+      "Notion is a tool we use for everuthing, its a good thing it helps with doing stuff and thats cool.",
     tags: ["Inspiration"],
-    meta: "life inspiration motivation quotes ideas",
-    link: "/inspiration",
+    meta: "notion inspiration motivation quotes ideas",
+    link: "/notion",
   },
   {
     title: "Scrambler",

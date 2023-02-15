@@ -37,18 +37,18 @@
       )}>Projects</button
     >
     <button
-      on:click={() => toggleTag("Team")}
+      on:click={() => toggleTag("Internals")}
       class={join(
         "rounded-full text-center border border-purple-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
-        $filters.tags.includes("Team") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
-      )}>Team</button
+        $filters.tags.includes("Internals") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
+      )}>Internals</button
     >
     <button
-      on:click={() => toggleTag("Stuff")}
+      on:click={() => toggleTag("Inspiration")}
       class={join(
         "rounded-full text-center border border-pink-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
-        $filters.tags.includes("Stuff") ? "bg-pink-500/60" : "hover:bg-pink-400/5",
-      )}>Stuff</button
+        $filters.tags.includes("Inspiration") ? "bg-pink-500/60" : "hover:bg-pink-400/5",
+      )}>Inspiration</button
     >
   </div>
 </div>

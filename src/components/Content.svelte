@@ -7,11 +7,18 @@
   import { CONTENT } from "../lib/content"
 
   let content = CONTENT
-  const unsubscribe = filters.subscribe(({ search, tags }) => {
+  const unsubscribe = filters.subscribe(({ search, tags, showLiked }) => {
     let filtered = CONTENT
-    filtered = matchSorter(CONTENT, search, { keys: ["title", "description", "tags", "meta"] })
+    if (search) {
+      filtered = matchSorter(CONTENT, search, { keys: ["title", "description", "tags", "meta"] })
+    }
     if (tags.length > 0) {
       filtered = filtered.filter((item) => item.tags.find((tag) => tags.includes(tag)))
+    }
+    if (showLiked) {
+      const storage = localStorage.getItem("nq.likes")
+      const likes: string[] = storage ? JSON.parse(storage) : []
+      filtered = filtered.filter((item) => likes.includes(item.link))
     }
     content = filtered
   })
@@ -20,7 +27,7 @@
 </script>
 
 <div use:autoAnimate class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-  {#each content as { meta, ...item }}
+  {#each content as { meta, ...item } (item.link)}
     <Card {...item} />
   {/each}
 </div>

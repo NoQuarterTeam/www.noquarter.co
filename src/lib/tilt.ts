@@ -1,10 +1,10 @@
 function getSettings(settings = {}) {
-  return { scale: 1, max: 5, reverse: true, ...settings }
+  return { max: 5, reverse: true, ...settings }
 }
 
 const TRANSITION_MS = 300
 
-export function tilt(node: any, settingsObj: Record<string, any>) {
+export function tilt(node: any, settingsObj?: Record<string, any>) {
   const { width, height, left, top } = node.getBoundingClientRect()
   let settings = getSettings(settingsObj)
   let reverse = settings.reverse ? -1 : 1
@@ -13,16 +13,16 @@ export function tilt(node: any, settingsObj: Record<string, any>) {
     const percX = (e.clientX - left) / width
     const percY = (e.clientY - top) / height
 
-    const { max, scale } = settings
+    const { max } = settings
     const twiceMax = max * 2
     const tiltX = max - percX * twiceMax
     const tiltY = percY * twiceMax - max
 
     node.style.transform =
+      `translateZ(${50}px) ` +
       `perspective(${1000}px) ` +
       `rotateX(${reverse * tiltY}deg) ` +
-      `rotateY(${reverse * tiltX}deg) ` +
-      `scale3d(${Array(3).fill(scale).join(", ")})`
+      `rotateY(${reverse * tiltX}deg)`
   }
 
   let transitionId: number
@@ -35,8 +35,7 @@ export function tilt(node: any, settingsObj: Record<string, any>) {
 
   function onMouseLeave() {
     smoothTransition()
-    node.style.transform =
-      `perspective(${1000}px) ` + `rotateX(0deg) ` + `rotateY(0deg) ` + `scale3d(1, 1, 1)`
+    node.style.transform = `translateZ(0px) ` + `perspective(${1000}px) ` + `rotateX(0deg) ` + `rotateY(0deg)`
   }
 
   function onMouseEnter() {

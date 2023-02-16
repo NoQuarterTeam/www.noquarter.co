@@ -51,6 +51,8 @@
         {#if images && images.length > 0}
           {#each images as image}
             <img
+              height="400"
+              width="400"
               use:tilt={{ max: 3, reverse: true }}
               alt="content"
               src={`/${image}`}

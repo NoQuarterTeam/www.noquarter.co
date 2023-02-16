@@ -34,7 +34,7 @@ export const CONTENT: Content[] = [
     description:
       "This is where we work, and its cool and has things to do in it. Nostrud excepteur qui est et cupidatat laboris duis cupidatat aliqua.",
     tags: ["About"],
-    meta: "warehouse office space co working",
+    meta: "warehouse office space co working event events",
     link: "/warehouse",
     isLikeable: true,
   },
@@ -52,7 +52,7 @@ export const CONTENT: Content[] = [
     images: undefined,
     description: "Noa is a bike thing with bikes in a load of cool places and companies that use them.",
     tags: ["Projects"],
-    meta: "latest projects  noa web app platform bikes iot react native mobile",
+    meta: "latest projects noa web platform bikes iot react native mobile ios app android app",
     link: "/noa",
     isLikeable: true,
   },
@@ -68,7 +68,7 @@ export const CONTENT: Content[] = [
   },
   {
     title: "Scrambler",
-    images: ["scrambler1.jpeg"],
+    images: ["scrambler1.webp"],
     description: "This is an electric bike that can be used to go from places to places.",
     tags: ["Internals"],
     meta: "latest projects scrambler electric bike iot sustainability",

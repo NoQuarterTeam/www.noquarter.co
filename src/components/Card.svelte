@@ -77,8 +77,11 @@
       {/if}
     </div>
   </a>
-  {#if isLoaded && isLikeable}
-    <button class="absolute top-5 right-5" on:click={toggleSave}>
+  {#if isLikeable}
+    <button
+      class={join("absolute top-5 right-5 scale-0 transition-transform delay-200", isLoaded && "scale-100")}
+      on:click={toggleSave}
+    >
       {#if isLiked}
         <svg
           stroke="currentColor"

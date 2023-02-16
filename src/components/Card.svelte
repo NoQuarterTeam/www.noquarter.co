@@ -4,6 +4,7 @@
   import { join } from "../lib/tailwind"
   import { tilt } from "../lib/tilt"
   import { filters } from "../lib/stores"
+  import MaybeLink from "./MaybeLink.svelte"
 
   export let title: string
   export let description: string | undefined
@@ -39,7 +40,7 @@
 </script>
 
 <div use:tilt class="relative h-min">
-  <a href={link}>
+  <MaybeLink href={link} rel="prefetch">
     <div
       class="p-8 flex flex-col justify-between space-y-3 bg-neutral-700/30 bg-gradient-to-bl from-purple-900/10 to-pink-900/5 shadow-2xl border border-neutral-600/60 rounded-3xl hover:border-neutral-500/60 transition-colors"
     >
@@ -80,7 +81,7 @@
         </div>
       {/if}
     </div>
-  </a>
+  </MaybeLink>
   {#if isLikeable}
     <button
       class={join("absolute top-5 right-5 scale-0 transition-transform delay-200", isLoaded && "scale-100")}

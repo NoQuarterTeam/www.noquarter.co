@@ -3,6 +3,7 @@
   import autoAnimate from "@formkit/auto-animate"
   import { join } from "../lib/tailwind"
   import { tilt } from "../lib/tilt"
+  import { filters } from "../lib/stores"
 
   export let title: string
   export let description: string | undefined
@@ -33,6 +34,7 @@
       localStorage.setItem("nq.likes", JSON.stringify([...likes, title]))
       isLiked = true
     }
+    filters.set($filters)
   }
 </script>
 

@@ -38,7 +38,7 @@
             name="name"
             required
             minlength="2"
-            class="relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 py-2 px-6 md:py-2 md:px-6 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
+            class="relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 px-2 py-2 md:py-3 md:px-8 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
           />
         </label>
         <label for="email" class="block w-full">
@@ -48,7 +48,7 @@
             required
             name="email"
             type="email"
-            class="relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 py-2 px-6 md:py-2 md:px-6 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
+            class="relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 px-2 py-2 md:py-3 md:px-8 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
           />
         </label>
         <label for="message" class="block w-full">
@@ -59,13 +59,13 @@
             id="message"
             name="message"
             minlength="100"
-            class="resize-none relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 py-2 px-6 md:py-2 md:px-6 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
+            class="resize-none relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 px-2 py-2 md:py-3 md:px-8 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
           />
         </label>
         <button
           type="submit"
           disabled={isLoading}
-          class="rounded-lg bg-neutral-700 py-2 px-6 md:py-2 md:px-6 transition-colors hover:bg-neutral-600"
+          class="rounded-lg bg-neutral-700 px-3 py-2 md:py-3 md:px-8 transition-colors hover:bg-neutral-600"
         >
           {#if isLoading}
             Sending...

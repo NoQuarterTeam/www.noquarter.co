@@ -14,14 +14,14 @@
   <div class="flex space-x-2">
     <input
       bind:value={$filters.search}
-      class="relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 py-2 px-6 md:py-3 md:px-8 shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600 hover:bg-white/5 focus:bg-white/5"
+      class="relative text-sm md:text-md w-full rounded-lg border border-neutral-700 bg-neutral-800/50 px-2 py-2 md:py-3 md:px-8 shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600 hover:bg-white/5 focus:bg-white/5"
       placeholder="What would you like to know?"
     />
-    <button class="rounded-lg bg-neutral-700 py-2 px-6 md:py-3 md:px-8 transition-colors hover:bg-neutral-600"
+    <button class="rounded-lg bg-neutral-700 py-2 px-3 md:py-3 md:px-8 transition-colors hover:bg-neutral-600"
       >Search</button
     >
   </div>
-  <div class="scroll flex space-x-2 w-full overflow-x-auto">
+  <div class="flex w-full flex-wrap gap-2">
     <button
       on:click={() => toggleTag("About")}
       class={join(
@@ -79,9 +79,3 @@
     </button>
   </div>
 </div>
-
-<style>
-  .scroll::-webkit-scrollbar {
-    display: none;
-  }
-</style>

@@ -47,28 +47,24 @@
 </script>
 
 <div class="w-full grid gap-6 grid-cols-1 lg:grid-cols-3">
-  {#if chunks[0].length > 0}
-    <div class="space-y-6" use:autoAnimate>
-      {#each chunks[0] as { meta, ...item } (item.title)}
-        <Card {...item} />
-      {/each}
-    </div>
-  {/if}
-  {#if chunks[1].length > 0}
-    <div class="space-y-6" use:autoAnimate>
-      {#each chunks[1] as { meta, ...item } (item.title)}
-        <Card {...item} />
-      {/each}
-    </div>
-  {/if}
-  {#if chunks[2].length > 0}
-    <div class="space-y-6" use:autoAnimate>
-      {#each chunks[2] as { meta, ...item } (item.title)}
-        <Card {...item} />
-      {/each}
-      {#if shouldShowContact}
-        <Contact />
-      {/if}
-    </div>
-  {/if}
+  <div class="space-y-6" use:autoAnimate>
+    {#each chunks[0] as { meta, ...item } (item.title)}
+      <Card {...item} />
+    {/each}
+  </div>
+
+  <div class="space-y-6" use:autoAnimate>
+    {#each chunks[1] as { meta, ...item } (item.title)}
+      <Card {...item} />
+    {/each}
+  </div>
+
+  <div class="space-y-6" use:autoAnimate>
+    {#each chunks[2] as { meta, ...item } (item.title)}
+      <Card {...item} />
+    {/each}
+    {#if shouldShowContact}
+      <Contact />
+    {/if}
+  </div>
 </div>

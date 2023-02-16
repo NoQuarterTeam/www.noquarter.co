@@ -22,7 +22,7 @@
   }
 </script>
 
-<Card title="Contact us" isLikeable={false} link={undefined} description={undefined} tags={[]} images={[]}>
+<Card title="Contact us">
   <form action="/api/contact" method="post" on:submit={handleSubmit}>
     {#if isSubmitted}
       <div class="text-center py-9 space-y-2">

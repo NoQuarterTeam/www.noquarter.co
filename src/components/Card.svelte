@@ -1,17 +1,16 @@
 <script lang="ts">
   import { onMount } from "svelte"
-  import autoAnimate from "@formkit/auto-animate"
   import { join } from "../lib/tailwind"
   import { tilt } from "../lib/tilt"
   import { filters } from "../lib/stores"
   import MaybeLink from "./MaybeLink.svelte"
 
   export let title: string
-  export let description: string | undefined
-  export let tags: string[]
-  export let images: string[] | undefined
-  export let link: string | undefined
-  export let isLikeable: boolean
+  export let description: string | undefined = undefined
+  export let tags: string[] = []
+  export let image: string | undefined = undefined
+  export let link: string | undefined = undefined
+  export let isLikeable: boolean = false
 
   let isLiked = false
   let isLoaded = false
@@ -39,7 +38,7 @@
   }
 </script>
 
-<div use:tilt class="relative h-min">
+<div use:tilt class="relative">
   <MaybeLink href={link} rel="prefetch">
     <div
       class="p-5 md:p-8 flex flex-col justify-between space-y-3 bg-neutral-700/30 bg-gradient-to-bl from-purple-900/10 to-pink-900/5 shadow-2xl border border-neutral-600/60 rounded-3xl hover:border-neutral-500/60 transition-colors"
@@ -49,17 +48,15 @@
         {#if description}
           <p class="opacity-70">{description}</p>
         {/if}
-        {#if images && images.length > 0}
-          {#each images as image}
-            <img
-              height="400"
-              width="400"
-              use:tilt={{ max: 3, reverse: true }}
-              alt="content"
-              src={`/${image}`}
-              class="rounded-md shadow-xl"
-            />
-          {/each}
+        {#if image}
+          <img
+            height="400"
+            width="500"
+            use:tilt={{ max: 2, reverse: true }}
+            alt="content"
+            src={`/${image}`}
+            class="bg-transparent rounded-md shadow-xl"
+          />
         {/if}
         <slot />
       </div>

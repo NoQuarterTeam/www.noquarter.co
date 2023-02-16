@@ -2,7 +2,7 @@ export type Content = {
   title: string
   description: string | undefined
   tags: string[]
-  images: string[] | undefined
+  image: string | undefined
   meta: string
   link: string | undefined
   isLikeable: boolean
@@ -10,7 +10,7 @@ export type Content = {
 export const CONTENT: Content[] = [
   {
     title: "About us",
-    images: undefined,
+    image: undefined,
     description:
       "Come get lit with the boys, Reprehenderit magna veniam sint incididunt. Eu laboris enim nulla aliqua.",
     tags: ["About"],
@@ -20,7 +20,7 @@ export const CONTENT: Content[] = [
   },
   {
     title: "Team",
-    images: undefined,
+    image: undefined,
     description:
       "We are the boys and we do cool things, Sint Lorem ea velit dolore magna laboris officia irure laboris esse eiusmod aute sit minim.",
     tags: ["About"],
@@ -29,18 +29,8 @@ export const CONTENT: Content[] = [
     isLikeable: true,
   },
   {
-    title: "Warehouse",
-    images: undefined,
-    description:
-      "This is where we work, and its cool and has things to do in it. Nostrud excepteur qui est et cupidatat laboris duis cupidatat aliqua.",
-    tags: ["About"],
-    meta: "warehouse office space co working event events",
-    link: "/warehouse",
-    isLikeable: true,
-  },
-  {
     title: "Amplify",
-    images: undefined,
+    image: undefined,
     description: "Laboris officia eu fugiat eiusmod non commodo eu sunt eu. Non esse sit excepteur.",
     tags: ["Projects"],
     meta: "latest projects amplify trendwatching web app platform innovations trends react",
@@ -49,7 +39,7 @@ export const CONTENT: Content[] = [
   },
   {
     title: "Noa",
-    images: undefined,
+    image: undefined,
     description: "Noa is a bike thing with bikes in a load of cool places and companies that use them.",
     tags: ["Projects"],
     meta: "latest projects noa web platform bikes iot react native mobile ios app android app",
@@ -58,7 +48,7 @@ export const CONTENT: Content[] = [
   },
   {
     title: "Notion",
-    images: undefined,
+    image: undefined,
     description:
       "Notion is a tool we use for everuthing, its a good thing it helps with doing stuff and thats cool.",
     tags: ["Inspiration"],
@@ -67,8 +57,27 @@ export const CONTENT: Content[] = [
     isLikeable: true,
   },
   {
+    title: "NTS",
+    image: undefined,
+    description: "NTS is a radio show that powers us, providing us with delicious beats daily.",
+    tags: ["Inspiration"],
+    link: undefined,
+    meta: "nts music power techno electro ideas",
+    isLikeable: true,
+  },
+  {
+    title: "Warehouse",
+    image: "warehouse1.webp",
+    description:
+      "This is where we work, and its cool and has things to do in it. Nostrud excepteur qui est et cupidatat laboris duis cupidatat aliqua.",
+    tags: ["About"],
+    meta: "warehouse office space co working event events",
+    link: "/warehouse",
+    isLikeable: true,
+  },
+  {
     title: "Scrambler",
-    images: ["scrambler1.webp"],
+    image: "scrambler1.webp",
     description: "This is an electric bike that can be used to go from places to places.",
     tags: ["Internals"],
     meta: "latest projects scrambler electric bike iot sustainability",

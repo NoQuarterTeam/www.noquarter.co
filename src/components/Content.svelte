@@ -1,6 +1,6 @@
 <script lang="ts">
   import autoAnimate from "@formkit/auto-animate"
-  import { onDestroy } from "svelte"
+  import { onDestroy, onMount } from "svelte"
   import { matchSorter } from "match-sorter"
   import Card from "./Card.svelte"
   import { filters } from "../lib/stores"

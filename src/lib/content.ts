@@ -47,25 +47,6 @@ export const CONTENT: Content[] = [
     isLikeable: true,
   },
   {
-    title: "Notion",
-    image: undefined,
-    description:
-      "Notion is a tool we use for everuthing, its a good thing it helps with doing stuff and thats cool.",
-    tags: ["Inspiration"],
-    link: undefined,
-    meta: "notion inspiration motivation quotes ideas",
-    isLikeable: true,
-  },
-  {
-    title: "NTS",
-    image: undefined,
-    description: "NTS is a radio show that powers us, providing us with delicious beats daily.",
-    tags: ["Inspiration"],
-    link: undefined,
-    meta: "nts music power techno electro ideas",
-    isLikeable: true,
-  },
-  {
     title: "Warehouse",
     image: "warehouse1.webp",
     description:
@@ -76,12 +57,31 @@ export const CONTENT: Content[] = [
     isLikeable: true,
   },
   {
+    title: "Notion",
+    image: undefined,
+    description:
+      "Notion is a tool we use for everuthing, its a good thing it helps with doing stuff and thats cool.",
+    tags: ["Inspiration"],
+    link: undefined,
+    meta: "notion inspiration motivation quotes ideas",
+    isLikeable: true,
+  },
+  {
     title: "Scrambler",
     image: "scrambler1.webp",
     description: "This is an electric bike that can be used to go from places to places.",
     tags: ["Internals"],
     meta: "latest projects scrambler electric bike iot sustainability",
     link: "/scrambler",
+    isLikeable: true,
+  },
+  {
+    title: "NTS",
+    image: undefined,
+    description: "NTS is a radio show that powers us, providing us with delicious beats daily.",
+    tags: ["Inspiration"],
+    link: undefined,
+    meta: "nts music power techno electro ideas",
     isLikeable: true,
   },
 ]

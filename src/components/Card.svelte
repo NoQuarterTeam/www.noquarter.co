@@ -51,11 +51,11 @@
         {#if image}
           <img
             height="400"
-            width="500"
+            width="600"
             use:tilt={{ max: 2, reverse: true }}
             alt="content"
             src={`/${image}`}
-            class="bg-transparent rounded-md shadow-xl"
+            class="w-full bg-transparent rounded-md shadow-xl"
           />
         {/if}
         <slot />

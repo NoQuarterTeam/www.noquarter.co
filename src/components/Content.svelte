@@ -1,10 +1,10 @@
 <script lang="ts">
+  import { onDestroy } from "svelte"
   import autoAnimate from "@formkit/auto-animate"
-  import { onDestroy, onMount } from "svelte"
-  import { matchSorter } from "match-sorter"
+  import { CONTENT, type Content } from "../lib/content"
   import Card from "./Card.svelte"
+  import { matchSorter } from "match-sorter"
   import { filters } from "../lib/stores"
-  import { CONTENT } from "../lib/content"
   import Contact from "./Contact.svelte"
 
   let content = CONTENT
@@ -24,6 +24,8 @@
     content = filtered
   })
 
+  onDestroy(unsubscribe)
+
   $: shouldShowContact =
     $filters.tags.length === 0 &&
     !$filters.showLiked &&
@@ -31,14 +33,42 @@
       keys: ["title", "meta"],
     }).length > 0
 
-  onDestroy(unsubscribe)
+  $: chunks = content.reduce(
+    (acc, item, index) => {
+      const chunkIndex = (index % 3) as 0 | 1 | 2
+      if (!acc[chunkIndex]) {
+        acc[chunkIndex] = []
+      }
+      acc[chunkIndex].push(item)
+      return acc
+    },
+    { 0: [], 1: [], 2: [] } as { 0: Content[]; 1: Content[]; 2: Content[] },
+  )
 </script>
 
-<div use:autoAnimate class="w-full grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-  {#each content as { meta, ...item } (item.link)}
-    <Card {...item} />
-  {/each}
-  {#if shouldShowContact}
-    <Contact />
+<div class="w-full grid gap-6 grid-cols-1 lg:grid-cols-3">
+  {#if chunks[0].length > 0}
+    <div class="space-y-6" use:autoAnimate>
+      {#each chunks[0] as { meta, ...item } (item.title)}
+        <Card {...item} />
+      {/each}
+    </div>
+  {/if}
+  {#if chunks[1].length > 0}
+    <div class="space-y-6" use:autoAnimate>
+      {#each chunks[1] as { meta, ...item } (item.title)}
+        <Card {...item} />
+      {/each}
+    </div>
+  {/if}
+  {#if chunks[2].length > 0}
+    <div class="space-y-6" use:autoAnimate>
+      {#each chunks[2] as { meta, ...item } (item.title)}
+        <Card {...item} />
+      {/each}
+      {#if shouldShowContact}
+        <Contact />
+      {/if}
+    </div>
   {/if}
 </div>

@@ -84,6 +84,7 @@
   </MaybeLink>
   {#if isLikeable}
     <button
+      aria-label="like content"
       class={join("absolute top-5 right-5 scale-0 transition-transform delay-200", isLoaded && "scale-100")}
       on:click={toggleSave}
     >

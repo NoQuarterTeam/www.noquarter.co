@@ -14,7 +14,7 @@
   <div class="flex space-x-2">
     <input
       bind:value={$filters.search}
-      class="relative text-sm md:text-md w-full rounded-lg border border-neutral-700 bg-neutral-800/50 px-2 py-2 md:py-3 md:px-8 shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600 hover:bg-white/5 focus:bg-white/5"
+      class="relative text-sm md:text-base w-full rounded-lg border border-neutral-700 bg-neutral-800/50 px-2 py-2 md:py-3 md:px-8 shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600 hover:bg-white/5 focus:bg-white/5"
       placeholder="What would you like to know?"
     />
     <button class="rounded-lg bg-neutral-700 py-2 px-3 md:py-3 md:px-8 transition-colors hover:bg-neutral-600"

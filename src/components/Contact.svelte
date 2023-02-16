@@ -1,8 +1,10 @@
 <script lang="ts">
   import Card from "./Card.svelte"
   let isSubmitted = false
+  let isLoading = false
 
   const handleSubmit = (e: any) => {
+    isLoading = true
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData.entries())
     fetch("/api/contact", {
@@ -14,6 +16,9 @@
         isSubmitted = true
       })
       .catch((err) => console.error(err))
+      .finally(() => {
+        isLoading = false
+      })
   }
 </script>
 
@@ -56,9 +61,15 @@
         </label>
         <button
           type="submit"
+          disabled={isLoading}
           class="rounded-lg bg-neutral-700 py-2 px-6 md:py-2 md:px-6 transition-colors hover:bg-neutral-600"
-          >Send it</button
         >
+          {#if isLoading}
+            Sending...
+          {:else}
+            Send it
+          {/if}
+        </button>
       </div>
     {/if}
   </form>

@@ -23,7 +23,7 @@
 </script>
 
 <Card title="Contact us" isLikeable={false} link={undefined} description={undefined} tags={[]} images={[]}>
-  <form action="/api/contact" method="post" on:submit|preventDefault={handleSubmit}>
+  <form action="/api/contact" method="post" on:submit={handleSubmit}>
     {#if isSubmitted}
       <div class="text-center py-9 space-y-2">
         <p class="text-2xl">Thank you for your message!</p>
@@ -36,6 +36,7 @@
           <input
             id="name"
             name="name"
+            required
             minlength="2"
             class="relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 py-2 px-6 md:py-2 md:px-6 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
           />
@@ -44,6 +45,7 @@
           <span class="w-32">Email</span>
           <input
             id="email"
+            required
             name="email"
             type="email"
             class="relative w-full rounded-lg border border-neutral-700 bg-neutral-800/50 py-2 px-6 md:py-2 md:px-6 font-mono shadow-2xl transition-colors placeholder:text-neutral-400 hover:border-neutral-600"
@@ -53,6 +55,7 @@
           <span class="w-32">Message</span>
           <textarea
             rows="5"
+            required
             id="message"
             name="message"
             minlength="100"

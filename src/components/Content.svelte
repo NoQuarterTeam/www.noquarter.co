@@ -47,19 +47,19 @@
 </script>
 
 <div class="w-full grid gap-6 grid-cols-1 lg:grid-cols-3">
-  <div class="space-y-6" use:autoAnimate>
+  <div class="space-y-6">
     {#each chunks[0] as { meta, ...item } (item.title)}
       <Card {...item} />
     {/each}
   </div>
 
-  <div class="space-y-6" use:autoAnimate>
+  <div class="space-y-6">
     {#each chunks[1] as { meta, ...item } (item.title)}
       <Card {...item} />
     {/each}
   </div>
 
-  <div class="space-y-6" use:autoAnimate>
+  <div class="space-y-6">
     {#each chunks[2] as { meta, ...item } (item.title)}
       <Card {...item} />
     {/each}

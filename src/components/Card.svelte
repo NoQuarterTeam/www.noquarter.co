@@ -41,7 +41,7 @@
 <div use:tilt class="relative">
   <MaybeLink href={link} rel="prefetch">
     <div
-      class="p-5 md:p-8 flex flex-col justify-between space-y-3 bg-neutral-700/30 shadow-2xl border border-neutral-600/60 rounded-lg hover:border-neutral-500/60 transition-colors"
+      class="p-5 md:p-8 flex flex-col justify-between space-y-3 bg-neutral-700/30 bg-gradient-to-br from-purple-900/10 to-pink-900/10 shadow-2xl border border-neutral-600/60 rounded-lg hover:border-neutral-500/60 transition-colors"
     >
       <div class="space-y-3">
         <p class="text-2xl md:text-3xl">{title}</p>

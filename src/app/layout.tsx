@@ -1,5 +1,14 @@
 import "../global.css"
 
+export const metadata = {
+  title: {
+    default: "No Quarter",
+    template: "%s | No Quarter",
+  },
+  colorScheme: "dark",
+  themeColor: "black",
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -7,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="description" content="No Quarter home page" />
+        <meta name="description" content="No Quarter agency" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         {/* eslint-disable-next-line @next/next/no-page-custom-font */}

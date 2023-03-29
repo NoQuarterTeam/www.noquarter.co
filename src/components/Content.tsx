@@ -3,6 +3,7 @@
 import { Page } from "~/lib/content"
 import { Card } from "./Card"
 import { useFilters } from "~/lib/stores"
+import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { matchSorter } from "match-sorter"
 import { Contact } from "./Contact"
 
@@ -42,21 +43,23 @@ export function Content({ content }: { content: Page[] }) {
     { 0: [], 1: [], 2: [] } as { 0: Page[]; 1: Page[]; 2: Page[] },
   )
 
+  const [parent] = useAutoAnimate()
+
   return (
     <div className="w-full grid gap-6 grid-cols-1 lg:grid-cols-3">
-      <div className="space-y-6">
-        {chunks[0].map((item) => (
-          <Card key={item.id} item={item} />
+      <div className="space-y-6" ref={parent}>
+        {chunks[0].map((item, i) => (
+          <Card key={item.id} item={item} isPriority={i === 0} />
         ))}
       </div>
-      <div className="space-y-6">
-        {chunks[1].map((item) => (
-          <Card key={item.id} item={item} />
+      <div className="space-y-6" ref={parent}>
+        {chunks[1].map((item, i) => (
+          <Card key={item.id} item={item} isPriority={i === 0} />
         ))}
       </div>
-      <div className="space-y-6">
-        {chunks[2].map((item) => (
-          <Card key={item.id} item={item} />
+      <div className="space-y-6" ref={parent}>
+        {chunks[2].map((item, i) => (
+          <Card key={item.id} item={item} isPriority={i === 0} />
         ))}
         {shouldShowContact && <Contact />}
       </div>

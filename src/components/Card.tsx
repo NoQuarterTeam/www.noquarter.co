@@ -4,7 +4,7 @@ import { join } from "~/lib/tailwind"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
-export function Card({ item, children }: { item: Page; children?: React.ReactNode }) {
+export function Card({ item, children, isPriority }: { item: Page; children?: React.ReactNode; isPriority?: boolean }) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isLiked, setIsLiked] = useState(false)
   useEffect(() => {
@@ -65,9 +65,10 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
               <Image
                 height={400}
                 width={600}
+                priority={isPriority}
                 alt={item.title}
                 src={item.image}
-                className="w-full bg-transparent rounded-md shadow-xl"
+                className="w-full object-contain bg-transparent rounded-md shadow-xl"
               />
             )}
             {children}

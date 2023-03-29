@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="relative mb-52 min-h-screen bg-neutral-900 p-4 md:p-10">
+      <body className="relative min-h-screen bg-neutral-900">
         {children}
         <Analytics />
       </body>

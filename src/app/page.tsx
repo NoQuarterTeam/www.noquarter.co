@@ -20,7 +20,7 @@ const getContent = cache(async () => {
 export default async function Home() {
   const content = await getContent()
   return (
-    <div className="space-y-4 lg:space-y-8">
+    <div className="space-y-4 lg:space-y-8 p-4 md:p-10 pb-52">
       <div className="grid w-full grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-between">
           <div>

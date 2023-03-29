@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default async function PageLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen p-4 md:p-10 pb-52 bg-neutral-900 bg-gradient-to-br from-neutral-900 via-blue-900/10 to-purple-900/10">
+    <div className="min-h-screen p-4 md:p-10 bg-neutral-900 bg-gradient-to-br from-neutral-900 via-blue-900/10 to-purple-900/10">
       <div className="flex flex-col flex-wrap justify-between gap-8 md:flex-row">
         <div>
           <Link
@@ -17,7 +17,7 @@ export default async function PageLayout({ children }: { children: React.ReactNo
         </div>
         <div className="hidden w-48 md:block"></div>
       </div>
-      <div className="mx-auto max-w-2xl">{children}</div>
+      <div className="mx-auto max-w-2xl pb-52">{children}</div>
     </div>
   )
 }

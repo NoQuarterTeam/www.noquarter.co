@@ -7,6 +7,14 @@ export const metadata = {
   },
   colorScheme: "dark",
   themeColor: "black",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

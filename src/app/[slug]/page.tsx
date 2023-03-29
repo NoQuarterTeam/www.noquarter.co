@@ -4,6 +4,27 @@ import { redirect } from "next/navigation"
 import { NotionBlock } from "~/components/NotionBlock"
 import { cache } from "react"
 
+export async function generateStaticParams() {
+  const pages = await notion.databases.query({
+    database_id: "e031ba1c28de4e3dbe8298e2da42ea68",
+    filter: {
+      and: [
+        { property: "Public", checkbox: { equals: true } },
+        {
+          property: "Slug",
+          rich_text: { is_not_empty: true },
+        },
+      ],
+    },
+  })
+
+  return (pages.results as PageObjectResponse[])
+    .map((page) => ({
+      slug: page.properties.Slug.type === "rich_text" ? page.properties.Slug.rich_text[0].plain_text : undefined,
+    }))
+    .filter(Boolean)
+}
+
 const getPageContent = cache(async (slug: string) => {
   const pages = await notion.databases.query({
     database_id: "e031ba1c28de4e3dbe8298e2da42ea68",

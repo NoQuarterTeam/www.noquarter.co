@@ -4,8 +4,15 @@ import { notion } from "~/lib/notion"
 export default async function Sitemap() {
   const content = await notion.databases.query({
     database_id: "e031ba1c28de4e3dbe8298e2da42ea68",
-    filter: { property: "Public", checkbox: { equals: true } },
-    sorts: [{ property: "Order", direction: "ascending" }],
+    filter: {
+      and: [
+        { property: "Public", checkbox: { equals: true } },
+        {
+          property: "Slug",
+          rich_text: { is_not_empty: true },
+        },
+      ],
+    },
   })
   const pages = (content.results as PageObjectResponse[]).map((page) => ({
     url: `https://www-noquarter-co-next.vercel.app/${

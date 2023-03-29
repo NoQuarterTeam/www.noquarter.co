@@ -13,7 +13,7 @@ export function NotionBlock({ block }: Props) {
       case "paragraph":
         if (block.paragraph.rich_text.length === 0) return <br />
         return (
-          <p className="mb-2">
+          <p className="mb-3">
             {block.paragraph.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}
@@ -26,11 +26,8 @@ export function NotionBlock({ block }: Props) {
               src={block.image.type === "external" ? block.image.external.url : block.image.file.url}
               width={700}
               height={420}
-              // aspectRatio={5 / 3}
               quality={90}
-              // position="north"
               className="object-cover"
-              // fit="cover"
               alt={block.image.caption?.[0]?.plain_text}
             />
             {block.image.caption && block.image.caption.length > 0 ? (
@@ -45,7 +42,7 @@ export function NotionBlock({ block }: Props) {
       case "heading_1":
         if (block.heading_1.rich_text.length === 0) return <br />
         return (
-          <h1 className="mb-2 text-4xl font-bold">
+          <h1 className="mb-6 mt-3 text-4xl font-bold">
             {block.heading_1.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}
@@ -54,7 +51,7 @@ export function NotionBlock({ block }: Props) {
       case "heading_2":
         if (block.heading_2.rich_text.length === 0) return <br />
         return (
-          <h1 className="mb-2 text-4xl font-bold">
+          <h1 className="mb-4 mt-2 text-3xl font-bold">
             {block.heading_2.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}
@@ -63,14 +60,24 @@ export function NotionBlock({ block }: Props) {
       case "heading_3":
         if (block.heading_3.rich_text.length === 0) return <br />
         return (
-          <h1 className="mb-2 text-4xl font-bold">
+          <h1 className="mb-2 mt-1 text-xl font-bold">
             {block.heading_3.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}
           </h1>
         )
       case "divider":
-        return <hr className="mb-2 border-neutral-600" />
+        return <hr className="mb-3 border-neutral-600" />
+      case "bulleted_list_item":
+        if (block.bulleted_list_item.rich_text.length === 0) return <br />
+        return (
+          <li className="mb-2 pl-2">
+            {block.bulleted_list_item.rich_text.map((richText, i) => (
+              <NotionRichText key={i} richText={richText} />
+            ))}
+          </li>
+        )
+
       default:
         return null
     }

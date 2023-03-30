@@ -1,15 +1,16 @@
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3"
 import { Upload } from "@aws-sdk/lib-storage"
-import { getSignedUrl } from "@aws-sdk/s3-request-presigner"
 import { env } from "./env"
 import axios from "axios"
 
+const REGION = "eu-central-1"
+const S3_BUCKET = "www.noquarter.co"
+const CLOUDFRONT_URL = "https://d23esfr6ddgb3k.cloudfront.net"
+
 const client = new S3Client({
-  region: "eu-central-1",
+  region: REGION,
   credentials: { accessKeyId: env.AWS_ACCESS_KEY_ID, secretAccessKey: env.AWS_SECRET_ACCESS_KEY },
 })
-
-const S3_BUCKET = "www.noquarter.co"
 
 export async function upload(imageUrl: string): Promise<string> {
   // imageUrl contains a load of aws stuff, so we need to extract the path to use as the key
@@ -21,8 +22,8 @@ export async function upload(imageUrl: string): Promise<string> {
     if (e.Code !== "NoSuchKey") throw e
     const res = await axios.get(imageUrl, { responseType: "stream" })
     if (!res.data) throw new Error("No image for " + key)
-    const uploader = new Upload({ client, params: { Bucket: S3_BUCKET, Key: key, Body: res.data } })
+    const uploader = new Upload({ client, params: { Bucket: S3_BUCKET, Key: key, Body: res.data, ACL: "public-read" } })
     await uploader.done()
   })
-  return getSignedUrl(client, getCommand)
+  return CLOUDFRONT_URL + "/" + key
 }

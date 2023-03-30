@@ -3,6 +3,7 @@ import { notion } from "~/lib/notion"
 import { redirect } from "next/navigation"
 import { NotionBlock } from "~/components/NotionBlock"
 import { cache } from "react"
+import { upload } from "~/lib/s3"
 
 export async function generateStaticParams() {
   const pages = await notion.databases.query({
@@ -49,7 +50,16 @@ const getPageContent = cache(async (slug: string) => {
   return {
     title,
     page,
-    content: pageContent.results as BlockObjectResponse[],
+    content: await Promise.all(
+      (pageContent.results as BlockObjectResponse[]).map(async (block) => {
+        if (block.type === "image" && block.image.type === "file") {
+          const imageUrl = block.image.file.url
+          const url = await upload(imageUrl)
+          return { ...block, image: { ...block.image, file: { ...block.image.file, url } } }
+        }
+        return block
+      }),
+    ),
   }
 })
 

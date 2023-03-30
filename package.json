@@ -9,13 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.301.0",
+    "@aws-sdk/lib-storage": "^3.301.0",
+    "@aws-sdk/s3-request-presigner": "^3.301.0",
     "@formkit/auto-animate": "1.0.0-beta.6",
     "@notionhq/client": "^2.2.3",
     "@slack/web-api": "^6.8.1",
     "@vercel/analytics": "^0.1.11",
+    "aws-sdk": "^2.1346.0",
+    "axios": "^1.3.4",
     "encoding": "^0.1.13",
     "match-sorter": "^6.3.1",
-    "next": "13.2.5-canary.20",
+    "next": "13.2.5-canary.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-parallax-tilt": "^1.7.120",
@@ -24,10 +29,12 @@
     "zustand": "^4.3.6"
   },
   "devDependencies": {
+    "@aws-sdk/signature-v4-crt": "^3.299.0",
     "@types/node": "^18.15.10",
     "@types/react": "^18.0.30",
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
+    "aws-crt": "^1.15.13",
     "eslint": "^8.36.0",
     "eslint-config-next": "^13.2.4",
     "postcss": "^8.4.21",

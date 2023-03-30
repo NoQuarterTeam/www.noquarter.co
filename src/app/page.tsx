@@ -5,6 +5,7 @@ import { Filters } from "~/components/Filters"
 import { Subheader } from "~/components/Subheader"
 import { formatPageProperties } from "~/lib/content"
 import { notion } from "~/lib/notion"
+import { upload } from "~/lib/s3"
 
 export const revalidate = 3000
 
@@ -14,7 +15,17 @@ const getContent = cache(async () => {
     filter: { property: "Public", checkbox: { equals: true } },
     sorts: [{ property: "Order", direction: "ascending" }],
   })
-  return content.results as PageObjectResponse[]
+
+  return await Promise.all(
+    (content.results as PageObjectResponse[]).map(async (page) => {
+      const cover = page.cover
+      if (!cover) return { ...page, cover: null }
+      const imageUrl = cover.type === "external" ? cover.external.url : cover.file.url
+      if (!imageUrl) return { ...page, cover: null }
+      const url = await upload(imageUrl)
+      return { ...page, cover: url }
+    }),
+  )
 })
 
 export default async function Home() {

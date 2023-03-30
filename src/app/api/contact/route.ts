@@ -2,8 +2,9 @@ import { WebClient } from "@slack/web-api"
 import { NextResponse } from "next/server"
 
 import { z } from "zod"
+import { env } from "~/lib/env"
 
-const slack = new WebClient(process.env.SLACK_TOKEN)
+const slack = new WebClient(env.SLACK_TOKEN)
 
 const contactSchema = z.object({
   name: z.string(),

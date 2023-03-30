@@ -13,7 +13,7 @@ export function NotionBlock({ block }: Props) {
       case "paragraph":
         if (block.paragraph.rich_text.length === 0) return <br />
         return (
-          <p className="mb-3 font-light">
+          <p className="mb-3 text-lg font-light">
             {block.paragraph.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}

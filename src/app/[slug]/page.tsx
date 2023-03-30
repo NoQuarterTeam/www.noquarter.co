@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 
   return (pages.results as PageObjectResponse[])
     .map((page) => ({
-      slug: page.properties.Slug.type === "rich_text" ? page.properties.Slug.rich_text[0].plain_text : undefined,
+      slug: page.properties.Slug.type === "rich_text" ? page.properties.Slug.rich_text[0]?.plain_text : undefined,
     }))
     .filter(Boolean)
 }
@@ -43,7 +43,7 @@ const getPageContent = cache(async (slug: string) => {
   // check name and typeguard that its a title property
   const name = page.properties.Name
   if (name.type !== "title") redirect("/")
-  const title = name.title[0].plain_text
+  const title = name.title[0]?.plain_text
 
   const pageContent = await notion.blocks.children.list({ block_id: page.id })
   return {
@@ -58,8 +58,8 @@ export const revalidate = 3000
 export const generateMetadata = async function ({ params: { slug } }: { params: { slug: string } }) {
   const { title, page } = await getPageContent(slug)
   const description =
-    page.properties.Description.type === "rich_text" ? page.properties.Description.rich_text[0].plain_text : null
-  const keywords = page.properties.Meta.type === "rich_text" ? page.properties.Meta.rich_text[0].plain_text.split(" ") : null
+    page.properties.Description.type === "rich_text" ? page.properties.Description.rich_text[0]?.plain_text : null
+  const keywords = page.properties.Meta.type === "rich_text" ? page.properties.Meta.rich_text[0]?.plain_text.split(" ") : null
   return { title, description, keywords }
 }
 

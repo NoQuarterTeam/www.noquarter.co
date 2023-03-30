@@ -42,7 +42,7 @@ export function NotionBlock({ block }: Props) {
       case "heading_1":
         if (block.heading_1.rich_text.length === 0) return <br />
         return (
-          <h1 className="mb-6 mt-3 text-4xl font-bold">
+          <h1 className="mb-6 mt-3  text-3xl md:text-4xl font-bold">
             {block.heading_1.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}
@@ -51,7 +51,7 @@ export function NotionBlock({ block }: Props) {
       case "heading_2":
         if (block.heading_2.rich_text.length === 0) return <br />
         return (
-          <h1 className="mb-4 mt-2 text-3xl font-bold">
+          <h1 className="mb-4 mt-2 text-2xl md:text-3xl font-bold">
             {block.heading_2.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}
@@ -60,7 +60,7 @@ export function NotionBlock({ block }: Props) {
       case "heading_3":
         if (block.heading_3.rich_text.length === 0) return <br />
         return (
-          <h1 className="mb-2 mt-1 text-xl font-bold">
+          <h1 className="mb-2 mt-1 text-lg md:text-xl font-bold">
             {block.heading_3.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}

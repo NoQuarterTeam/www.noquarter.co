@@ -48,18 +48,18 @@ export function Content({ content }: { content: Page[] }) {
   return (
     <div className="w-full grid gap-6 grid-cols-1 lg:grid-cols-3">
       <div className="space-y-6" ref={parent}>
-        {chunks[0].map((item, i) => (
-          <Card key={item.id} item={item} isPriority={i === 0} />
+        {chunks[0].map((item) => (
+          <Card key={item.id} item={item} />
         ))}
       </div>
       <div className="space-y-6" ref={parent}>
-        {chunks[1].map((item, i) => (
-          <Card key={item.id} item={item} isPriority={i === 0} />
+        {chunks[1].map((item) => (
+          <Card key={item.id} item={item} />
         ))}
       </div>
       <div className="space-y-6" ref={parent}>
-        {chunks[2].map((item, i) => (
-          <Card key={item.id} item={item} isPriority={i === 0} />
+        {chunks[2].map((item) => (
+          <Card key={item.id} item={item} />
         ))}
         {shouldShowContact && <Contact />}
       </div>

@@ -5,7 +5,7 @@ import Tilt from "react-parallax-tilt"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
-export function Card({ item, children, isPriority }: { item: Page; children?: React.ReactNode; isPriority?: boolean }) {
+export function Card({ item, children }: { item: Page; children?: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isLiked, setIsLiked] = useState(false)
   useEffect(() => {
@@ -75,7 +75,7 @@ export function Card({ item, children, isPriority }: { item: Page; children?: Re
                 <Image
                   height={400}
                   width={600}
-                  priority={isPriority}
+                  priority={true}
                   alt={item.title}
                   src={item.image}
                   className="w-full object-contain bg-transparent rounded-md shadow-xl"

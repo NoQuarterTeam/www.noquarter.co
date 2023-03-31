@@ -7,12 +7,12 @@ export function NotionRichText({ richText }: { richText: RichTextItemResponse })
     return (
       <a
         href={richText.text.link.url}
-        className={join("leading-relaxed inline-block underline hover:opacity-75", richText.annotations.bold && "font-bold")}
+        className={join("inline-block underline hover:opacity-75", richText.annotations.bold && "font-bold")}
       >
         {richText.text.content}
       </a>
     )
   } else {
-    return <span className={join("leading-relaxed", richText.annotations.bold && "font-bold")}>{richText.text.content}</span>
+    return <span className={join("", richText.annotations.bold && "font-bold")}>{richText.text.content}</span>
   }
 }

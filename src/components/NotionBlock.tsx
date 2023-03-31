@@ -13,7 +13,7 @@ export function NotionBlock({ block }: Props) {
       case "paragraph":
         if (block.paragraph.rich_text.length === 0) return <br />
         return (
-          <p className="mb-3 text-lg font-light">
+          <p className="mb-3 text-lg font-light leading-normal">
             {block.paragraph.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}
@@ -28,7 +28,7 @@ export function NotionBlock({ block }: Props) {
               height={420}
               quality={90}
               className="object-cover"
-              alt={block.image.caption?.[0]?.plain_text}
+              alt={block.image.caption?.[0]?.plain_text || "No Quarter post image"}
             />
             {block.image.caption && block.image.caption.length > 0 ? (
               <p className="w-full text-center text-sm font-light text-white">
@@ -39,10 +39,16 @@ export function NotionBlock({ block }: Props) {
             ) : null}
           </div>
         )
+      case "video":
+        return (
+          <video className="w-full mb-3 aspect-video" controls>
+            <source src={block.video.type === "external" ? block.video.external.url : block.video.file.url} type="video/mp4" />
+          </video>
+        )
       case "heading_1":
         if (block.heading_1.rich_text.length === 0) return <br />
         return (
-          <h1 className="mb-6 mt-3  text-3xl md:text-4xl font-bold">
+          <h1 className="mb-6 mt-3 text-3xl md:text-4xl lg:text-5xl font-bold">
             {block.heading_1.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}

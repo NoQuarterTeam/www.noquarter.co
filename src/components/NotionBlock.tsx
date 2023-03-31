@@ -26,7 +26,7 @@ export function NotionBlock({ block }: Props) {
               src={block.image.type === "external" ? block.image.external.url : block.image.file.url}
               width={700}
               height={420}
-              quality={90}
+              quality={70}
               className="object-cover"
               alt={block.image.caption?.[0]?.plain_text || "No Quarter post image"}
             />
@@ -41,7 +41,7 @@ export function NotionBlock({ block }: Props) {
         )
       case "video":
         return (
-          <video className="w-full mb-3 aspect-video" controls>
+          <video className="w-full mb-3 aspect-video" preload="none" controls>
             <source src={block.video.type === "external" ? block.video.external.url : block.video.file.url} type="video/mp4" />
           </video>
         )

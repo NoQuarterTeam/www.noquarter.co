@@ -21,7 +21,7 @@ export function NotionBlock({ block }: Props) {
         )
       case "image":
         return (
-          <div className="relative mb-2">
+          <div className="space-y-2 mb-2">
             <Image
               src={block.image.type === "external" ? block.image.external.url : block.image.file.url}
               width={700}
@@ -31,7 +31,7 @@ export function NotionBlock({ block }: Props) {
               alt={block.image.caption?.[0]?.plain_text}
             />
             {block.image.caption && block.image.caption.length > 0 ? (
-              <p className="absolute bottom-0 left-0 w-full bg-black/50 p-2 text-center text-xs text-white">
+              <p className="w-full text-center text-sm font-light text-white">
                 {block.image.caption.map((richText, i) => (
                   <NotionRichText key={i} richText={richText} />
                 ))}

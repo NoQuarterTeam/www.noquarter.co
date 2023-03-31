@@ -21,7 +21,7 @@ export function NotionBlock({ block }: Props) {
         )
       case "image":
         return (
-          <div className="space-y-2 mb-2">
+          <div className="space-y-2 mb-3">
             <Image
               src={block.image.type === "external" ? block.image.external.url : block.image.file.url}
               width={700}

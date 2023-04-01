@@ -1,5 +1,6 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { Page } from "~/lib/content"
 import { Card } from "./Card"
 import { useFilters } from "~/lib/stores"
@@ -7,6 +8,9 @@ import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { matchSorter } from "match-sorter"
 import { Contact } from "./Contact"
 
+const Map = dynamic(() => import("./Map"), {
+  loading: () => null,
+})
 export function Content({ content }: { content: Page[] }) {
   const { filters } = useFilters()
 
@@ -56,6 +60,20 @@ export function Content({ content }: { content: Page[] }) {
         {chunks[1].map((item) => (
           <Card key={item.id} item={item} />
         ))}
+        <Card
+          item={{
+            id: "map",
+            title: "Come say hi",
+            tags: [],
+            meta: "location",
+            slug: null,
+            description: null,
+            image: null,
+            isLikeable: false,
+          }}
+        >
+          <Map />
+        </Card>
       </div>
       <div className="space-y-6" ref={parent}>
         {chunks[2].map((item) => (

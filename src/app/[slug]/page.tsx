@@ -83,7 +83,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <div>
-      {/* <h1 className="mb-10 text-center text-3xl md:text-4xl lg:text-5xl">{title}</h1> */}
       {content.map((block) => (
         <NotionBlock key={block.id} block={block} />
       ))}

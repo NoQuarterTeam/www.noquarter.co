@@ -1,5 +1,4 @@
 "use client"
-
 import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { matchSorter } from "match-sorter"
 import { Page } from "~/lib/content"

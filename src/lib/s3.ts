@@ -1,6 +1,5 @@
 import { HeadObjectCommand, NotFound, S3Client } from "@aws-sdk/client-s3"
 import { Upload } from "@aws-sdk/lib-storage"
-import axios from "axios"
 import { env } from "./env"
 
 const REGION = "eu-central-1"
@@ -22,9 +21,12 @@ export async function upload(fileUrl: string): Promise<string> {
 
   await client.send(headCommand).catch(async (e) => {
     if (!(e instanceof NotFound)) throw e
-    const res = await axios.get(fileUrl, { responseType: "stream" })
-    if (!res.data) throw new Error("No file for " + key)
-    const uploader = new Upload({ client, params: { Bucket: S3_BUCKET, Key: key, Body: res.data, ACL: "public-read" } })
+    const res = await fetch(fileUrl)
+    const arrayBuffer = await res.arrayBuffer()
+    const uploader = new Upload({
+      client,
+      params: { Bucket: S3_BUCKET, Key: key, Body: Buffer.from(arrayBuffer), ACL: "public-read" },
+    })
     await uploader.done()
   })
   return CLOUDFRONT_URL + "/" + key

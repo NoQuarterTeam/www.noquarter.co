@@ -18,14 +18,13 @@ export async function upload(fileUrl: string): Promise<string> {
   const url = new URL(fileUrl)
   const key = FILE_FOLDER + url.pathname
   const headCommand = new HeadObjectCommand({ Bucket: S3_BUCKET, Key: key })
-
   await client.send(headCommand).catch(async (e) => {
     if (!(e instanceof NotFound)) throw e
     const res = await fetch(fileUrl)
-    const arrayBuffer = await res.arrayBuffer()
+    if (!res.body) throw new Error("No file for key: " + key)
     const uploader = new Upload({
       client,
-      params: { Bucket: S3_BUCKET, Key: key, Body: Buffer.from(arrayBuffer), ACL: "public-read" },
+      params: { Bucket: S3_BUCKET, Key: key, Body: res.body, ACL: "public-read" },
     })
     await uploader.done()
   })

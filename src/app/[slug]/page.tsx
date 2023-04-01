@@ -1,8 +1,8 @@
 import { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import { notion } from "~/lib/notion"
 import { redirect } from "next/navigation"
-import { NotionBlock } from "~/components/NotionBlock"
 import { cache } from "react"
+import { NotionBlock } from "~/components/NotionBlock"
+import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 
 export async function generateStaticParams() {

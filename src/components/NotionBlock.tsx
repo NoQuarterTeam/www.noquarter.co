@@ -1,7 +1,7 @@
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 
-import { NotionRichText } from "./NotionRichText"
 import Image from "next/image"
+import { NotionRichText } from "./NotionRichText"
 
 interface Props {
   block: BlockObjectResponse

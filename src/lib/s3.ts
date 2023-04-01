@@ -1,7 +1,7 @@
 import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3"
 import { Upload } from "@aws-sdk/lib-storage"
-import { env } from "./env"
 import axios from "axios"
+import { env } from "./env"
 
 const REGION = "eu-central-1"
 const S3_BUCKET = "www.noquarter.co"

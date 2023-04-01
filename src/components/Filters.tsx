@@ -2,24 +2,6 @@
 import { useFilters } from "~/lib/stores"
 import { join } from "~/lib/tailwind"
 
-{
-  /* <script lang="ts">
-  import { filters } from "../lib/stores"
-  import { join } from "../lib/tailwind"
-
-  const toggleTag = (tag: string) => {
-    filters.update((current) => {
-      const tags = current.tags.includes(tag) ? current.tags.filter((t) => t !== tag) : [...current.tags, tag]
-      return { ...current, tags }
-    })
-  }
-
-  const onChange = (e: any) => {
-    filters.update((f) => ({ ...f, search: e.target.value }))
-  }
-</script> */
-}
-
 export function Filters() {
   const { filters, setSearch, toggleShowLiked, toggleTag } = useFilters()
   const onChange = (e: any) => setSearch(e.target.value)

@@ -1,4 +1,4 @@
-import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3"
+import { HeadObjectCommand, NotFound, S3Client } from "@aws-sdk/client-s3"
 import { Upload } from "@aws-sdk/lib-storage"
 import axios from "axios"
 import { env } from "./env"
@@ -18,10 +18,10 @@ export async function upload(fileUrl: string): Promise<string> {
   // imageUrl contains a load of aws stuff, so we need to extract the path to use as the key
   const url = new URL(fileUrl)
   const key = FILE_FOLDER + url.pathname
-  const getCommand = new GetObjectCommand({ Bucket: S3_BUCKET, Key: key })
+  const headCommand = new HeadObjectCommand({ Bucket: S3_BUCKET, Key: key })
 
-  await client.send(getCommand).catch(async (e) => {
-    if (e.Code !== "NoSuchKey") throw e
+  await client.send(headCommand).catch(async (e) => {
+    if (!(e instanceof NotFound)) throw e
     const res = await axios.get(fileUrl, { responseType: "stream" })
     if (!res.data) throw new Error("No file for " + key)
     const uploader = new Upload({ client, params: { Bucket: S3_BUCKET, Key: key, Body: res.data, ACL: "public-read" } })

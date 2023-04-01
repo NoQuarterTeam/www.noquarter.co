@@ -28,6 +28,9 @@ const getContent = cache(async () => {
   )
 })
 
+export const metadata = {
+  description: "Check out some of our stuff",
+}
 export default async function Home() {
   const content = await getContent()
   return (

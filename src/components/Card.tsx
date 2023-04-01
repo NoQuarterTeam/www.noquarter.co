@@ -75,6 +75,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                 <Image
                   height={400}
                   width={600}
+                  quality={60}
                   priority={true}
                   alt={item.title}
                   src={item.image}

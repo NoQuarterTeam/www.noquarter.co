@@ -1,10 +1,10 @@
 "use client"
 
-import { Page } from "~/lib/content"
-import { Card } from "./Card"
-import { useFilters } from "~/lib/stores"
 import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { matchSorter } from "match-sorter"
+import { Page } from "~/lib/content"
+import { useFilters } from "~/lib/stores"
+import { Card } from "./Card"
 import { Contact } from "./Contact"
 
 export function Content({ content }: { content: Page[] }) {

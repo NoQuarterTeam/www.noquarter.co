@@ -1,8 +1,8 @@
 import { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import { notion } from "~/lib/notion"
 import { redirect } from "next/navigation"
-import { NotionBlock } from "~/components/NotionBlock"
 import { cache } from "react"
+import { NotionBlock } from "~/components/NotionBlock"
+import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 
 export async function generateStaticParams() {
@@ -56,6 +56,10 @@ const getPageContent = cache(async (slug: string) => {
           const imageUrl = block.image.file.url
           const url = await upload(imageUrl)
           return { ...block, image: { ...block.image, file: { ...block.image.file, url } } }
+        } else if (block.type === "video" && block.video.type === "file") {
+          const videoUrl = block.video.file.url
+          const url = await upload(videoUrl)
+          return { ...block, video: { ...block.video, file: { ...block.video.file, url } } }
         }
         return block
       }),
@@ -75,14 +79,14 @@ export const generateMetadata = async function ({ params: { slug } }: { params: 
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
-  const { title, content } = await getPageContent(slug)
+  const { content } = await getPageContent(slug)
 
   return (
-    <>
-      <h1 className="mb-10 text-center text-3xl md:text-4xl lg:text-5xl">{title}</h1>
+    <div>
+      {/* <h1 className="mb-10 text-center text-3xl md:text-4xl lg:text-5xl">{title}</h1> */}
       {content.map((block) => (
         <NotionBlock key={block.id} block={block} />
       ))}
-    </>
+    </div>
   )
 }

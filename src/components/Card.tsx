@@ -1,9 +1,9 @@
-import { Page } from "~/lib/content"
-import { MaybeLink } from "./MaybeLink"
-import { join } from "~/lib/tailwind"
-import Tilt from "react-parallax-tilt"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import Tilt from "react-parallax-tilt"
+import { Page } from "~/lib/content"
+import { join } from "~/lib/tailwind"
+import { MaybeLink } from "./MaybeLink"
 
 export function Card({ item, children }: { item: Page; children?: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -75,6 +75,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                 <Image
                   height={400}
                   width={600}
+                  quality={30}
                   priority={true}
                   alt={item.title}
                   src={item.image}

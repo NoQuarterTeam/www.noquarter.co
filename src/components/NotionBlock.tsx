@@ -1,7 +1,7 @@
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 
-import { NotionRichText } from "./NotionRichText"
 import Image from "next/image"
+import { NotionRichText } from "./NotionRichText"
 
 interface Props {
   block: BlockObjectResponse
@@ -13,7 +13,7 @@ export function NotionBlock({ block }: Props) {
       case "paragraph":
         if (block.paragraph.rich_text.length === 0) return <br />
         return (
-          <p className="mb-3 text-lg font-light">
+          <p className="mb-3 text-lg font-light leading-normal">
             {block.paragraph.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}
@@ -21,18 +21,33 @@ export function NotionBlock({ block }: Props) {
         )
       case "image":
         return (
-          <div className="relative mb-2">
+          <div className="space-y-2 mb-3">
             <Image
               src={block.image.type === "external" ? block.image.external.url : block.image.file.url}
               width={700}
               height={420}
-              quality={90}
-              className="object-cover"
-              alt={block.image.caption?.[0]?.plain_text}
+              quality={70}
+              className="object-cover !max-h-[600px]"
+              alt={block.image.caption?.[0]?.plain_text || "No Quarter post image"}
             />
             {block.image.caption && block.image.caption.length > 0 ? (
-              <p className="absolute bottom-0 left-0 w-full bg-black/50 p-2 text-center text-xs text-white">
+              <p className="w-full text-center text-sm font-light text-white">
                 {block.image.caption.map((richText, i) => (
+                  <NotionRichText key={i} richText={richText} />
+                ))}
+              </p>
+            ) : null}
+          </div>
+        )
+      case "video":
+        return (
+          <div className="space-y-2 mb-3">
+            <video className="bg-gray-950 w-full mb-3 aspect-video" preload="none" controls>
+              <source src={block.video.type === "external" ? block.video.external.url : block.video.file.url} type="video/mp4" />
+            </video>
+            {block.video.caption && block.video.caption.length > 0 ? (
+              <p className="w-full text-center text-sm font-light text-white">
+                {block.video.caption.map((richText, i) => (
                   <NotionRichText key={i} richText={richText} />
                 ))}
               </p>
@@ -42,7 +57,7 @@ export function NotionBlock({ block }: Props) {
       case "heading_1":
         if (block.heading_1.rich_text.length === 0) return <br />
         return (
-          <h1 className="mb-6 mt-3  text-3xl md:text-4xl font-bold">
+          <h1 className="mb-6 mt-3 text-3xl md:text-4xl lg:text-5xl font-bold">
             {block.heading_1.rich_text.map((richText, i) => (
               <NotionRichText key={i} richText={richText} />
             ))}

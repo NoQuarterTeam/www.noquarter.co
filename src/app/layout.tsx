@@ -49,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           rel="stylesheet"
         />
       </head>
-      <body className="relative min-h-screen bg-neutral-900">
+      <body className="relative min-h-screen bg-gray-900">
         {children}
         <Analytics />
       </body>

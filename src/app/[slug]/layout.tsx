@@ -2,10 +2,10 @@ import Link from "next/link"
 
 export default async function PageLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen p-4 md:p-10 bg-neutral-900 bg-gradient-to-br from-neutral-900 via-blue-900/10 to-purple-900/10">
+    <div className="min-h-screen p-4 md:p-10 bg-gray-900 bg-gradient-to-br from-gray-900 via-blue-900/10 to-purple-900/10">
       <Link
         aria-label="Back to home"
-        className="w-48 rounded-md border border-neutral-600 px-3 py-1 transition-colors hover:bg-white/5 md:px-4 md:py-2"
+        className="w-48 rounded-md border border-gray-600 px-3 py-1 transition-colors hover:bg-white/5 md:px-4 md:py-2"
         href="/"
       >
         <svg className="inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" fill="currentColor">

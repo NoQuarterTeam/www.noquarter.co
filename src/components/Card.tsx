@@ -43,7 +43,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
     >
       <div className="relative">
         <MaybeLink href={item.slug ? `/${item.slug}` : undefined}>
-          <div className="p-5 md:p-8 flex flex-col justify-between space-y-3 bg-neutral-700/30 bg-gradient-to-bl from-blue-900/10 to-purple-900/5 shadow-2xl shadow-blue-700/10 border border-neutral-600/60 rounded-xl hover:border-neutral-500/60 transition-colors">
+          <div className="p-5 md:p-8 flex flex-col justify-between space-y-3 bg-gray-700/30 bg-gradient-to-bl from-blue-900/10 to-purple-900/5 shadow-2xl shadow-blue-700/10 border border-gray-600/60 rounded-xl hover:border-gray-500/60 transition-colors">
             <div className="space-y-3">
               <p className="text-2xl md:text-3xl">{item.title}</p>
               {item.description && item.description.length > 0 && (
@@ -91,7 +91,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                   <span
                     key={tag}
                     className={join(
-                      "px-3 py-1 text-sm text-neutral-100 rounded-full",
+                      "px-3 py-1 text-sm text-gray-100 rounded-full",
                       tag === "About" && "bg-yellow-500/60",
                       tag === "Projects" && "bg-teal-500/60",
                       tag === "Internals" && "bg-purple-500/60",

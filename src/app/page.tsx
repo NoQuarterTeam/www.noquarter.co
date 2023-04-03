@@ -2,7 +2,7 @@ import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { cache } from "react"
 import { Content } from "~/components/Content"
 import { Filters } from "~/components/Filters"
-import { Subheader } from "~/components/Subheader"
+
 import { formatPageProperties } from "~/lib/content"
 import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
@@ -31,6 +31,7 @@ const getContent = cache(async () => {
 export const metadata = {
   description: "Check out some of our stuff",
 }
+
 export default async function Home() {
   const content = await getContent()
   return (
@@ -58,5 +59,14 @@ export default async function Home() {
         <Content content={content.map(formatPageProperties)} />
       </div>
     </div>
+  )
+}
+
+function Subheader() {
+  return (
+    <>
+      We <span className="text-brand-green">design and build</span> tools that <span className="text-brand-pink">contribute</span>{" "}
+      to a more <span className="text-brand-purple">equitable</span> future.
+    </>
   )
 }

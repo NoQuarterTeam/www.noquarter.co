@@ -80,7 +80,7 @@ export function NotionBlock({ block }: Props) {
         </h1>
       )
     case "divider":
-      return <hr className="mb-3 border-neutral-600" />
+      return <hr className="mb-3 border-gray-600" />
     case "bulleted_list_item":
       if (block.bulleted_list_item.rich_text.length === 0) return <br />
       return (

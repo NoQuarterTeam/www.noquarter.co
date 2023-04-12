@@ -38,11 +38,27 @@ export function NotionBlock({ block }: Props) {
         </div>
       )
     case "video":
+      const getYoutubeId = (fullUrl: string) => {
+        // given this youtube url https://www.youtube.com/watch?v=UqJJktxCY9U or https://youtu.be/UqJJktxCY9U
+        const url = fullUrl.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/)
+        return url[2] !== undefined ? url[2].split(/[^0-9a-z_\-]/i)[0] : url[0]
+      }
       return (
         <div className="space-y-2 mb-3">
-          <video className="bg-gray-950 w-full mb-3 aspect-video" preload="none" controls>
-            <source src={block.video.type === "external" ? block.video.external.url : block.video.file.url} type="video/mp4" />
-          </video>
+          {block.video.type === "external" && block.video.external.url.includes("youtube") ? (
+            <iframe
+              width="672"
+              height="379"
+              src={`https://www.youtube.com/embed/${getYoutubeId(block.video.external.url)}`}
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          ) : (
+            <video className="bg-gray-950 w-full mb-3 aspect-video" preload="none" controls>
+              <source src={block.video.type === "external" ? block.video.external.url : block.video.file.url} type="video/mp4" />
+            </video>
+          )}
           {block.video.caption && block.video.caption.length > 0 ? (
             <p className="w-full text-center text-sm font-light text-white">
               {block.video.caption.map((richText, i) => (

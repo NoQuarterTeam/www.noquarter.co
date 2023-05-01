@@ -39,8 +39,8 @@ export default async function Home() {
       <div className="grid w-full grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-between">
           <div>
-            <h1 className="text-5xl md:text-6xl xl:text-7xl pb-4">NO QUARTER</h1>
-            <h2 className="my-4 block text-2xl lg:hidden font-sans font-extrabold">
+            <h1 className="text-5xl md:text-6xl xl:text-7xl py-4">NO QUARTER</h1>
+            <h2 className="mb-4 block text-2xl lg:hidden font-sans">
               <Subheader />
             </h2>
           </div>

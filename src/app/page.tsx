@@ -8,7 +8,6 @@ import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 
 export const revalidate = 3000
-// export const runtime = "experimental-edge"
 
 const getContent = cache(async () => {
   const content = await notion.databases.query({
@@ -41,7 +40,7 @@ export default async function Home() {
         <div className="flex flex-col justify-between">
           <div>
             <h1 className="text-5xl md:text-6xl xl:text-7xl pb-4">NO QUARTER</h1>
-            <h2 className="my-4 block text-2xl lg:hidden">
+            <h2 className="my-4 block text-2xl lg:hidden font-sans font-extrabold">
               <Subheader />
             </h2>
           </div>
@@ -50,7 +49,7 @@ export default async function Home() {
           </div>
         </div>
         <div className="hidden justify-end lg:flex">
-          <h2 className="max-w-xl text-right text-4xl">
+          <h2 className="max-w-xl text-right text-4xl font-sans">
             <Subheader />
           </h2>
         </div>
@@ -66,8 +65,9 @@ export default async function Home() {
 function Subheader() {
   return (
     <>
-      WE <span className="text-brand-green">DESIGN AND BUILD</span> TOOLS THAT <span className="text-brand-pink">CONTRIBUTE</span>{" "}
-      TO A MORE <span className="text-brand-purple">EQUITABLE</span> FUTURE.
+      Helping companies <span className="text-brand-purple">level up</span> their{" "}
+      <span className="text-brand-pink">digital products</span> and build a <span className="text-brand-green">regenerative</span>{" "}
+      and <span className="text-brand-yellow">circular</span> future.
     </>
   )
 }

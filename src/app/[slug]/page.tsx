@@ -68,6 +68,7 @@ const getPageContent = cache(async (slug: string) => {
 })
 
 export const revalidate = 3000
+// export const runtime = "experimental-edge"
 
 export const generateMetadata = async function ({ params: { slug } }: { params: { slug: string } }) {
   const { title, page } = await getPageContent(slug)

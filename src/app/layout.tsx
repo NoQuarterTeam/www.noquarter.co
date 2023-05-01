@@ -1,13 +1,26 @@
 import { Analytics } from "@vercel/analytics/react"
 import "../global.css"
 
-import { Poppins } from "next/font/google"
+import { Poppins, Syne, Zen_Tokyo_Zoo } from "next/font/google"
 
-const poppins = Poppins({
+// const poppins = Poppins({
+//   subsets: ["latin"],
+//   preload: true,
+//   weight: ["300", "400", "500", "600", "700", "800", "900"],
+//   variable: "--font-poppins",
+// })
+
+const zen = Zen_Tokyo_Zoo({
   subsets: ["latin"],
   preload: true,
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  weight: "400",
+  variable: "--font-zen",
+})
+const syne = Syne({
+  subsets: ["latin"],
+  preload: true,
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-syne",
 })
 
 export const metadata = {
@@ -29,7 +42,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${poppins.variable}`}>
+    <html lang="en" className={`${syne.variable} ${zen.variable}`}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width" />

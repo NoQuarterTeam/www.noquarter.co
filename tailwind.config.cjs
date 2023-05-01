@@ -13,8 +13,10 @@ module.exports = {
         "brand-pink": "#F15BB5",
       },
       fontFamily: {
-        sans: ["var(--font-poppins)"],
-        serif: ["var(--font-poppins)"],
+        // sans: ["var(--font-poppins)"],
+        // serif: ["var(--font-poppins)"],
+        sans: ["var(--font-syne)"],
+        serif: ["var(--font-zen)"],
       },
     },
   },

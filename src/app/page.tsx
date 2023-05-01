@@ -40,17 +40,17 @@ export default async function Home() {
       <div className="grid w-full grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-between">
           <div>
-            <h1 className="text-5xl md:text-6xl">No Quarter</h1>
-            <h2 className="my-8 block pb-4 text-3xl lg:hidden">
+            <h1 className="text-5xl md:text-6xl xl:text-7xl pb-4">NO QUARTER</h1>
+            <h2 className="my-4 block text-2xl lg:hidden">
               <Subheader />
             </h2>
           </div>
-          <div>
+          <div className="block">
             <Filters />
           </div>
         </div>
         <div className="hidden justify-end lg:flex">
-          <h2 className="max-w-xl text-right text-5xl">
+          <h2 className="max-w-xl text-right text-4xl">
             <Subheader />
           </h2>
         </div>
@@ -66,8 +66,8 @@ export default async function Home() {
 function Subheader() {
   return (
     <>
-      We <span className="text-brand-green">design and build</span> tools that <span className="text-brand-pink">contribute</span>{" "}
-      to a more <span className="text-brand-purple">equitable</span> future.
+      WE <span className="text-brand-green">DESIGN AND BUILD</span> TOOLS THAT <span className="text-brand-pink">CONTRIBUTE</span>{" "}
+      TO A MORE <span className="text-brand-purple">EQUITABLE</span> FUTURE.
     </>
   )
 }

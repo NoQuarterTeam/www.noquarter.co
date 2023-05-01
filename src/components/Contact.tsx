@@ -50,7 +50,7 @@ export function Contact() {
                 name="name"
                 required
                 minLength={2}
-                className="relative w-full rounded-lg border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-5 font-mono shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600"
+                className="relative w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-5 font-mono shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600"
               />
             </label>
             <label htmlFor="email" className="block w-full">
@@ -60,7 +60,7 @@ export function Contact() {
                 required
                 name="email"
                 type="email"
-                className="relative w-full rounded-lg border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-5 font-mono shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600"
+                className="relative w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-5 font-mono shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600"
               />
             </label>
             <label htmlFor="message" className="block w-full">
@@ -71,13 +71,13 @@ export function Contact() {
                 id="message"
                 name="message"
                 minLength={100}
-                className="resize-none relative w-full rounded-lg border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-5 font-mono shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600"
+                className="resize-none relative w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-5 font-mono shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600"
               />
             </label>
             <button
               type="submit"
               disabled={isLoading}
-              className="rounded-lg bg-gray-700 px-3 py-2 md:py-3 md:px-8 transition-colors hover:bg-gray-600"
+              className="rounded-sm bg-gray-700 px-3 py-2 md:py-3 md:px-8 transition-colors hover:bg-gray-600"
             >
               {isLoading ? "Sending..." : "Send it"}
             </button>

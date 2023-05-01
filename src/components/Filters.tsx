@@ -11,7 +11,7 @@ export function Filters() {
       <div className="flex space-x-2">
         <input
           onChange={onChange}
-          className="relative text-sm md:text-base w-full rounded-lg border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-8 shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600 hover:bg-white/5 focus:bg-white/5"
+          className="relative text-sm md:text-base w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-8 shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600 hover:bg-white/5 focus:bg-white/5"
           placeholder="What would you like to know?"
         />
       </div>
@@ -20,7 +20,7 @@ export function Filters() {
           aria-label="filter content by about"
           onClick={() => toggleTag("About")}
           className={join(
-            "rounded-full text-yellow-100 font-light text-center border border-yellow-600 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm text-yellow-100 font-light text-center border border-yellow-600 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
             filters.tags.includes("About") ? "bg-yellow-500/60" : "hover:bg-yellow-400/5",
           )}
         >
@@ -30,7 +30,7 @@ export function Filters() {
           aria-label="filter content by projects"
           onClick={() => toggleTag("Projects")}
           className={join(
-            "rounded-full text-teal-100 font-light text-center border border-teal-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm text-teal-100 font-light text-center border border-teal-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
             filters.tags.includes("Projects") ? "bg-teal-500/60" : "hover:bg-teal-400/5",
           )}
         >
@@ -40,7 +40,7 @@ export function Filters() {
           aria-label="filter content by internals"
           onClick={() => toggleTag("Internals")}
           className={join(
-            "rounded-full text-purple-100 font-light text-center border border-purple-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm text-purple-100 font-light text-center border border-purple-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
             filters.tags.includes("Internals") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
           )}
         >
@@ -50,7 +50,7 @@ export function Filters() {
           aria-label="filter content by inspiration"
           onClick={() => toggleTag("Inspiration")}
           className={join(
-            "rounded-full text-pink-100 font-light text-center border border-pink-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm text-pink-100 font-light text-center border border-pink-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
             filters.tags.includes("Inspiration") ? "bg-pink-500/60" : "hover:bg-pink-400/5",
           )}
         >

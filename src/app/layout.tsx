@@ -1,14 +1,7 @@
 import { Analytics } from "@vercel/analytics/react"
 import "../global.css"
 
-import { Poppins, Syne, Zen_Tokyo_Zoo } from "next/font/google"
-
-// const poppins = Poppins({
-//   subsets: ["latin"],
-//   preload: true,
-//   weight: ["300", "400", "500", "600", "700", "800", "900"],
-//   variable: "--font-poppins",
-// })
+import { Syne, Zen_Tokyo_Zoo } from "next/font/google"
 
 const zen = Zen_Tokyo_Zoo({
   subsets: ["latin"],

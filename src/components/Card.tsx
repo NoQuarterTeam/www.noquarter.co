@@ -93,9 +93,10 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                     className={join(
                       "px-3 py-1 text-sm text-gray-100 rounded-sm",
                       tag === "About" && "bg-yellow-500/60",
-                      tag === "Projects" && "bg-teal-500/60",
-                      tag === "Internals" && "bg-purple-500/60",
+                      tag === "Work" && "bg-teal-500/60",
+                      tag === "Project" && "bg-purple-500/60",
                       tag === "Inspiration" && "bg-pink-700/60",
+                      tag === "Challenge" && "bg-blue-700/60",
                     )}
                   >
                     {tag}

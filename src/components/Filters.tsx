@@ -41,7 +41,7 @@ export function Filters() {
           onClick={() => toggleTag("Projects")}
           className={join(
             "rounded-sm text-purple-100 font-light text-center border border-purple-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
-            filters.tags.includes("Projects") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
+            filters.tags.includes("Project") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
           )}
         >
           Projects
@@ -51,7 +51,7 @@ export function Filters() {
           onClick={() => toggleTag("Challenges")}
           className={join(
             "rounded-sm text-blue-100 font-light text-center border border-blue-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
-            filters.tags.includes("Challenges") ? "bg-blue-500/60" : "hover:bg-blue-400/5",
+            filters.tags.includes("Challenge") ? "bg-blue-500/60" : "hover:bg-blue-400/5",
           )}
         >
           Challenges

@@ -1,4 +1,8 @@
-lockfileVersion: '6.0'
+lockfileVersion: '6.1'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
 
 dependencies:
   '@aws-sdk/client-s3':
@@ -70,8 +74,8 @@ devDependencies:
     specifier: ^1.15.13
     version: 1.15.13
   critters:
-    specifier: ^0.0.17
-    version: 0.0.17
+    specifier: ^0.0.18
+    version: 0.0.18
   eslint:
     specifier: ^8.36.0
     version: 8.36.0
@@ -1790,11 +1794,6 @@ packages:
       supports-color: 7.2.0
     dev: true
 
-  /chalk@5.2.0:
-    resolution: {integrity: sha512-ree3Gqw/nazQAPuJJEy+avdl7QfZMcUvmHIKgEZkGL+xOBzRvup5Hxo6LHuMceSxOabuJLJm5Yp/92R9eMmMvA==}
-    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: true
-
   /chokidar@3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
     engines: {node: '>= 8.10.0'}
@@ -1900,16 +1899,16 @@ packages:
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
-  /critters@0.0.17:
-    resolution: {integrity: sha512-FddWL3bp0EiIu/Va4Rl1lPj11LurnG0UI/cNWoFaenpqs/BpGN3UhSbXd6iNvgg154FP/q4ni8SLW3x2S6WhGg==}
+  /critters@0.0.18:
+    resolution: {integrity: sha512-I7t/da29EIWXgxx2RSW1md1DvenEgEuLlki6nHE5+Nc0e3eib5AuGIGbPVuI8q+erCKkSP9T/NqYfvasAy7x7A==}
     dependencies:
-      chalk: 5.2.0
+      chalk: 4.1.2
       css-select: 5.1.0
       dom-serializer: 2.0.0
       domhandler: 5.0.3
       htmlparser2: 8.0.2
       postcss: 8.4.23
-      pretty-bytes: 6.1.0
+      pretty-bytes: 5.6.0
     dev: true
 
   /cross-spawn@7.0.3:
@@ -3785,9 +3784,9 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /pretty-bytes@6.1.0:
-    resolution: {integrity: sha512-Rk753HI8f4uivXi4ZCIYdhmG1V+WKzvRMg/X+M42a6t7D07RcmopXJMDNk6N++7Bl75URRGsb40ruvg7Hcp2wQ==}
-    engines: {node: ^14.13.1 || >=16.0.0}
+  /pretty-bytes@5.6.0:
+    resolution: {integrity: sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==}
+    engines: {node: '>=6'}
     dev: true
 
   /process-nextick-args@1.0.7:

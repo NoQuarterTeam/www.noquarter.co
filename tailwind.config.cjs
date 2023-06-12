@@ -16,8 +16,8 @@ module.exports = {
       fontFamily: {
         // sans: ["var(--font-poppins)"],
         // serif: ["var(--font-poppins)"],
-        sans: ["var(--font-syne)"],
-        serif: ["var(--font-zen)"],
+        sans: ["var(--font-karla)"],
+        serif: ["var(--font-karla)"],
       },
     },
   },

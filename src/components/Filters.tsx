@@ -66,6 +66,16 @@ export function Filters() {
         >
           Inspiration
         </button>
+        <button
+          aria-label="filter content by contact"
+          onClick={() => toggleTag("Contact")}
+          className={join(
+            "rounded-sm text-orange-100 font-light text-center border border-orange-600 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            filters.tags.includes("Contact") ? "bg-orange-500/60" : "hover:bg-orange-400/5",
+          )}
+        >
+          Contact
+        </button>
         <button aria-label="filter content by likes" className="px-2" onClick={toggleShowLiked}>
           <svg
             aria-hidden="true"

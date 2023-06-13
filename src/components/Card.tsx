@@ -73,20 +73,22 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
               )}
 
               {item.image && (
-                <Image
-                  height={400}
-                  width={600}
-                  quality={30}
-                  priority={true}
-                  alt={item.title}
-                  src={item.image}
-                  className="w-full object-contain bg-transparent rounded-sm shadow-xl"
-                />
+                <div className="pt-8">
+                  <Image
+                    height={400}
+                    width={600}
+                    quality={30}
+                    priority={true}
+                    alt={item.title}
+                    src={item.image}
+                    className="w-full object-contain bg-transparent rounded-sm shadow-xl"
+                  />
+                </div>
               )}
               {children}
             </div>
             {item.tags.length > 0 && (
-              <div className="flex space-x-2">
+              <div className="flex space-x-2 pt-4">
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
@@ -97,6 +99,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                       tag === "Projects" && "bg-purple-500/60",
                       tag === "Inspiration" && "bg-pink-700/60",
                       tag === "Challenges" && "bg-blue-700/60",
+                      tag === "Contact" && "bg-orange-700/60",
                     )}
                   >
                     {tag}

@@ -35,27 +35,26 @@ export const metadata = {
 export default async function Home() {
   const content = await getContent()
   return (
-    <div className="space-y-4 lg:space-y-8 p-4 md:p-10 pb-52">
+    <div className="space-y-4 lg:space-y-8 p-4 md:p-6 pb-52">
       <div className="grid w-full grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2">
-        <div className="flex flex-col justify-between">
-          <div>
-            <h1 className="text-5xl md:text-6xl xl:text-7xl py-4">NO QUARTER</h1>
-            <h2 className="mb-4 block text-2xl lg:hidden font-sans">
-              <Subheader />
-            </h2>
-          </div>
+        <div className="flex flex-col flex-start">
+          <h1 className="text-xl md:text-xl xl:text-xl pb-4 font-bold">NO QUARTER</h1>
+          <h2 className="mb-4 block text-sm lg:hidden font-sans">
+            <Subheader />
+          </h2>
+
           <div className="block">
             <Filters />
           </div>
         </div>
         <div className="hidden justify-end lg:flex">
-          <h2 className="max-w-xl text-right text-4xl font-sans">
+          <h2 className="pl-0 lg:pl-8  max-w-xl text-left text-md font-sans">
             <Subheader />
           </h2>
         </div>
       </div>
 
-      <div>
+      <div className="pt-8 lg:pt-20">
         <Content content={content.map(formatPageProperties)} />
       </div>
     </div>
@@ -65,9 +64,10 @@ export default async function Home() {
 function Subheader() {
   return (
     <>
-      Helping companies <span className="text-brand-purple">level up</span> their{" "}
-      <span className="text-brand-pink">digital products</span> and build a <span className="text-brand-green">regenerative</span>{" "}
-      and <span className="text-brand-yellow">circular</span> future.
+      We design and build digital tools that contribute to a more equitable future. We believe that digital products play a vital
+      part in the transitions needed this decade, and we strive to build products that effectuate meaningful change. For this
+      reason, we prioritize working on projects that establish social and environmental justice, creating a future in which all
+      living beings can thrive.
     </>
   )
 }

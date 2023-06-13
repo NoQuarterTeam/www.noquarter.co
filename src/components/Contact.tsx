@@ -26,7 +26,7 @@ export function Contact() {
     <Card
       item={{
         title: "Contact us",
-        tags: [],
+        tags: ["Contact"],
         description: [],
         image: null,
         slug: null,

@@ -1,19 +1,13 @@
 import { Analytics } from "@vercel/analytics/react"
 import "../global.css"
 
-import { Syne, Zen_Tokyo_Zoo } from "next/font/google"
+import { Karla } from "next/font/google"
 
-const zen = Zen_Tokyo_Zoo({
-  subsets: ["latin"],
-  preload: true,
-  weight: "400",
-  variable: "--font-zen",
-})
-const syne = Syne({
+const karla = Karla({
   subsets: ["latin"],
   preload: true,
   weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-syne",
+  variable: "--font-karla",
 })
 
 export const metadata = {
@@ -35,7 +29,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${syne.variable} ${zen.variable}`}>
+    <html lang="en" className={`${karla.variable}`}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width" />

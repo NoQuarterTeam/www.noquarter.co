@@ -10,13 +10,12 @@ export function Content({ content }: { content: Page[] }) {
   const { filters } = useFilters()
 
   const shouldShowContact =
-    filters.tags.length === 0 &&
-    !filters.showLiked &&
     matchSorter([{ title: "Contact", meta: "get in contact with us" }], filters.search, {
       keys: ["title", "meta"],
-    }).length > 0
+    }).length > 0 || filters.tags.includes("Contact")
 
   let filteredContent = content
+  let contactColumn = 1
 
   if (filters.search) {
     filteredContent = matchSorter(content, filters.search, { keys: ["title", "description", "tags", "meta"] })
@@ -44,23 +43,33 @@ export function Content({ content }: { content: Page[] }) {
 
   const [parent] = useAutoAnimate()
 
+  if (filteredContent.length % 3 === 2) {
+    contactColumn = 3
+  } else if (filteredContent.length % 3 === 1) {
+    contactColumn = 2
+  } else if (filteredContent.length % 3 === 0) {
+    contactColumn = 1
+  }
+
   return (
     <div className="w-full grid gap-6 grid-cols-1 lg:grid-cols-3">
       <div className="space-y-6" ref={parent}>
         {chunks[0].map((item) => (
           <Card key={item.id} item={item} />
         ))}
+        {contactColumn === 1 && shouldShowContact && <Contact />}
       </div>
       <div className="space-y-6" ref={parent}>
         {chunks[1].map((item) => (
           <Card key={item.id} item={item} />
         ))}
+        {contactColumn === 2 && shouldShowContact && <Contact />}
       </div>
       <div className="space-y-6" ref={parent}>
         {chunks[2].map((item) => (
           <Card key={item.id} item={item} />
         ))}
-        {shouldShowContact && <Contact />}
+        {contactColumn === 3 && shouldShowContact && <Contact />}
       </div>
     </div>
   )

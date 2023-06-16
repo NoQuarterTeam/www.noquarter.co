@@ -12,8 +12,8 @@ dependencies:
     specifier: ^3.301.0
     version: 3.301.0(@aws-sdk/abort-controller@3.296.0)(@aws-sdk/client-s3@3.301.0)
   '@formkit/auto-animate':
-    specifier: 1.0.0-beta.6
-    version: 1.0.0-beta.6
+    specifier: 1.0.0-pre-alpha.3
+    version: 1.0.0-pre-alpha.3(react@18.2.0)
   '@notionhq/client':
     specifier: ^2.2.3
     version: 2.2.3(encoding@0.1.13)
@@ -1110,8 +1110,18 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@formkit/auto-animate@1.0.0-beta.6:
-    resolution: {integrity: sha512-PVDhLAlr+B4Xb7e+1wozBUWmXa6BFU8xUPR/W/E+TsQhPS1qkAdAsJ25keEnFrcePSnXHrOsh3tiFbEToOzV9w==}
+  /@formkit/auto-animate@1.0.0-pre-alpha.3(react@18.2.0):
+    resolution: {integrity: sha512-lMVZ3LFUIu0RIxCEwmV8nUUJQ46M2bv2NDU3hrhZivViuR1EheC8Mj5sx/ACqK5QLK8XB8z7GDIZBUGdU/9OZQ==}
+    peerDependencies:
+      react: ^16.8.0
+      vue: ^3.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@httptoolkit/websocket-stream@6.0.1:

@@ -39,7 +39,6 @@ export const generateMetadata = async function ({ params: { slug } }: { params: 
 export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug
   const { content, page } = await getPageContent(slug)
-
   const instagramEmbedId =
     page.properties.Instagram && page.properties.Instagram.type === "rich_text" && page.properties.Instagram.rich_text.length > 0
       ? page.properties.Instagram.rich_text[0].plain_text

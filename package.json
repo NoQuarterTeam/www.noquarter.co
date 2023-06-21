@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.301.0",
@@ -29,7 +30,7 @@
     "@aws-sdk/signature-v4-crt": "^3.299.0",
     "@opentelemetry/api": "^1.4.1",
     "@types/node": "^18.15.10",
-    "@types/react": "^18.0.30",
+    "@types/react": "^18.2.8",
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
     "aws-crt": "^1.15.13",
@@ -38,6 +39,9 @@
     "eslint-config-next": "^13.2.4",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.1.2"
+  },
+  "engines": {
+    "pnpm": "8.5.1"
   }
 }

@@ -41,8 +41,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const { content, page } = await getPageContent(slug)
 
   const instagramEmbedId =
-    // @ts-ignore
-    page.properties.Instagram && page.properties.Instagram.rich_text.length > 0 && page.properties.Instagram.type === "rich_text"
+    page.properties.Instagram && page.properties.Instagram.type === "rich_text" && page.properties.Instagram.rich_text.length > 0
       ? page.properties.Instagram.rich_text[0].plain_text
       : null
 
@@ -50,7 +49,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <>
       <div>
         {content.map((block) => (
-          // @ts-ignore
           <NotionBlock key={block.id} block={block} />
         ))}
       </div>

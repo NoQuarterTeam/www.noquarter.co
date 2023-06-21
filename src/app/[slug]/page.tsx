@@ -50,6 +50,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <>
       <div>
         {content.map((block) => (
+          // @ts-ignore
           <NotionBlock key={block.id} block={block} />
         ))}
       </div>

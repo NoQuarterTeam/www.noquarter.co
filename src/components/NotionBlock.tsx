@@ -121,28 +121,8 @@ export async function NotionBlock({ block }: Props) {
               block_id: column.id,
               page_size: 50,
             })
-            const block = colResponse.results[0] as ImageBlockObjectResponse
-            const image = block.image
-
-            return (
-              <div key={column.id} className="space-y-2 mb-3 self-center">
-                <Image
-                  src={image.type === "external" ? image.external.url : image.file.url}
-                  width={700}
-                  height={420}
-                  quality={70}
-                  className="object-cover !max-h-[600px]"
-                  alt={image.caption?.[0]?.plain_text || "No Quarter post image"}
-                />
-                {/* {image.caption && image.caption.length > 0 ? (
-                <p className="w-full text-center text-sm font-light text-white">
-                  {image.caption.map((richText, i) => (
-                    <NotionRichText key={i} richText={richText} />
-                  ))}
-                </p>
-              ) : null} */}
-              </div>
-            )
+            const block = colResponse.results[0] as BlockObjectResponse
+            return <NotionBlock key={column.id} block={block} />
           })}
         </div>
       )

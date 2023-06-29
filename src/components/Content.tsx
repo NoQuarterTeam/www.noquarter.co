@@ -41,7 +41,6 @@ export function Content({ content }: { content: Page[] }) {
     { 0: [], 1: [], 2: [] } as { 0: Page[]; 1: Page[]; 2: Page[] },
   )
 
-  // @ts-ignore
   const [parent] = useAutoAnimate()
 
   if (filteredContent.length % 3 === 2) {

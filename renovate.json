@@ -22,5 +22,6 @@
       "matchPackageNames": ["node", "pnpm"],
       "enabled": false
     }
-  ]
+  ],
+  "ignoreDeps": ["@formkit/auto-animate"]
 }

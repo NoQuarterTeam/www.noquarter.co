@@ -7,7 +7,7 @@ import { formatPageProperties } from "~/lib/content"
 import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 
-export const revalidate = 3000
+export const revalidate = 30
 
 const getContent = cache(async () => {
   const content = await notion.databases.query({

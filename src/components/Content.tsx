@@ -41,7 +41,6 @@ export function Content({ content }: { content: Page[] }) {
     { 0: [], 1: [], 2: [] } as { 0: Page[]; 1: Page[]; 2: Page[] },
   )
 
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const [parent] = useAutoAnimate()
 

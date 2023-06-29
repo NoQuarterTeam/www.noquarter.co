@@ -89,22 +89,23 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
             </div>
             {item.tags.length > 0 && (
               <div className="flex space-x-2 pt-4">
-                {item.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={join(
-                      "px-3 py-1 text-sm text-gray-100 rounded-sm",
-                      tag === "About" && "bg-yellow-500/60",
-                      tag === "Work" && "bg-teal-500/60",
-                      tag === "Projects" && "bg-purple-500/60",
-                      tag === "Inspiration" && "bg-pink-700/60",
-                      tag === "Challenges" && "bg-blue-700/60",
-                      tag === "Contact" && "bg-orange-700/60",
-                    )}
-                  >
-                    {tag}
-                  </span>
-                ))}
+                {item.tags
+                  .filter((tag) => tag !== "Contact")
+                  .map((tag) => (
+                    <span
+                      key={tag}
+                      className={join(
+                        "px-3 py-1 text-sm text-gray-100 rounded-sm",
+                        tag === "About" && "bg-yellow-500/60",
+                        tag === "Work" && "bg-teal-500/60",
+                        tag === "Projects" && "bg-purple-500/60",
+                        tag === "Inspiration" && "bg-pink-700/60",
+                        tag === "Challenges" && "bg-blue-700/60",
+                      )}
+                    >
+                      {tag}
+                    </span>
+                  ))}
               </div>
             )}
           </div>

@@ -13,8 +13,8 @@ const client = new S3Client({
 })
 
 export async function upload(fileUrl: string): Promise<string> {
-  if (env.NODE_ENV === "development") return fileUrl
   // imageUrl contains a load of aws stuff, so we need to extract the path to use as the key
+  if (env.NODE_ENV === "development") return fileUrl
   const url = new URL(fileUrl)
   const key = FILE_FOLDER + url.pathname
   const headCommand = new HeadObjectCommand({ Bucket: S3_BUCKET, Key: key })

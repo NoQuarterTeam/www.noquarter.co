@@ -73,7 +73,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
               )}
 
               {item.image && (
-                <div className="pt-8">
+                <div className="pt-6">
                   <Image
                     height={400}
                     width={600}

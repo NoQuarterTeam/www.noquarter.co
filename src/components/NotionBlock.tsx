@@ -1,12 +1,13 @@
-import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import type { BlockObjectResponse, ImageBlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import Image from "next/image"
+import { notion } from "~/lib/notion"
 import { NotionRichText } from "./NotionRichText"
 
 interface Props {
   block: BlockObjectResponse
 }
 
-export function NotionBlock({ block }: Props) {
+export async function NotionBlock({ block }: Props) {
   switch (block.type) {
     case "paragraph":
       if (block.paragraph.rich_text.length === 0) return <br />
@@ -71,7 +72,7 @@ export function NotionBlock({ block }: Props) {
     case "heading_1":
       if (block.heading_1.rich_text.length === 0) return <br />
       return (
-        <h1 className="mb-6 mt-3 text-3xl md:text-4xl lg:text-5xl uppercase">
+        <h1 className="mb-6 mt-3 text-xl md:text-2xl lg:text-3xl">
           {block.heading_1.rich_text.map((richText, i) => (
             <NotionRichText key={i} richText={richText} />
           ))}
@@ -80,7 +81,7 @@ export function NotionBlock({ block }: Props) {
     case "heading_2":
       if (block.heading_2.rich_text.length === 0) return <br />
       return (
-        <h1 className="mb-4 mt-2 text-2xl md:text-3xl uppercase">
+        <h1 className="mb-4 mt-2 text-lg md:text-xl ">
           {block.heading_2.rich_text.map((richText, i) => (
             <NotionRichText key={i} richText={richText} />
           ))}
@@ -89,7 +90,7 @@ export function NotionBlock({ block }: Props) {
     case "heading_3":
       if (block.heading_3.rich_text.length === 0) return <br />
       return (
-        <h1 className="mb-2 mt-1 text-lg md:text-xl uppercase">
+        <h1 className="mb-2 mt-1 text-md md:text-lg ">
           {block.heading_3.rich_text.map((richText, i) => (
             <NotionRichText key={i} richText={richText} />
           ))}
@@ -105,6 +106,45 @@ export function NotionBlock({ block }: Props) {
             <NotionRichText key={i} richText={richText} />
           ))}
         </li>
+      )
+    case "column_list":
+      const blockId = block.id
+      const response = await notion.blocks.children.list({
+        block_id: blockId,
+        page_size: 50,
+      })
+      const columns = response.results
+      return (
+        <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${columns.length}, minmax(0, 1fr))` }}>
+          {columns.map(async (column) => {
+            const colResponse = await notion.blocks.children.list({
+              block_id: column.id,
+              page_size: 50,
+            })
+            const block = colResponse.results[0] as ImageBlockObjectResponse
+            const image = block.image
+
+            return (
+              <div key={column.id} className="space-y-2 mb-3 self-center">
+                <Image
+                  src={image.type === "external" ? image.external.url : image.file.url}
+                  width={700}
+                  height={420}
+                  quality={70}
+                  className="object-cover !max-h-[600px]"
+                  alt={image.caption?.[0]?.plain_text || "No Quarter post image"}
+                />
+                {/* {image.caption && image.caption.length > 0 ? (
+                <p className="w-full text-center text-sm font-light text-white">
+                  {image.caption.map((richText, i) => (
+                    <NotionRichText key={i} richText={richText} />
+                  ))}
+                </p>
+              ) : null} */}
+              </div>
+            )
+          })}
+        </div>
       )
     default:
       return null

@@ -26,7 +26,7 @@ export async function NotionBlock({ block }: Props) {
             width={700}
             height={420}
             quality={70}
-            className="object-cover !max-h-[600px]"
+            className="object-contain !max-h-[600px]"
             alt={block.image.caption?.[0]?.plain_text || "No Quarter post image"}
           />
           {block.image.caption && block.image.caption.length > 0 ? (

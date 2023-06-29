@@ -16,6 +16,11 @@
     {
       "packageNames": ["aws-sdk"],
       "extends": ["schedule:weekly"]
+    },
+    {
+      "packageNames": ["pnpm", "node"],
+      "matchPackageNames": ["node", "pnpm"],
+      "enabled": false
     }
   ]
 }

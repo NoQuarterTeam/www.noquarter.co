@@ -10,7 +10,7 @@ export function Content({ content }: { content: Page[] }) {
   const { filters } = useFilters()
 
   const shouldShowContact =
-    matchSorter([{ title: "Contact", meta: "get in contact with us" }], filters.search, {
+    matchSorter([{ title: "Contact", meta: "get in contact with us contact us" }], filters.search, {
       keys: ["title", "meta"],
     }).length > 0 || filters.tags.includes("Contact")
 

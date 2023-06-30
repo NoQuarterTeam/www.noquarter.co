@@ -54,7 +54,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="pt-8 lg:pt-20">
+      <div className="pt-8 lg:pt-12">
         <Content content={content.map(formatPageProperties)} />
       </div>
     </div>

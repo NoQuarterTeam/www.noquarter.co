@@ -12,13 +12,17 @@ export function Content({ content }: { content: Page[] }) {
   const shouldShowContact =
     matchSorter([{ title: "Contact", meta: "get in contact with us contact us" }], filters.search, {
       keys: ["title", "meta"],
+      threshold: matchSorter.rankings.ACRONYM,
     }).length > 0 || filters.tags.includes("Contact")
 
   let filteredContent = content
   let contactColumn = 1
 
   if (filters.search) {
-    filteredContent = matchSorter(content, filters.search, { keys: ["title", "description", "tags", "meta"] })
+    filteredContent = matchSorter(content, filters.search, {
+      keys: ["title", "description", "tags", "meta"],
+      threshold: matchSorter.rankings.ACRONYM,
+    })
   }
   if (filters.tags.length > 0) {
     filteredContent = filteredContent.filter((item) => item.tags.find((tag) => filters.tags.includes(tag)))

@@ -8,7 +8,7 @@ export default async function PageLayout({ children }: { children: React.ReactNo
         className="w-48 rounded-sm border border-gray-600 px-3 py-1 transition-colors hover:bg-white/5 md:px-4 md:py-2"
         href="/"
       >
-        <svg className="inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" fill="currentColor">
+        <svg className="inline-block size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" fill="currentColor">
           <path d="M10.707 3.293a1 1 0 010 1.414L6.414 9H17a1 1 0 110 2H6.414l4.293 4.293a1 1 0 11-1.414 1.414l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 0z"></path>
         </svg>
         <span className="hidden md:inline ml-2">Back</span>

@@ -125,7 +125,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
               fill="currentColor"
               strokeWidth="0"
               viewBox="0 0 512 512"
-              className="w-6 h-6"
+              className="size-6"
               xmlns="http://www.w3.org/2000/svg"
             >
               {isLiked ? (

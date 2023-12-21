@@ -15,8 +15,6 @@ export const metadata = {
     default: "No Quarter",
     template: "%s | No Quarter",
   },
-  colorScheme: "dark",
-  themeColor: "black",
   robots: {
     index: true,
     follow: true,

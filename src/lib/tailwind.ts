@@ -1,5 +1,4 @@
-import { twMerge, twJoin } from "tailwind-merge"
-import type { ClassNameValue } from "tailwind-merge/dist/lib/tw-join"
+import { twMerge, twJoin, type ClassNameValue } from "tailwind-merge"
 
 export const merge = (...args: ClassNameValue[]) => twMerge(args)
 export const join = (...args: ClassNameValue[]) => twJoin(args)

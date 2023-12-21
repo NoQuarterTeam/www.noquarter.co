@@ -10,11 +10,11 @@ const nextConfig = {
       { protocol: "https", hostname: "d23esfr6ddgb3k.cloudfront.net" },
       // dev only notion files
       { protocol: "https", hostname: "s3.us-west-2.amazonaws.com", pathname: "*/secure.notion-static.com/**" },
+      { protocol: "https", hostname: "prod-files-secure.s3.us-west-2.amazonaws.com" },
     ],
   },
   experimental: {
-    optimizeCss: true,
-    appDir: true,
+    ppr: true,
   },
 }
 

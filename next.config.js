@@ -15,6 +15,7 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
     appDir: true,
+    ppr: true,
   },
 }
 

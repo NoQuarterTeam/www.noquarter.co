@@ -18,8 +18,10 @@ export async function upload(fileUrl: string): Promise<string> {
   const url = new URL(fileUrl)
   const key = FILE_FOLDER + url.pathname
   const headCommand = new HeadObjectCommand({ Bucket: S3_BUCKET, Key: key })
+  // check if file exists, if it does this resolves, if not it throws an error
   await client.send(headCommand).catch(async (e) => {
-    if (!(e instanceof NotFound)) throw e
+    if (!(e instanceof NotFound)) throw e // if its not a not found error, throw it back up
+    // if file doesn't exist, it will throw a not found error, so we upload it
     const res = await fetch(fileUrl)
     if (!res.body) throw new Error("No file for key: " + key)
     const uploader = new Upload({

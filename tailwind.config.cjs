@@ -14,8 +14,6 @@ module.exports = {
         "brand-yellow": "#F3CE49",
       },
       fontFamily: {
-        // sans: ["var(--font-poppins)"],
-        // serif: ["var(--font-poppins)"],
         sans: ["var(--font-karla)"],
         serif: ["var(--font-karla)"],
       },

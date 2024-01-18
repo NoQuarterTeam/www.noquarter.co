@@ -15,7 +15,7 @@
     "@formkit/auto-animate": "1.0.0-beta.6",
     "@notionhq/client": "2.2.14",
     "@slack/web-api": "6.11.2",
-    "@vercel/analytics": "1.1.1",
+    "@vercel/analytics": "1.1.2",
     "encoding": "0.1.13",
     "match-sorter": "6.3.3",
     "next": "canary",

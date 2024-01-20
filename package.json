@@ -24,7 +24,7 @@
     "react-parallax-tilt": "1.7.191",
     "tailwind-merge": "2.2.0",
     "zod": "3.22.4",
-    "zustand": "4.4.7"
+    "zustand": "4.5.0"
   },
   "devDependencies": {
     "@aws-sdk/signature-v4-crt": "3.496.0",

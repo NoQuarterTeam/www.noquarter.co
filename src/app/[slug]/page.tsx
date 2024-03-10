@@ -21,7 +21,10 @@ export async function generateStaticParams() {
 
   return (pages.results as PageObjectResponse[])
     .map((page) => ({
-      slug: page.properties.Slug.type === "rich_text" ? page.properties.Slug.rich_text[0]?.plain_text : undefined,
+      slug:
+        page.properties.Slug.type === "rich_text" && !page.properties.Slug.rich_text[0]?.plain_text.startsWith("http")
+          ? page.properties.Slug.rich_text[0]?.plain_text
+          : undefined,
     }))
     .filter(Boolean)
 }

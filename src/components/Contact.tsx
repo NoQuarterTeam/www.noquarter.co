@@ -1,6 +1,6 @@
 "use client"
 import { useFormState, useFormStatus } from "react-dom"
-import { submitContact } from "~/app/contact"
+import { submitContact } from "~/app/actions"
 import { Card } from "./Card"
 
 const inputClassName =

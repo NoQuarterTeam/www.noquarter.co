@@ -1,6 +1,9 @@
 "use server"
+import { WebClient } from "@slack/web-api"
 import { z } from "zod"
 import { env } from "~/lib/env"
+
+const slack = new WebClient(env.SLACK_TOKEN)
 
 const contactSchema = z.object({
   name: z.string(),
@@ -13,11 +16,7 @@ export async function submitContact(_: unknown, formData: FormData) {
   if (!result.success) return { success: false, fieldErrors: result.error.flatten().fieldErrors }
   const text = `New message! From: ${data.name} - ${data.email}. Message: ${data.message} `
   if (env.NODE_ENV === "production") {
-    const headers = new Headers()
-    headers.append("Authorization", `Bearer ${env.SLACK_TOKEN}`)
-    headers.append("Content-Type", "application/json")
-    const body = JSON.stringify({ channel: "CE88M0M8D", text })
-    await fetch("https://slack.com/api/chat.postMessage", { method: "post", headers, body })
+    await slack.chat.postMessage({ channel: "CE88M0M8D", text })
   }
   return { success: true }
 }

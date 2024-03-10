@@ -1,4 +1,4 @@
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { notion } from "~/lib/notion"
 
 export default async function Sitemap() {

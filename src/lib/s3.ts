@@ -23,12 +23,12 @@ export async function upload(fileUrl: string): Promise<string> {
     if (!(e instanceof NotFound)) throw e // if its not a not found error, throw it back up
     // if file doesn't exist, it will throw a not found error, so we upload it
     const res = await fetch(fileUrl)
-    if (!res.body) throw new Error("No file for key: " + key)
+    if (!res.body) throw new Error(`No file for key: ${key}`)
     const uploader = new Upload({
       client,
       params: { Bucket: S3_BUCKET, Key: key, Body: res.body, ACL: "public-read" },
     })
     await uploader.done()
   })
-  return CLOUDFRONT_URL + "/" + key
+  return `${CLOUDFRONT_URL}/${key}`
 }

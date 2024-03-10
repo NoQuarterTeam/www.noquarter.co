@@ -1,7 +1,7 @@
 "use client"
 import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { matchSorter } from "match-sorter"
-import { Page } from "~/lib/content"
+import type { Page } from "~/lib/content"
 import { useFilters } from "~/lib/stores"
 import { Card } from "./Card"
 import { Contact } from "./Contact"
@@ -56,7 +56,7 @@ export function Content({ content }: { content: Page[] }) {
   }
 
   return (
-    <div className="w-full grid gap-6 grid-cols-1 lg:grid-cols-3">
+    <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-3">
       <div className="space-y-6" ref={parent}>
         {chunks[0].map((item) => (
           <Card key={item.id} item={item} />

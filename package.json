@@ -3,10 +3,11 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "bunx @biomejs/biome check --apply-unsafe ./src",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -28,6 +29,7 @@
   },
   "devDependencies": {
     "@aws-sdk/signature-v4-crt": "3.525.0",
+    "@biomejs/biome": "1.6.0",
     "@opentelemetry/api": "1.8.0",
     "@types/node": "18.19.22",
     "@types/react": "18.2.64",
@@ -35,8 +37,6 @@
     "autoprefixer": "10.4.18",
     "aws-crt": "1.21.1",
     "critters": "0.0.22",
-    "eslint": "8.57.0",
-    "eslint-config-next": "14.1.3",
     "postcss": "8.4.35",
     "tailwindcss": "3.4.1",
     "typescript": "5.4.2"

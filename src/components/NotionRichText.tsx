@@ -12,7 +12,6 @@ export function NotionRichText({ richText }: { richText: RichTextItemResponse })
         {richText.text.content}
       </a>
     )
-  } else {
-    return <span className={join("", richText.annotations.bold && "font-bold")}>{richText.text.content}</span>
   }
+  return <span className={join("", richText.annotations.bold && "font-bold")}>{richText.text.content}</span>
 }

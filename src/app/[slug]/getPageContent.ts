@@ -1,4 +1,4 @@
-import { PageObjectResponse, BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import type { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { redirect } from "next/navigation"
 import { cache } from "react"
 import { notion } from "~/lib/notion"
@@ -34,7 +34,8 @@ export const getPageContent = cache(async (slug: string) => {
           const imageUrl = block.image.file.url
           const url = await upload(imageUrl)
           return { ...block, image: { ...block.image, file: { ...block.image.file, url } } }
-        } else if (block.type === "video" && block.video.type === "file") {
+        }
+        if (block.type === "video" && block.video.type === "file") {
           const videoUrl = block.video.file.url
           const url = await upload(videoUrl)
           return { ...block, video: { ...block.video, file: { ...block.video.file, url } } }

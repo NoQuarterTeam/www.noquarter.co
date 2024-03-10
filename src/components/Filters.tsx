@@ -4,79 +4,84 @@ import { join } from "~/lib/tailwind"
 
 export function Filters() {
   const { filters, setSearch, toggleShowLiked, toggleTag } = useFilters()
-  const onChange = (e: any) => setSearch(e.target.value)
 
   return (
     <div className="space-y-4">
       <div className="flex space-x-2">
         <input
-          onChange={onChange}
-          className="relative text-sm md:text-base w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 md:py-3 md:px-8 shadow-2xl transition-colors placeholder:text-gray-400 hover:border-gray-600 hover:bg-white/5 focus:bg-white/5"
+          onChange={(e) => setSearch(e.target.value)}
+          className="relative w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 text-sm shadow-2xl transition-colors hover:border-gray-600 focus:bg-white/5 hover:bg-white/5 md:px-8 md:py-3 md:text-base placeholder:text-gray-400"
           placeholder="What would you like to know?"
         />
       </div>
       <div className="flex w-full flex-wrap gap-2">
         <button
+          type="button"
           aria-label="filter content by about"
           onClick={() => toggleTag("About")}
           className={join(
-            "rounded-sm text-yellow-100 font-light text-center border border-yellow-600 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm border border-yellow-600 px-3 py-1 text-center font-light text-yellow-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("About") ? "bg-yellow-500/60" : "hover:bg-yellow-400/5",
           )}
         >
           About
         </button>
         <button
+          type="button"
           aria-label="filter content by work"
           onClick={() => toggleTag("Work")}
           className={join(
-            "rounded-sm text-teal-100 font-light text-center border border-teal-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm border border-teal-700 px-3 py-1 text-center font-light text-teal-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Work") ? "bg-teal-500/60" : "hover:bg-teal-400/5",
           )}
         >
           Work
         </button>
         <button
+          type="button"
           aria-label="filter content by internals"
           onClick={() => toggleTag("Projects")}
           className={join(
-            "rounded-sm text-purple-100 font-light text-center border border-purple-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm border border-purple-700 px-3 py-1 text-center font-light text-purple-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Projects") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
           )}
         >
           Projects
         </button>
         <button
+          type="button"
           aria-label="filter content by challenges"
           onClick={() => toggleTag("Challenges")}
           className={join(
-            "rounded-sm text-blue-100 font-light text-center border border-blue-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm border border-blue-700 px-3 py-1 text-center font-light text-blue-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Challenges") ? "bg-blue-500/60" : "hover:bg-blue-400/5",
           )}
         >
           Challenges
         </button>
         <button
+          type="button"
           aria-label="filter content by inspiration"
           onClick={() => toggleTag("Inspiration")}
           className={join(
-            "rounded-sm text-pink-100 font-light text-center border border-pink-700 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm border border-pink-700 px-3 py-1 text-center font-light text-pink-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Inspiration") ? "bg-pink-500/60" : "hover:bg-pink-400/5",
           )}
         >
           Inspiration
         </button>
         <button
+          type="button"
           aria-label="filter content by contact"
           onClick={() => toggleTag("Contact")}
           className={join(
-            "rounded-sm text-orange-100 font-light text-center border border-orange-600 px-3 py-1 md:px-4 md:py-2 hover:opacity-90 transition-colors",
+            "rounded-sm border border-orange-600 px-3 py-1 text-center font-light text-orange-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Contact") ? "bg-orange-500/60" : "hover:bg-orange-400/5",
           )}
         >
           Contact
         </button>
-        <button aria-label="filter content by likes" className="px-2" onClick={toggleShowLiked}>
+        <button type="button" aria-label="filter content by likes" className="px-2" onClick={toggleShowLiked}>
           <svg
             aria-hidden="true"
             stroke="currentColor"

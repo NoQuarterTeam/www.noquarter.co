@@ -1,4 +1,4 @@
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { cache } from "react"
 import { Content } from "~/components/Content"
 import { Filters } from "~/components/Filters"
@@ -35,11 +35,11 @@ export const metadata = {
 export default async function Home() {
   const content = await getContent()
   return (
-    <div className="space-y-4 lg:space-y-8 p-4 md:p-6 pb-52">
-      <div className="grid w-full grid-cols-1 gap-8 md:gap-10 lg:grid-cols-2">
-        <div className="flex flex-col flex-start">
-          <h1 className="text-xl md:text-xl xl:text-xl pb-4 font-bold">NO QUARTER</h1>
-          <h2 className="mb-4 block text-sm lg:hidden font-sans">
+    <div className="space-y-4 p-4 pb-52 lg:space-y-8 md:p-8">
+      <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 md:gap-10">
+        <div className="flex flex-start flex-col">
+          <h1 className="pb-4 font-bold text-xl md:text-xl xl:text-2xl">NO QUARTER</h1>
+          <h2 className="mb-4 block font-sans text-sm lg:hidden">
             <Subheader />
           </h2>
 
@@ -48,13 +48,13 @@ export default async function Home() {
           </div>
         </div>
         <div className="hidden justify-end lg:flex">
-          <h2 className="pl-0 lg:pl-8  max-w-xl text-left text-md font-sans">
+          <h2 className="max-w-xl pl-0 text-left font-sans text-md lg:pl-8">
             <Subheader />
           </h2>
         </div>
       </div>
 
-      <div className="pt-8 lg:pt-12">
+      <div className="pt-8 lg:pt-8">
         <Content content={content.map(formatPageProperties)} />
       </div>
     </div>

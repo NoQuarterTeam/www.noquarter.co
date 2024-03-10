@@ -2,7 +2,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import Tilt from "react-parallax-tilt"
-import { Page } from "~/lib/content"
+import type { Page } from "~/lib/content"
 import { join } from "~/lib/tailwind"
 import { MaybeLink } from "./MaybeLink"
 
@@ -43,11 +43,11 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
     >
       <div className="relative">
         <MaybeLink href={item.slug}>
-          <div className="p-5 md:p-8 flex flex-col justify-between space-y-3 bg-gray-900/30 bg-gradient-to-bl from-blue-950/5 to-purple-950/5 shadow-2xl border border-gray-600/60 hover:border-gray-500/60 transition-colors">
+          <div className="flex flex-col justify-between space-y-3 border border-gray-600/60 bg-gradient-to-bl bg-gray-900/30 from-blue-950/5 to-purple-950/5 p-5 shadow-2xl transition-colors hover:border-gray-500/60 md:p-8">
             <div className="space-y-3">
               <p className="text-2xl md:text-3xl">{item.title}</p>
               {item.description && item.description.length > 0 && (
-                <p className="opacity-70 font-light">
+                <p className="font-light opacity-70">
                   {item.description.map((richText, i) => {
                     if (richText.type !== "text") return null
                     if (richText.text.link)
@@ -81,7 +81,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                     priority={true}
                     alt={item.title}
                     src={item.image}
-                    className="w-full object-contain bg-transparent rounded-sm shadow-xl"
+                    className="w-full rounded-sm bg-transparent object-contain shadow-xl"
                   />
                 </div>
               )}
@@ -95,7 +95,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                     <span
                       key={tag}
                       className={join(
-                        "px-3 py-1 text-sm text-gray-100 rounded-sm",
+                        "rounded-sm px-3 py-1 text-gray-100 text-sm",
                         tag === "About" && "bg-yellow-500/60",
                         tag === "Work" && "bg-teal-500/60",
                         tag === "Projects" && "bg-purple-500/60",
@@ -112,9 +112,10 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
         </MaybeLink>
         {item.isLikeable && (
           <button
+            type="button"
             aria-label="like content"
             className={join(
-              "absolute p-4 scale-0 top-2 right-2 delay-200 hover:scale-110 transition-transform opacity-80",
+              "absolute top-2 right-2 scale-0 p-4 opacity-80 transition-transform delay-200 hover:scale-110",
               isLoaded && "scale-100",
             )}
             onClick={toggleSave}

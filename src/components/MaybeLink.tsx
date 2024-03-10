@@ -1,4 +1,4 @@
-import NextLink, { LinkProps } from "next/link"
+import Link, { type LinkProps } from "next/link"
 
 export function MaybeLink({
   href,
@@ -7,13 +7,13 @@ export function MaybeLink({
   if (!href) return <>{props.children}</>
   if (href.startsWith("http"))
     return (
-      <a {...props} href={href} target="_blank" rel="noopener noreferer">
+      <a {...props} href={href} target="_blank" rel="noopener noreferrer">
         {props.children}
       </a>
     )
   return (
-    <NextLink href={href} {...props}>
+    <Link href={href} {...props}>
       {props.children}
-    </NextLink>
+    </Link>
   )
 }

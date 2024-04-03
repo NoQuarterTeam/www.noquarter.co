@@ -33,7 +33,7 @@
     "@opentelemetry/api": "1.8.0",
     "@types/node": "18.19.29",
     "@types/react": "18.2.74",
-    "@types/react-dom": "18.2.23",
+    "@types/react-dom": "18.2.24",
     "autoprefixer": "10.4.19",
     "aws-crt": "1.21.1",
     "critters": "0.0.22",

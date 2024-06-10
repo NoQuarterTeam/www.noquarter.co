@@ -22,7 +22,7 @@
     "next": "canary",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-parallax-tilt": "1.7.227",
+    "react-parallax-tilt": "1.7.228",
     "tailwind-merge": "2.3.0",
     "zod": "3.23.8",
     "zustand": "4.5.2"

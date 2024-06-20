@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@aws-sdk/signature-v4-crt": "3.598.0",
-    "@biomejs/biome": "1.8.1",
+    "@biomejs/biome": "1.8.2",
     "@opentelemetry/api": "1.9.0",
     "@types/node": "18.19.37",
     "@types/react": "18.3.3",

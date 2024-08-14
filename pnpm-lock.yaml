@@ -18,8 +18,8 @@ dependencies:
     specifier: 2.2.15
     version: 2.2.15(encoding@0.1.13)
   '@slack/web-api':
-    specifier: 7.3.2
-    version: 7.3.2
+    specifier: 7.3.3
+    version: 7.3.3
   '@vercel/analytics':
     specifier: 1.3.1
     version: 1.3.1(next@15.0.0-canary.55)(react@18.3.1)
@@ -1239,8 +1239,8 @@ packages:
     engines: {node: '>= 12.13.0', npm: '>= 6.12.0'}
     dev: false
 
-  /@slack/web-api@7.3.2:
-    resolution: {integrity: sha512-hyxwSsUhpOEVN5ORB3ne7TAXQwXl0wxBAyNTCfp4Qc/o9rpEEvY4kfsx7mZF5AhYPcdEeI1XP2bSFrh3W/HGKQ==}
+  /@slack/web-api@7.3.3:
+    resolution: {integrity: sha512-FquFqzugam/J3gk79q6cuUemFwQYt3s1m/FhuAGdiDZmBoj42JDOoztgLAdvTQLo5/4sGo2ikL1z2q9D8+rpvg==}
     engines: {node: '>= 18', npm: '>= 8.6.0'}
     dependencies:
       '@slack/logger': 4.0.0

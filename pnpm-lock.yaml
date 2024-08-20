@@ -39,8 +39,8 @@ dependencies:
     specifier: 18.3.1
     version: 18.3.1(react@18.3.1)
   react-parallax-tilt:
-    specifier: 1.7.236
-    version: 1.7.236(react-dom@18.3.1)(react@18.3.1)
+    specifier: 1.7.237
+    version: 1.7.237(react-dom@18.3.1)(react@18.3.1)
   tailwind-merge:
     specifier: 2.5.2
     version: 2.5.2
@@ -2891,8 +2891,8 @@ packages:
       scheduler: 0.23.2
     dev: false
 
-  /react-parallax-tilt@1.7.236(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-ea2jTD1gSFlFjQwi0Z8Y/dUdoYny2AGWCN2gqaSBcpIgnigF/SV6thdVLi34iyzez7ogk8rqmePPA8C/XD7taQ==}
+  /react-parallax-tilt@1.7.237(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-Rg8YmehDjTTcAn637HEd3ttTeZfT8UzKNmMKQhbn00/5mojkU4H+gLbYkxWFIM0hLnvfOZewkqgCGEOMzn4SlQ==}
     peerDependencies:
       react: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
       react-dom: ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0

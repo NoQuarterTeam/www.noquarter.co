@@ -49,7 +49,7 @@ dependencies:
     version: 3.23.8
   zustand:
     specifier: 4.5.5
-    version: 4.5.5(@types/react@18.3.9)(react@18.3.1)
+    version: 4.5.5(@types/react@18.3.10)(react@18.3.1)
 
 devDependencies:
   '@aws-sdk/signature-v4-crt':
@@ -62,11 +62,11 @@ devDependencies:
     specifier: 1.9.0
     version: 1.9.0
   '@types/node':
-    specifier: 18.19.53
-    version: 18.19.53
+    specifier: 18.19.54
+    version: 18.19.54
   '@types/react':
-    specifier: 18.3.9
-    version: 18.3.9
+    specifier: 18.3.10
+    version: 18.3.10
   '@types/react-dom':
     specifier: 18.3.0
     version: 18.3.0
@@ -1232,7 +1232,7 @@ packages:
     resolution: {integrity: sha512-Wz7QYfPAlG/DR+DfABddUZeNgoeY7d1J39OCR2jR+v7VBsB8ezulDK5szTnDDPDwLH5IWhLvXIHlCFZV7MSKgA==}
     engines: {node: '>= 18', npm: '>= 8.6.0'}
     dependencies:
-      '@types/node': 18.19.53
+      '@types/node': 18.19.54
     dev: false
 
   /@slack/types@2.12.0:
@@ -1246,7 +1246,7 @@ packages:
     dependencies:
       '@slack/logger': 4.0.0
       '@slack/types': 2.12.0
-      '@types/node': 18.19.53
+      '@types/node': 18.19.54
       '@types/retry': 0.12.0
       axios: 1.7.4
       eventemitter3: 5.0.1
@@ -1720,12 +1720,12 @@ packages:
   /@types/node-fetch@2.6.11:
     resolution: {integrity: sha512-24xFj9R5+rfQJLRyM56qh+wnVSYhyXC2tkoBndtY0U+vubqNsYXGjufB2nn8Q6gt0LrARwL6UBtMCSVCwl4B1g==}
     dependencies:
-      '@types/node': 18.19.53
+      '@types/node': 18.19.54
       form-data: 4.0.0
     dev: false
 
-  /@types/node@18.19.53:
-    resolution: {integrity: sha512-GLxgUgHhDKO1Edw9Q0lvMbiO/IQXJwJlMaqxSGBXMpPy8uhkCs2iiPFaB2Q/gmobnFkckD3rqTBMVjXdwq+nKg==}
+  /@types/node@18.19.54:
+    resolution: {integrity: sha512-+BRgt0G5gYjTvdLac9sIeE0iZcJxi4Jc4PV5EUzqi+88jmQLr+fRZdv2tCTV7IHKSGxM6SaLoOXQWWUiLUItMw==}
     dependencies:
       undici-types: 5.26.5
 
@@ -1735,11 +1735,11 @@ packages:
   /@types/react-dom@18.3.0:
     resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
     dependencies:
-      '@types/react': 18.3.9
+      '@types/react': 18.3.10
     dev: true
 
-  /@types/react@18.3.9:
-    resolution: {integrity: sha512-+BpAVyTpJkNWWSSnaLBk6ePpHLOGJKnEQNbINNovPWzvEUyAe3e+/d494QdEh71RekM/qV7lw6jzf1HGrJyAtQ==}
+  /@types/react@18.3.10:
+    resolution: {integrity: sha512-02sAAlBnP39JgXwkAq3PeU9DVaaGpZyF3MGcC0MKgQVkZor5IiiDAipVaxQHtDJAmO4GIy/rVBy/LzVj76Cyqg==}
     dependencies:
       '@types/prop-types': 15.7.12
       csstype: 3.1.3
@@ -1747,7 +1747,7 @@ packages:
   /@types/readable-stream@4.0.15:
     resolution: {integrity: sha512-oAZ3kw+kJFkEqyh7xORZOku1YAKvsFTogRY8kVl4vHpEKiDkfnSA/My8haRE7fvmix5Zyy+1pwzOi7yycGLBJw==}
     dependencies:
-      '@types/node': 18.19.53
+      '@types/node': 18.19.54
       safe-buffer: 5.1.2
 
   /@types/retry@0.12.0:
@@ -1757,7 +1757,7 @@ packages:
   /@types/ws@8.5.10:
     resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
     dependencies:
-      '@types/node': 18.19.53
+      '@types/node': 18.19.54
 
   /@vercel/analytics@1.3.1(next@15.0.0-canary.55)(react@18.3.1):
     resolution: {integrity: sha512-xhSlYgAuJ6Q4WQGkzYTLmXwhYl39sWjoMA3nHxfkvG+WdBT25c563a7QhwwKivEOZtPJXifYHR1m2ihoisbWyA==}
@@ -3324,7 +3324,7 @@ packages:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: false
 
-  /zustand@4.5.5(@types/react@18.3.9)(react@18.3.1):
+  /zustand@4.5.5(@types/react@18.3.10)(react@18.3.1):
     resolution: {integrity: sha512-+0PALYNJNgK6hldkgDq2vLrw5f6g/jCInz52n9RTpropGgeAf/ioFUCdtsjCqu4gNhW9D01rUQBROoRjdzyn2Q==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -3339,7 +3339,7 @@ packages:
       react:
         optional: true
     dependencies:
-      '@types/react': 18.3.9
+      '@types/react': 18.3.10
       react: 18.3.1
       use-sync-external-store: 1.2.2(react@18.3.1)
     dev: false

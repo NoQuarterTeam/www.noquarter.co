@@ -6,11 +6,11 @@ settings:
 
 dependencies:
   '@aws-sdk/client-s3':
-    specifier: 3.662.0
-    version: 3.662.0(aws-crt@1.22.0)
+    specifier: 3.663.0
+    version: 3.663.0(aws-crt@1.22.0)
   '@aws-sdk/lib-storage':
-    specifier: 3.662.0
-    version: 3.662.0(@aws-sdk/client-s3@3.662.0)
+    specifier: 3.663.0
+    version: 3.663.0(@aws-sdk/client-s3@3.663.0)
   '@formkit/auto-animate':
     specifier: 1.0.0-beta.6
     version: 1.0.0-beta.6
@@ -159,8 +159,8 @@ packages:
       tslib: 2.6.3
     dev: false
 
-  /@aws-sdk/client-s3@3.662.0(aws-crt@1.22.0):
-    resolution: {integrity: sha512-zZ38Bjrtjn/KlYSxfkh6rcHX77nOXVZThIOc/RMnsMAC5qS+LT0ruhbYXG2q1Q7BaQ2QWQMz/0n/czWHRbOkNA==}
+  /@aws-sdk/client-s3@3.663.0(aws-crt@1.22.0):
+    resolution: {integrity: sha512-XWoy6wglrxFngdswGbccR7cwmafe3ycx2/vIRDuVnIeSYdj/PgYACBt5JEM5NEzW26kFtlJpeN9hUH1i6tyfuQ==}
     engines: {node: '>=16.0.0'}
     dependencies:
       '@aws-crypto/sha1-browser': 5.2.0
@@ -494,13 +494,13 @@ packages:
       tslib: 2.6.3
     dev: false
 
-  /@aws-sdk/lib-storage@3.662.0(@aws-sdk/client-s3@3.662.0):
-    resolution: {integrity: sha512-AVvJaRSJ0lDG0W7JG1BYZLW57ajGhy/MjySpyCXgnbgKJ0npeFRHubPulZ58D3FcUGcdg7a0mTwRJEy8RwqBjQ==}
+  /@aws-sdk/lib-storage@3.663.0(@aws-sdk/client-s3@3.663.0):
+    resolution: {integrity: sha512-NU6c0NPJgI4Cjm6ZwOuQvXh5BMbtJjpITlKjfdybIU2/aGCx4ppChshtUlmcuYp+KnJUIeYDXiylmXGT7Jw9og==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
-      '@aws-sdk/client-s3': ^3.662.0
+      '@aws-sdk/client-s3': ^3.663.0
     dependencies:
-      '@aws-sdk/client-s3': 3.662.0(aws-crt@1.22.0)
+      '@aws-sdk/client-s3': 3.663.0(aws-crt@1.22.0)
       '@smithy/abort-controller': 3.1.5
       '@smithy/middleware-endpoint': 3.1.4
       '@smithy/smithy-client': 3.3.6

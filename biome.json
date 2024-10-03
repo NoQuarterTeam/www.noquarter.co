@@ -25,7 +25,8 @@
     "enabled": true,
     "rules": {
       "a11y": {
-        "useKeyWithClickEvents": "off"
+        "useKeyWithClickEvents": "off",
+        "useMediaCaption": "off"
       },
       "nursery": {
         "useSortedClasses": "off"

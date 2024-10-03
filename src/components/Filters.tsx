@@ -1,6 +1,6 @@
 "use client"
 import { useFilters } from "~/lib/stores"
-import { join } from "~/lib/tailwind"
+import { cn } from "~/lib/utils"
 
 export function Filters() {
   const { filters, setSearch, toggleShowLiked, toggleTag } = useFilters()
@@ -19,7 +19,7 @@ export function Filters() {
           type="button"
           aria-label="filter content by about"
           onClick={() => toggleTag("About")}
-          className={join(
+          className={cn(
             "rounded-sm border border-yellow-600 px-3 py-1 text-center font-light text-yellow-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("About") ? "bg-yellow-500/60" : "hover:bg-yellow-400/5",
           )}
@@ -30,7 +30,7 @@ export function Filters() {
           type="button"
           aria-label="filter content by work"
           onClick={() => toggleTag("Work")}
-          className={join(
+          className={cn(
             "rounded-sm border border-teal-700 px-3 py-1 text-center font-light text-teal-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Work") ? "bg-teal-500/60" : "hover:bg-teal-400/5",
           )}
@@ -41,7 +41,7 @@ export function Filters() {
           type="button"
           aria-label="filter content by internals"
           onClick={() => toggleTag("Projects")}
-          className={join(
+          className={cn(
             "rounded-sm border border-purple-700 px-3 py-1 text-center font-light text-purple-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Projects") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
           )}
@@ -52,7 +52,7 @@ export function Filters() {
           type="button"
           aria-label="filter content by challenges"
           onClick={() => toggleTag("Challenges")}
-          className={join(
+          className={cn(
             "rounded-sm border border-blue-700 px-3 py-1 text-center font-light text-blue-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Challenges") ? "bg-blue-500/60" : "hover:bg-blue-400/5",
           )}
@@ -63,7 +63,7 @@ export function Filters() {
           type="button"
           aria-label="filter content by inspiration"
           onClick={() => toggleTag("Inspiration")}
-          className={join(
+          className={cn(
             "rounded-sm border border-pink-700 px-3 py-1 text-center font-light text-pink-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Inspiration") ? "bg-pink-500/60" : "hover:bg-pink-400/5",
           )}
@@ -74,7 +74,7 @@ export function Filters() {
           type="button"
           aria-label="filter content by contact"
           onClick={() => toggleTag("Contact")}
-          className={join(
+          className={cn(
             "rounded-sm border border-orange-600 px-3 py-1 text-center font-light text-orange-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
             filters.tags.includes("Contact") ? "bg-orange-500/60" : "hover:bg-orange-400/5",
           )}

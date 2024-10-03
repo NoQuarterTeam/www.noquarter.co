@@ -3,7 +3,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import Tilt from "react-parallax-tilt"
 import type { Page } from "~/lib/content"
-import { join } from "~/lib/tailwind"
+import { cn } from "~/lib/utils"
 import { MaybeLink } from "./MaybeLink"
 
 export function Card({ item, children }: { item: Page; children?: React.ReactNode }) {
@@ -58,13 +58,13 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`external link for ${item.title}`}
-                          className={join("inline-block underline hover:opacity-75", richText.annotations.bold && "font-bold")}
+                          className={cn("inline-block underline hover:opacity-75", richText.annotations.bold && "font-bold")}
                         >
                           {richText.text.content}
                         </a>
                       )
                     return (
-                      <span key={i} className={join(richText.annotations.bold && "font-bold")}>
+                      <span key={i} className={cn(richText.annotations.bold && "font-bold")}>
                         {richText.text.content}
                       </span>
                     )
@@ -94,7 +94,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
                   .map((tag) => (
                     <span
                       key={tag}
-                      className={join(
+                      className={cn(
                         "rounded-sm px-3 py-1 text-gray-100 text-sm",
                         tag === "About" && "bg-yellow-500/60",
                         tag === "Work" && "bg-teal-500/60",
@@ -114,7 +114,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
           <button
             type="button"
             aria-label="like content"
-            className={join(
+            className={cn(
               "absolute top-2 right-2 scale-0 p-4 opacity-80 transition-transform delay-200 hover:scale-110",
               isLoaded && "scale-100",
             )}

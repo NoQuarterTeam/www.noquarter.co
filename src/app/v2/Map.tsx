@@ -2,10 +2,24 @@
 import { KeyboardControls, PointerLockControls, Sky, useTexture } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
 import { CuboidCollider, Physics, RigidBody, type RigidBodyProps } from "@react-three/rapier"
+import { useEffect, useState } from "react"
 import * as THREE from "three"
+import { Button } from "~/components/ui/button"
 import { Player } from "./Player"
 
 export function NoQuarterWorld() {
+  const [isReady, setIsReady] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsReady(true)
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (!isReady) return <div />
+
   return (
     <div className="relative">
       <KeyboardControls
@@ -30,8 +44,14 @@ export function NoQuarterWorld() {
           <PointerLockControls />
         </Canvas>
       </KeyboardControls>
+
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="size-2 bg-white/50 rounded-full" />
+      </div>
+      <div className="absolute bg-black bottom-2 left-2 p-2 flex flex-col items-center justify-center gap-2">
+        <p>Click to Move</p>
+        <p>WASD to Move</p>
+        <p>Space to Jump</p>
       </div>
     </div>
   )

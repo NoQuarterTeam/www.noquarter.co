@@ -1,5 +1,5 @@
 import type { RichTextItemResponse } from "@notionhq/client/build/src/api-endpoints"
-import { join } from "../lib/tailwind"
+import { cn } from "~/lib/utils"
 
 export function NotionRichText({ richText }: { richText: RichTextItemResponse }) {
   if (richText.type !== "text") return null
@@ -7,11 +7,11 @@ export function NotionRichText({ richText }: { richText: RichTextItemResponse })
     return (
       <a
         href={richText.text.link.url}
-        className={join("inline-block underline hover:opacity-75", richText.annotations.bold && "font-bold")}
+        className={cn("inline-block underline hover:opacity-75", richText.annotations.bold && "font-bold")}
       >
         {richText.text.content}
       </a>
     )
   }
-  return <span className={join("", richText.annotations.bold && "font-bold")}>{richText.text.content}</span>
+  return <span className={cn("", richText.annotations.bold && "font-bold")}>{richText.text.content}</span>
 }

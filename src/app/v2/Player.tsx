@@ -17,6 +17,11 @@ export function Player() {
 
   useFrame((state) => {
     const { forward, backward, left, right, jump } = get()
+
+    if (!playerRef.current) console.log("the fuck")
+
+    // console.log(playerRef.current)
+
     if (!playerRef.current) return
 
     const velocity = playerRef.current.linvel()

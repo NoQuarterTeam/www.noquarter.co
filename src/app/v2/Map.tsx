@@ -4,7 +4,6 @@ import { Canvas } from "@react-three/fiber"
 import { CuboidCollider, Physics, RigidBody, type RigidBodyProps } from "@react-three/rapier"
 import { useEffect, useState } from "react"
 import * as THREE from "three"
-import { Button } from "~/components/ui/button"
 import { Player } from "./Player"
 
 export function NoQuarterWorld() {
@@ -29,9 +28,11 @@ export function NoQuarterWorld() {
           { name: "left", keys: ["ArrowLeft", "a", "A"] },
           { name: "right", keys: ["ArrowRight", "d", "D"] },
           { name: "jump", keys: ["Space"] },
+          { name: "rotateLeft", keys: ["q", "Q"] },
+          { name: "rotateRight", keys: ["e", "E"] },
         ]}
       >
-        <Canvas shadows camera={{ fov: 45, position: [0, 5, 10] }} style={{ height: "100vh", width: "100vw" }}>
+        <Canvas shadows camera={{ fov: 45, position: [0, 0, 0] }} style={{ height: "100vh", width: "100vw" }}>
           <Sky sunPosition={[100, 20, 100]} />
 
           <pointLight castShadow intensity={0.5} position={[100, 10, 100]} />
@@ -41,7 +42,7 @@ export function NoQuarterWorld() {
             <Ground />
             <Player />
           </Physics>
-          <PointerLockControls />
+          {/* <PointerLockControls /> */}
         </Canvas>
       </KeyboardControls>
 
@@ -49,8 +50,8 @@ export function NoQuarterWorld() {
         <div className="size-2 bg-white/50 rounded-full" />
       </div>
       <div className="absolute bg-black bottom-2 left-2 p-2 flex flex-col items-center justify-center gap-2">
-        <p>Click to Move</p>
         <p>WASD to Move</p>
+        <p>QE to Rotate</p>
         <p>Space to Jump</p>
       </div>
     </div>

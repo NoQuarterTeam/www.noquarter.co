@@ -1,9 +1,10 @@
 "use client"
 import { useKeyboardControls } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
-import { CapsuleCollider, RigidBody, type RigidBodyProps } from "@react-three/rapier"
-import { useRef } from "react"
+import { CapsuleCollider, type RapierRigidBody, RigidBody } from "@react-three/rapier"
+import { RefObject, useRef } from "react"
 import * as THREE from "three"
+import { Object3D } from "three"
 
 const SPEED = 5
 const direction = new THREE.Vector3()
@@ -11,18 +12,17 @@ const frontVector = new THREE.Vector3()
 const sideVector = new THREE.Vector3()
 
 export function Player() {
-  const playerRef = useRef<RigidBodyProps>(null)
+  const playerRef = useRef<RapierRigidBody>(null)
   const [_, get] = useKeyboardControls()
 
   useFrame((state) => {
     const { forward, backward, left, right, jump } = get()
     if (!playerRef.current) return
 
-    // @ts-ignore
     const velocity = playerRef.current.linvel()
 
     // update camera
-    // @ts-ignore
+
     const position = playerRef.current.translation()
     state.camera.position.set(position.x, position.y, position.z)
 
@@ -46,7 +46,6 @@ export function Player() {
   return (
     <>
       <RigidBody
-        // @ts-ignore
         ref={playerRef}
         colliders={false}
         mass={1}

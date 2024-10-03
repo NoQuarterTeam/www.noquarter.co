@@ -38,7 +38,7 @@ export function NoQuarterWorld() {
 }
 
 function Ground(props: RigidBodyProps) {
-  const texture = useTexture("/models/grass.jpg")
+  const texture = useTexture("/assets/grass.jpg")
   texture.wrapS = texture.wrapT = THREE.RepeatWrapping
   texture.repeat.set(10, 10) // Adjust this value to control the repetition of the texture
 

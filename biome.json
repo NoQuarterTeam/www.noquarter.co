@@ -11,12 +11,12 @@
     "ignore": []
   },
   "files": {
-    "ignore": ["node_modules", ".turbo", ".expo"]
+    "ignore": ["node_modules"]
   },
   "javascript": {
     "formatter": {
+      "trailingCommas": "all",
       "semicolons": "asNeeded",
-      "trailingComma": "all",
       "arrowParentheses": "always",
       "jsxQuoteStyle": "double"
     }
@@ -24,8 +24,11 @@
   "linter": {
     "enabled": true,
     "rules": {
+      "a11y": {
+        "useKeyWithClickEvents": "off"
+      },
       "nursery": {
-        "useSortedClasses": "error"
+        "useSortedClasses": "off"
       },
       "recommended": true,
       "correctness": {

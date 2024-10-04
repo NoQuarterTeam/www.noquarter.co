@@ -5,32 +5,20 @@ import { useRef } from "react"
 import * as THREE from "three"
 
 const SPEED = 8
-const ROTATION_SPEED = 0.05
 const direction = new THREE.Vector3()
 const frontVector = new THREE.Vector3()
 const sideVector = new THREE.Vector3()
-const upVector = new THREE.Vector3(0, 1, 0)
 
 export function Player() {
   const playerRef = useRef<RapierRigidBody>(null)
   const [_, get] = useKeyboardControls()
 
   useFrame((state) => {
-    const { forward, backward, left, right, jump, rotateLeft, rotateRight, rotateUp, rotateDown } = get()
+    const { forward, backward, left, right, jump } = get()
 
     if (!playerRef.current) return
 
     const velocity = playerRef.current.linvel()
-
-    // update camera
-    const position = playerRef.current.translation()
-    state.camera.position.set(position.x, position.y, position.z)
-
-    // rotation
-    if (rotateLeft) state.camera.rotateOnWorldAxis(upVector, ROTATION_SPEED)
-    if (rotateRight) state.camera.rotateOnWorldAxis(upVector, -ROTATION_SPEED)
-    if (rotateUp) state.camera.rotateX(ROTATION_SPEED)
-    if (rotateDown) state.camera.rotateX(-ROTATION_SPEED)
 
     // movement
     frontVector.set(0, 0, Number(backward) - Number(forward))
@@ -53,6 +41,10 @@ export function Player() {
       enabledRotations={[false, false, false]}
     >
       <CapsuleCollider args={[1, 1]} />
+      <mesh>
+        <capsuleGeometry args={[1, 1, 4, 10]} />
+        <meshStandardMaterial color="blue" />
+      </mesh>
     </RigidBody>
   )
 }

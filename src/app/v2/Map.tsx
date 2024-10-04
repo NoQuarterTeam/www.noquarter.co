@@ -8,7 +8,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib"
 
 function Tree({ position }: { position: [number, number, number] }) {
   const [x, y, z] = position
-  const adjustedPosition: [number, number, number] = [x, y + 2, z] // Lifted the tree by 2 units
+  const adjustedPosition: [number, number, number] = [x, y + 3, z] // Lifted the tree by 2 units
 
   return (
     <RigidBody type="fixed" position={adjustedPosition}>
@@ -189,11 +189,17 @@ function Ground(props: RigidBodyProps) {
 }
 
 function Wall({ position, scale }: { position: [number, number, number]; scale: [number, number, number] }) {
+  const brickTexture = useTexture("/assets/bricks.jpg")
+  brickTexture.wrapS = brickTexture.wrapT = THREE.RepeatWrapping
+  brickTexture.repeat.set(10, 1)
+
+  const adjustedPosition: [number, number, number] = [position[0], position[1] + 1, position[2]]
+
   return (
-    <RigidBody type="fixed" position={position}>
+    <RigidBody type="fixed" position={adjustedPosition}>
       <mesh scale={scale} receiveShadow castShadow>
         <boxGeometry />
-        <meshStandardMaterial color="lightgray" />
+        <meshStandardMaterial map={brickTexture} />
       </mesh>
     </RigidBody>
   )

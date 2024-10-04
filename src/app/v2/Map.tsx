@@ -100,7 +100,14 @@ export function NoQuarterWorld() {
     return () => clearTimeout(timer)
   }, [])
 
-  if (!isReady) return <div />
+  if (!isReady)
+    return (
+      <div className="flex items-center justify-center h-screen w-screen">
+        <div className="text-white flex items-center justify-center size-40 rounded-full border border-white">
+          <p>LOADING</p>
+        </div>
+      </div>
+    )
 
   return (
     <div className="relative">

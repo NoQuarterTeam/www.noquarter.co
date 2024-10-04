@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="black" />
       </head>
-      <body className="relative min-h-screen bg-gray-900">
+      <body className="relative min-h-screen bg-gray-900 dark">
         {children}
         <Analytics />
       </body>

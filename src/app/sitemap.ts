@@ -15,12 +15,12 @@ export default async function Sitemap() {
     },
   })
   const pages = (content.results as PageObjectResponse[]).map((page) => ({
-    url: `https://www-noquarter-co-next.vercel.app/${
+    url: `https://www.noquarter.co/${
       page.properties.Slug.type === "rich_text" ? page.properties.Slug.rich_text[0]?.plain_text : ""
     }`,
   }))
   const routes = [""].map((route) => ({
-    url: `https://www-noquarter-co-next.vercel.app${route}`,
+    url: `https://www.noquarter.co${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }))
 

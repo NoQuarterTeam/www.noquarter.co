@@ -8,7 +8,7 @@ const slack = new WebClient(env.SLACK_TOKEN)
 const contactSchema = z.object({
   name: z.string(),
   email: z.string().email(),
-  message: z.string().min(100),
+  message: z.string().min(50),
   extra_info: z.string().optional(),
 })
 

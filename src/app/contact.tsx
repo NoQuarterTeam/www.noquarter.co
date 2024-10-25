@@ -1,4 +1,3 @@
-"use client"
 import { useActionState } from "react"
 import { submitContact } from "~/app/actions"
 import { Card } from "~/components/card"
@@ -50,7 +49,9 @@ export function Contact() {
               ))}
             </label>
             <label htmlFor="message" className="block">
-              <span className="w-32">Message</span>
+              <span className="w-32">
+                Message <span className="text-xs opacity-50">(Min 50 chars)</span>
+              </span>
               <textarea rows={5} required id="message" name="message" minLength={50} className={inputClassName} />
               {state?.fieldErrors?.message?.map((error) => (
                 <p key={error} className="-mt-1.5 text-red-500 text-sm">
@@ -58,7 +59,7 @@ export function Contact() {
                 </p>
               ))}
             </label>
-            <div className="opacity-0">
+            <div className="opacity-0 h-0">
               <label htmlFor="extra_info">Additional Information</label>
               <input id="extra_info" name="extra_info" tabIndex={-1} autoComplete="off" />
             </div>

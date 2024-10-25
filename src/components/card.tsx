@@ -42,7 +42,7 @@ export function Card({ item, children }: { item: Page; children?: React.ReactNod
       glareEnable={true}
     >
       <div className="relative">
-        <MaybeLink href={item.slug}>
+        <MaybeLink href={item.externalLink ?? item.slug}>
           <div className="flex flex-col justify-between space-y-3 border border-white/30 p-5 shadow-2xl transition-colors hover:border-white/50 md:p-8">
             <div className="space-y-3">
               <p className="text-2xl md:text-3xl">{item.title}</p>

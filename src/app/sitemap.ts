@@ -1,7 +1,7 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { notion } from "~/lib/notion"
 
-export default async function Sitemap() {
+export default async function Page() {
   const content = await notion.databases.query({
     database_id: "e031ba1c28de4e3dbe8298e2da42ea68",
     filter: {

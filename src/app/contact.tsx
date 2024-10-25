@@ -20,6 +20,7 @@ export function Contact() {
         id: "contact",
         meta: "contact",
         isLikeable: false,
+        externalLink: null,
       }}
     >
       <form action={action}>

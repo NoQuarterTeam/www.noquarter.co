@@ -1,4 +1,5 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import Image from "next/image"
 import { Filters } from "~/components/Filters"
 import { Content } from "~/components/content"
 import { formatPageProperties } from "~/lib/content"
@@ -34,15 +35,17 @@ export default async function Page() {
     <div className="space-y-4 p-4 pb-52 lg:space-y-8 md:p-8">
       <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 md:gap-10">
         <div className="flex flex-start flex-col">
-          <h1 className="pb-4 font-bold text-xl md:text-xl xl:text-2xl">NO QUARTER</h1>
+          <div className="pb-4">
+            <Image src="/logo.png" alt="No Quarter" width={100} height={50} />
+          </div>
           <h2 className="mb-4 block font-sans text-sm lg:hidden">{subheader}</h2>
 
           <div className="block">
             <Filters />
           </div>
         </div>
-        <div className="hidden justify-end lg:flex">
-          <h2 className="max-w-xl pl-0 text-left font-sans text-md lg:pl-8">{subheader}</h2>
+        <div className="hidden pl-0 max-w-xl justify-end lg:flex flex-col lg:pl-8">
+          <h2 className="font-sans text-md">{subheader}</h2>
         </div>
       </div>
 
@@ -53,7 +56,7 @@ export default async function Page() {
   )
 }
 
-const subheader = `We design and build digital tools that contribute to a more equitable future. We believe that digital products play a vital
+const subheader = `At No Quarter, we design and build digital tools that contribute to a more equitable future. We believe that digital products play a vital
       part in the transitions needed this decade, and we strive to build products that effectuate meaningful change. For this
       reason, we prioritize working on projects that establish social and environmental justice, creating a future in which all
       living beings can thrive.`

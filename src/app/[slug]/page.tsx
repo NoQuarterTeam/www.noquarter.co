@@ -1,8 +1,9 @@
+"use cache"
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { InstagramFeed } from "~/components/InstagramFeed"
 import { NotionBlock } from "~/components/NotionBlock"
 import { notion } from "~/lib/notion"
-import { getPageContent } from "./getPageContent"
+import { getPageContent } from "./data"
 
 export async function generateStaticParams() {
   const pages = await notion.databases.query({
@@ -25,18 +26,16 @@ export async function generateStaticParams() {
     .filter(Boolean)
 }
 
-export const revalidate = 30
-
-export const generateMetadata = async ({ params: { slug } }: { params: { slug: string } }) => {
-  const { title, page } = await getPageContent(slug)
+export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { title, page } = await getPageContent((await params).slug)
   const description =
     page.properties.Description.type === "rich_text" ? page.properties.Description.rich_text[0]?.plain_text : null
   const keywords = page.properties.Meta.type === "rich_text" ? page.properties.Meta.rich_text[0]?.plain_text.split(" ") : null
   return { title, description, keywords }
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const slug = params.slug
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug
   const { content, page } = await getPageContent(slug)
   const instagramEmbedId =
     page.properties.Instagram && page.properties.Instagram.type === "rich_text" && page.properties.Instagram.rich_text.length > 0

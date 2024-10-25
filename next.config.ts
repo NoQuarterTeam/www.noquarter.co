@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next"
+
+export default {
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
@@ -14,8 +15,7 @@ const nextConfig = {
     ],
   },
   experimental: {
-    // ppr: true,
+    ppr: true,
+    dynamicIO: true,
   },
-}
-
-module.exports = nextConfig
+} satisfies NextConfig

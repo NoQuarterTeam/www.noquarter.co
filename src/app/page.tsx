@@ -1,3 +1,4 @@
+"use cache"
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { cache } from "react"
 import { Content } from "~/components/Content"
@@ -5,8 +6,6 @@ import { Filters } from "~/components/Filters"
 import { formatPageProperties } from "~/lib/content"
 import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
-
-export const revalidate = 30
 
 const getContent = cache(async () => {
   const content = await notion.databases.query({

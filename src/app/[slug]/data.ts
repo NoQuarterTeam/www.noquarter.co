@@ -5,6 +5,7 @@ import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 
 export const getPageContent = cache(async (slug: string) => {
+  "use cache"
   const pages = await notion.databases.query({
     database_id: "e031ba1c28de4e3dbe8298e2da42ea68",
     page_size: 1,

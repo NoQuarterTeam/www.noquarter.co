@@ -10,6 +10,7 @@ const contactSchema = z.object({
   email: z.string().email(),
   message: z.string().min(100),
 })
+
 export async function submitContact(_: unknown, formData: FormData) {
   const data = Object.fromEntries(formData.entries())
   const result = contactSchema.safeParse(data)

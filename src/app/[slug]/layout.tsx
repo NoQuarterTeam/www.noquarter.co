@@ -1,11 +1,12 @@
+"use cache"
 import Link from "next/link"
 
-export default async function PageLayout({ children }: { children: React.ReactNode }) {
+export default async function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br bg-gray-900 from-gray-900 via-blue-900/10 to-purple-900/10 p-4 md:p-10">
+    <div className="min-h-screen p-4 md:p-10">
       <Link
         aria-label="Back to home"
-        className="w-48 rounded-sm border border-gray-600 px-3 py-1 transition-colors hover:bg-white/5 md:px-4 md:py-2"
+        className="w-48 rounded-none border border-gray-600 px-3 py-1 transition-colors hover:bg-white/5 md:px-4 md:py-2"
         href="/"
       >
         <svg className="inline-block size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23" fill="currentColor">

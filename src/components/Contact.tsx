@@ -1,5 +1,5 @@
 "use client"
-import { useFormState, useFormStatus } from "react-dom"
+import { useActionState } from "react"
 import { submitContact } from "~/app/actions"
 import { Card } from "./Card"
 
@@ -7,7 +7,7 @@ const inputClassName =
   "relative w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 font-mono shadow-2xl transition-colors hover:border-gray-600 md:px-5 md:py-3 placeholder:text-gray-400"
 
 export function Contact() {
-  const [state, action] = useFormState(submitContact, undefined)
+  const [state, action, isLoading] = useActionState(submitContact, undefined)
 
   return (
     <Card
@@ -57,23 +57,20 @@ export function Contact() {
                 </p>
               ))}
             </label>
-            <SubmitButton />
+            <div className="opacity-0">
+              <label htmlFor="extra_info">Additional Information</label>
+              <input id="extra_info" name="extra_info" tabIndex={-1} autoComplete="off" />
+            </div>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="rounded-sm bg-gray-700 px-3 py-2 transition-colors hover:bg-gray-600 md:px-8 md:py-3"
+            >
+              {isLoading ? "Sending..." : "Send it"}
+            </button>
           </div>
         )}
       </form>
     </Card>
-  )
-}
-
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="rounded-sm bg-gray-700 px-3 py-2 transition-colors hover:bg-gray-600 md:px-8 md:py-3"
-    >
-      {pending ? "Sending..." : "Send it"}
-    </button>
   )
 }

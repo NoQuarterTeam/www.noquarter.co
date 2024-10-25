@@ -10,7 +10,7 @@ export function Filters() {
       <div className="flex space-x-2">
         <input
           onChange={(e) => setSearch(e.target.value)}
-          className="relative w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 text-sm shadow-2xl transition-colors hover:border-gray-600 focus:bg-white/5 hover:bg-white/5 md:px-8 md:py-3 md:text-base placeholder:text-gray-400"
+          className="relative w-full rounded-none bg-black border border-white/30 hover:border-white/50 px-2 py-2 text-sm shadow-2xl transition-colors md:px-8 md:py-3 md:text-base placeholder:text-gray-400"
           placeholder="What would you like to know?"
         />
       </div>
@@ -20,7 +20,7 @@ export function Filters() {
           aria-label="filter content by about"
           onClick={() => toggleTag("About")}
           className={cn(
-            "rounded-sm border border-yellow-600 px-3 py-1 text-center font-light text-yellow-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
+            "rounded-none border border-yellow-600 px-3 py-1 text-center font-light text-yellow-100 transition-colors md:px-4 hover:opacity-90",
             filters.tags.includes("About") ? "bg-yellow-500/60" : "hover:bg-yellow-400/5",
           )}
         >
@@ -31,7 +31,7 @@ export function Filters() {
           aria-label="filter content by work"
           onClick={() => toggleTag("Work")}
           className={cn(
-            "rounded-sm border border-teal-700 px-3 py-1 text-center font-light text-teal-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
+            "rounded-none border border-teal-700 px-3 py-1 text-center font-light text-teal-100 transition-colors md:px-4 hover:opacity-90",
             filters.tags.includes("Work") ? "bg-teal-500/60" : "hover:bg-teal-400/5",
           )}
         >
@@ -42,7 +42,7 @@ export function Filters() {
           aria-label="filter content by internals"
           onClick={() => toggleTag("Projects")}
           className={cn(
-            "rounded-sm border border-purple-700 px-3 py-1 text-center font-light text-purple-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
+            "rounded-none border border-purple-700 px-3 py-1 text-center font-light text-purple-100 transition-colors md:px-4 hover:opacity-90",
             filters.tags.includes("Projects") ? "bg-purple-500/60" : "hover:bg-purple-400/5",
           )}
         >
@@ -53,7 +53,7 @@ export function Filters() {
           aria-label="filter content by challenges"
           onClick={() => toggleTag("Challenges")}
           className={cn(
-            "rounded-sm border border-blue-700 px-3 py-1 text-center font-light text-blue-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
+            "rounded-none border border-blue-700 px-3 py-1 text-center font-light text-blue-100 transition-colors md:px-4 hover:opacity-90",
             filters.tags.includes("Challenges") ? "bg-blue-500/60" : "hover:bg-blue-400/5",
           )}
         >
@@ -64,7 +64,7 @@ export function Filters() {
           aria-label="filter content by inspiration"
           onClick={() => toggleTag("Inspiration")}
           className={cn(
-            "rounded-sm border border-pink-700 px-3 py-1 text-center font-light text-pink-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
+            "rounded-none border border-pink-700 px-3 py-1 text-center font-light text-pink-100 transition-colors md:px-4 hover:opacity-90",
             filters.tags.includes("Inspiration") ? "bg-pink-500/60" : "hover:bg-pink-400/5",
           )}
         >
@@ -75,7 +75,7 @@ export function Filters() {
           aria-label="filter content by contact"
           onClick={() => toggleTag("Contact")}
           className={cn(
-            "rounded-sm border border-orange-600 px-3 py-1 text-center font-light text-orange-100 transition-colors md:px-4 md:py-2 hover:opacity-90",
+            "rounded-none border border-orange-600 px-3 py-1 text-center font-light text-orange-100 transition-colors md:px-4 hover:opacity-90",
             filters.tags.includes("Contact") ? "bg-orange-500/60" : "hover:bg-orange-400/5",
           )}
         >

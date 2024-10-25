@@ -1,7 +1,7 @@
 "use client"
 import { useActionState } from "react"
 import { submitContact } from "~/app/actions"
-import { Card } from "./Card"
+import { Card } from "~/components/card"
 
 const inputClassName =
   "relative w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 font-mono shadow-2xl transition-colors hover:border-gray-600 md:px-5 md:py-3 placeholder:text-gray-400"

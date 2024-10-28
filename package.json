@@ -22,7 +22,7 @@
     "clsx": "^2.1.1",
     "encoding": "0.1.13",
     "leva": "0.9.35",
-    "lucide-react": "^0.453.0",
+    "lucide-react": "^0.454.0",
     "match-sorter": "6.4.0",
     "react-parallax-tilt": "1.7.249",
     "next": "^15.0.2-canary.6",

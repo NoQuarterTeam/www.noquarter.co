@@ -23,7 +23,7 @@
     "encoding": "0.1.13",
     "leva": "0.9.35",
     "lucide-react": "^0.454.0",
-    "match-sorter": "6.4.0",
+    "match-sorter": "7.0.0",
     "react-parallax-tilt": "1.7.249",
     "next": "^15.0.2-canary.6",
     "react": "^19.0.0-rc-1631855f-20241023",

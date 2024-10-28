@@ -3,8 +3,8 @@ import { useAutoAnimate } from "@formkit/auto-animate/react"
 import { matchSorter } from "match-sorter"
 import type { Page } from "~/lib/content"
 import { useFilters } from "~/lib/stores"
-import { Card } from "./Card"
-import { Contact } from "./Contact"
+import { Contact } from "../app/contact"
+import { Card } from "./card"
 
 export function Content({ content }: { content: Page[] }) {
   const { filters } = useFilters()

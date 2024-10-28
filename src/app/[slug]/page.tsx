@@ -2,7 +2,7 @@ import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoint
 import { InstagramFeed } from "~/components/InstagramFeed"
 import { NotionBlock } from "~/components/NotionBlock"
 import { notion } from "~/lib/notion"
-import { getPageContent } from "./getPageContent"
+import { getPageContent } from "./data"
 
 export async function generateStaticParams() {
   const pages = await notion.databases.query({
@@ -25,19 +25,21 @@ export async function generateStaticParams() {
     .filter(Boolean)
 }
 
-export const revalidate = 30
-
-export const generateMetadata = async ({ params: { slug } }: { params: { slug: string } }) => {
-  const { title, page } = await getPageContent(slug)
+export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const page = await getPageContent((await params).slug)
+  if (!page) return { title: "Not found", description: "Not found", keywords: null }
+  const { title, page: pageData } = page
   const description =
-    page.properties.Description.type === "rich_text" ? page.properties.Description.rich_text[0]?.plain_text : null
-  const keywords = page.properties.Meta.type === "rich_text" ? page.properties.Meta.rich_text[0]?.plain_text.split(" ") : null
+    pageData.properties.Description.type === "rich_text" ? pageData.properties.Description.rich_text[0]?.plain_text : null
+  const keywords =
+    pageData.properties.Meta.type === "rich_text" ? pageData.properties.Meta.rich_text[0]?.plain_text.split(" ") : null
   return { title, description, keywords }
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const slug = params.slug
-  const { content, page } = await getPageContent(slug)
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = (await params).slug
+  const { page, content } = await getPageContent(slug)
+
   const instagramEmbedId =
     page.properties.Instagram && page.properties.Instagram.type === "rich_text" && page.properties.Instagram.rich_text.length > 0
       ? page.properties.Instagram.rich_text[0].plain_text

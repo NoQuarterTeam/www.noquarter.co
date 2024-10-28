@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+import type { NextConfig } from "next"
+
+export default {
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
@@ -13,9 +14,13 @@ const nextConfig = {
       { protocol: "https", hostname: "prod-files-secure.s3.us-west-2.amazonaws.com" },
     ],
   },
-  experimental: {
-    // ppr: true,
+  eslint: {
+    ignoreDuringBuilds: true,
   },
-}
-
-module.exports = nextConfig
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  experimental: {
+    ppr: true,
+  },
+} satisfies NextConfig

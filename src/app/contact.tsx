@@ -1,13 +1,12 @@
-"use client"
-import { useFormState, useFormStatus } from "react-dom"
+import { useActionState } from "react"
 import { submitContact } from "~/app/actions"
-import { Card } from "./Card"
+import { Card } from "~/components/card"
 
 const inputClassName =
   "relative w-full rounded-sm border border-gray-700 bg-gray-800/50 px-2 py-2 font-mono shadow-2xl transition-colors hover:border-gray-600 md:px-5 md:py-3 placeholder:text-gray-400"
 
 export function Contact() {
-  const [state, action] = useFormState(submitContact, undefined)
+  const [state, action, isLoading] = useActionState(submitContact, undefined)
 
   return (
     <Card
@@ -20,6 +19,7 @@ export function Contact() {
         id: "contact",
         meta: "contact",
         isLikeable: false,
+        externalLink: null,
       }}
     >
       <form action={action}>
@@ -49,7 +49,9 @@ export function Contact() {
               ))}
             </label>
             <label htmlFor="message" className="block">
-              <span className="w-32">Message</span>
+              <span className="w-32">
+                Message <span className="text-xs opacity-50">(Min 50 chars)</span>
+              </span>
               <textarea rows={5} required id="message" name="message" minLength={50} className={inputClassName} />
               {state?.fieldErrors?.message?.map((error) => (
                 <p key={error} className="-mt-1.5 text-red-500 text-sm">
@@ -57,23 +59,20 @@ export function Contact() {
                 </p>
               ))}
             </label>
-            <SubmitButton />
+            <div className="opacity-0 h-0">
+              <label htmlFor="extra_info">Additional Information</label>
+              <input id="extra_info" name="extra_info" tabIndex={-1} autoComplete="off" />
+            </div>
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="rounded-sm bg-gray-700 px-3 py-2 transition-colors hover:bg-gray-600 md:px-8 md:py-3"
+            >
+              {isLoading ? "Sending..." : "Send it"}
+            </button>
           </div>
         )}
       </form>
     </Card>
-  )
-}
-
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="rounded-sm bg-gray-700 px-3 py-2 transition-colors hover:bg-gray-600 md:px-8 md:py-3"
-    >
-      {pending ? "Sending..." : "Send it"}
-    </button>
   )
 }

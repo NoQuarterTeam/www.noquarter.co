@@ -17,7 +17,10 @@ export const getPageContent = cache(async (slug: string) => {
   })
 
   const page = pages.results[0] as PageObjectResponse
-  if (!page) return redirect("/")
+
+  if (!page) {
+    redirect("/")
+  }
 
   // check name and typeguard that its a title property
   const name = page.properties.Name

@@ -10,6 +10,7 @@ export const formatPageProperties = (page: Omit<PageObjectResponse, "cover"> & {
     tags: properties.Tags.type === "multi_select" ? properties.Tags.multi_select.map((tag) => tag.name) : [],
     image: page.cover,
     meta: properties.Meta.type === "rich_text" ? properties.Meta.rich_text[0]?.plain_text : "",
+    externalLink: properties["External link"].type === "url" ? properties["External link"].url : null,
     slug:
       properties.Slug.type === "rich_text"
         ? properties.Slug.rich_text.length > 0

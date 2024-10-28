@@ -60,8 +60,8 @@ export function Contact() {
               ))}
             </label>
             <div className="opacity-0 h-0">
-              <label htmlFor="extra_info">Additional Information</label>
-              <input id="extra_info" name="extra_info" tabIndex={-1} autoComplete="off" />
+              <label htmlFor="phone">Phone Number (Required)</label>
+              <input id="phone" name="phone" />
             </div>
             <button
               type="submit"

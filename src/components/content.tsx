@@ -20,8 +20,13 @@ export function Content({ content }: { content: Page[] }) {
 
   if (filters.search) {
     filteredContent = matchSorter(content, filters.search, {
-      keys: ["title", "description", "tags", "meta"],
-      threshold: matchSorter.rankings.ACRONYM,
+      keys: [
+        { key: "title", threshold: matchSorter.rankings.CONTAINS },
+        { key: "description", threshold: matchSorter.rankings.CONTAINS },
+        { key: "tags", threshold: matchSorter.rankings.CONTAINS },
+        { key: "meta", threshold: matchSorter.rankings.CONTAINS },
+      ],
+      threshold: matchSorter.rankings.NO_MATCH,
     })
   }
   if (filters.tags.length > 0) {

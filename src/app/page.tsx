@@ -44,8 +44,8 @@ export default async function Page() {
             <Filters />
           </div>
         </div>
-        <div className="hidden pl-0 max-w-xl justify-end lg:flex flex-col lg:pl-8">
-          <h2 className="font-sans text-md">{subheader}</h2>
+        <div className="hidden items-center justify-center lg:flex">
+          <h2 className="font-sans text-md max-w-xl">{subheader}</h2>
         </div>
       </div>
 

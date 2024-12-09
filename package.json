@@ -31,7 +31,7 @@
     "next": "^15.0.2-canary.6",
     "openai": "^4.68.4",
     "react-dom": "^19.0.0-rc-1631855f-20241023",
-    "react-parallax-tilt": "1.7.264",
+    "react-parallax-tilt": "1.7.265",
     "react": "^19.0.0-rc-1631855f-20241023",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",

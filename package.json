@@ -26,7 +26,7 @@
     "encoding": "0.1.13",
     "leva": "0.10.0",
     "lucide-react": "^0.506.0",
-    "match-sorter": "8.0.0",
+    "match-sorter": "8.0.1",
     "next": "^15.2.0-canary.71",
     "react": "^19.1.0-canary-25677265-20250224",
     "react-dom": "^19.1.0-canary-25677265-20250224",

@@ -40,7 +40,7 @@
     "@aws-sdk/signature-v4-crt": "3.803.0",
     "@biomejs/biome": "1.9.4",
     "@opentelemetry/api": "1.9.0",
-    "@types/node": "18.19.96",
+    "@types/node": "18.19.97",
     "@types/react": "18.3.21",
     "@types/react-dom": "18.3.7",
     "@types/three": "0.176.0",

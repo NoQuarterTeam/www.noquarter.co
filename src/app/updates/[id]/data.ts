@@ -4,8 +4,10 @@ import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 import { NOTION_DB } from "../config"
 import { redirect } from "next/navigation"
-
+import { unstable_cacheLife as cacheLife } from "next/cache"
 export const getPageContent = cache(async (id: string) => {
+  "use cache"
+  cacheLife("hours")
   const pages = await notion.databases.query({
     database_id: NOTION_DB,
     page_size: 1,

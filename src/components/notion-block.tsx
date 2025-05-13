@@ -1,7 +1,7 @@
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import Image from "next/image"
 import { notion } from "~/lib/notion"
-import { NotionRichText } from "./NotionRichText"
+import { NotionRichText } from "./notion-rich-text"
 
 interface Props {
   block: BlockObjectResponse
@@ -12,21 +12,53 @@ export async function NotionBlock({ block }: Props) {
     case "paragraph":
       if (block.paragraph.rich_text.length === 0) return <br />
       return (
-        <p className="mb-3 font-light text-lg leading-normal">
+        <p className="mb-2 font-light text-lg leading-normal">
           {block.paragraph.rich_text.map((richText, i) => (
             <NotionRichText key={i} richText={richText} />
           ))}
         </p>
       )
+    case "table": {
+      const tableRows = await notion.blocks.children.list({ block_id: block.id })
+      return (
+        <table className="mb-6 w-full border-collapse border border-gray-600">
+          <tbody>
+            {tableRows.results.map((row, rowIndex) => {
+              if (!("type" in row) || row.type !== "table_row") return null
+              const isHeaderRow = block.table.has_column_header && rowIndex === 0
+              return (
+                <tr key={row.id} className={isHeaderRow ? "bg-gray-700" : ""}>
+                  {row.table_row.cells.map((cell, cellIndex) =>
+                    isHeaderRow ? (
+                      <th key={cellIndex} className="border border-gray-600 px-4 py-2 text-left">
+                        {cell.map((richText, i) => (
+                          <NotionRichText key={i} richText={richText} />
+                        ))}
+                      </th>
+                    ) : (
+                      <td key={cellIndex} className="border border-gray-600 px-4 py-2">
+                        {cell.map((richText, i) => (
+                          <NotionRichText key={i} richText={richText} />
+                        ))}
+                      </td>
+                    ),
+                  )}
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      )
+    }
     case "image":
       return (
-        <div className="mb-3 space-y-2">
+        <div className="mb-6 space-y-2">
           <Image
             src={block.image.type === "external" ? block.image.external.url : block.image.file.url}
             width={700}
             height={420}
             quality={70}
-            className="!max-h-[600px] object-contain"
+            className="max-h-[600px]! object-contain"
             alt={block.image.caption?.[0]?.plain_text || "No Quarter post image"}
           />
           {block.image.caption && block.image.caption.length > 0 ? (
@@ -45,7 +77,7 @@ export async function NotionBlock({ block }: Props) {
         return url[2] !== undefined ? url[2].split(/[^0-9a-z_\-]/i)[0] : url[0]
       }
       return (
-        <div className="mb-3 space-y-2">
+        <div className="mb-6 space-y-2">
           {block.video.type === "external" && block.video.external.url.includes("youtube") ? (
             <iframe
               width="672"
@@ -56,7 +88,7 @@ export async function NotionBlock({ block }: Props) {
               allowFullScreen
             />
           ) : (
-            <video className="mb-3 aspect-video w-full bg-gray-950" preload="none" controls>
+            <video className="mb-6 aspect-video w-full bg-gray-950" preload="none" controls>
               <source src={block.video.type === "external" ? block.video.external.url : block.video.file.url} type="video/mp4" />
             </video>
           )}
@@ -73,7 +105,7 @@ export async function NotionBlock({ block }: Props) {
     case "heading_1":
       if (block.heading_1.rich_text.length === 0) return <br />
       return (
-        <h1 className="mt-3 mb-6 text-xl lg:text-3xl md:text-2xl">
+        <h1 className="mt-8 mb-6 text-xl lg:text-2xl md:text-3xl font-bold">
           {block.heading_1.rich_text.map((richText, i) => (
             <NotionRichText key={i} richText={richText} />
           ))}
@@ -82,32 +114,42 @@ export async function NotionBlock({ block }: Props) {
     case "heading_2":
       if (block.heading_2.rich_text.length === 0) return <br />
       return (
-        <h1 className="mt-2 mb-4 text-lg md:text-xl">
+        <h2 className="mt-8 mb-4 text-lg md:text-2xl font-bold">
           {block.heading_2.rich_text.map((richText, i) => (
             <NotionRichText key={i} richText={richText} />
           ))}
-        </h1>
+        </h2>
       )
     case "heading_3":
       if (block.heading_3.rich_text.length === 0) return <br />
       return (
-        <h1 className="mt-1 mb-2 text-md md:text-lg">
+        <h2 className="mt-8 mb-2 text-md md:text-xl font-bold">
           {block.heading_3.rich_text.map((richText, i) => (
             <NotionRichText key={i} richText={richText} />
           ))}
-        </h1>
+        </h2>
       )
     case "divider":
-      return <hr className="mb-3 border-gray-600" />
+      return <hr className="mb-6 border-gray-600" />
     case "bulleted_list_item":
       if (block.bulleted_list_item.rich_text.length === 0) return <br />
       return (
-        <li className="mb-2 pl-2">
+        <li className="mb-3 pl-2">
           {block.bulleted_list_item.rich_text.map((richText, i) => (
             <NotionRichText key={i} richText={richText} />
           ))}
         </li>
       )
+    case "numbered_list_item":
+      if (block.numbered_list_item.rich_text.length === 0) return <br />
+      return (
+        <li className="mb-3 pl-2 list-decimal">
+          {block.numbered_list_item.rich_text.map((richText, i) => (
+            <NotionRichText key={i} richText={richText} />
+          ))}
+        </li>
+      )
+
     case "column_list": {
       const blockId = block.id
       const response = await notion.blocks.children.list({

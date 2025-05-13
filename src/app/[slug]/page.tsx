@@ -1,6 +1,6 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import { InstagramFeed } from "~/components/InstagramFeed"
-import { NotionBlock } from "~/components/NotionBlock"
+import { InstagramFeed } from "~/components/instagram-feed"
+import { NotionBlock } from "~/components/notion-block"
 import { notion } from "~/lib/notion"
 import { getPageContent } from "./data"
 

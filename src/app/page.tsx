@@ -1,7 +1,8 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import type { Metadata } from "next"
 import Image from "next/image"
-import { Filters } from "~/components/Filters"
 import { Content } from "~/components/content"
+import { Filters } from "~/components/content-filters"
 import { formatPageProperties } from "~/lib/content"
 import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
@@ -25,7 +26,7 @@ const getContent = async () => {
   )
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   description: "Check out some of our stuff",
 }
 

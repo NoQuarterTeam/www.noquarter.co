@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Tilt from "react-parallax-tilt"
 import type { Page } from "~/lib/content"
 import { cn } from "~/lib/utils"
-import { MaybeLink } from "./MaybeLink"
+import { MaybeLink } from "./maybe-link"
 
 export function Card({ item, children }: { item: Page; children?: React.ReactNode }) {
   const [isLoaded, setIsLoaded] = useState(false)

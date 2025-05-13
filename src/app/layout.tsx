@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/react"
-import "../global.css"
+import type { Metadata } from "next"
 import { Karla } from "next/font/google"
+import "../global.css"
 
 const karla = Karla({
   subsets: ["latin"],
@@ -9,7 +10,7 @@ const karla = Karla({
   variable: "--font-karla",
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: "No Quarter",
     template: "%s | No Quarter",

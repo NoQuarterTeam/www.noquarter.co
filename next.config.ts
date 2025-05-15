@@ -22,7 +22,7 @@ export default {
   },
   experimental: {
     ppr: true,
-    dynamicIO: true,
-    useCache: true,
+    // dynamicIO: true,
+    // useCache: true,
   },
 } satisfies NextConfig

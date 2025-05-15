@@ -1,11 +1,9 @@
-"use cache"
 import type {
   DatabaseObjectResponse,
   PageObjectResponse,
   PartialDatabaseObjectResponse,
   PartialPageObjectResponse,
 } from "@notionhq/client"
-import { unstable_cacheLife as cacheLife } from "next/cache"
 import Link from "next/link"
 import { notion } from "~/lib/notion"
 import { NOTION_DB } from "./config"
@@ -37,7 +35,6 @@ const getSafeProperty = (
 }
 
 export default async function Page() {
-  cacheLife("hours")
   const content = await notion.databases.query({
     database_id: NOTION_DB,
     sorts: [{ property: "Date", direction: "descending" }],

@@ -33,7 +33,7 @@
     "react-parallax-tilt": "1.7.295",
     "tailwind-merge": "3.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "3.25.0",
+    "zod": "3.25.6",
     "zustand": "5.0.4"
   },
   "devDependencies": {

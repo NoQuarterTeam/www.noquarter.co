@@ -18,7 +18,7 @@
     "@formkit/auto-animate": "1.0.0-beta.6",
     "@notionhq/client": "3.0.1",
     "@radix-ui/react-slot": "^1.1.0",
-    "@slack/web-api": "7.9.1",
+    "@slack/web-api": "7.9.2",
     "@vercel/analytics": "1.5.0",
     "ai": "4.3.16",
     "class-variance-authority": "0.7.1",

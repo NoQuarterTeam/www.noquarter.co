@@ -42,7 +42,7 @@
     "@opentelemetry/api": "1.9.0",
     "@tailwindcss/postcss": "^4.1.6",
     "@types/node": "18.19.103",
-    "@types/react": "18.3.21",
+    "@types/react": "18.3.22",
     "@types/react-dom": "18.3.7",
     "@types/three": "0.176.0",
     "aws-crt": "1.26.2",

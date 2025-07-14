@@ -21,22 +21,22 @@ export async function NotionBlock({ block }: Props) {
     case "table": {
       const tableRows = await notion.blocks.children.list({ block_id: block.id })
       return (
-        <table className="mb-6 w-full border-collapse border border-gray-600">
+        <table className="mb-6 w-full border-collapse border">
           <tbody>
             {tableRows.results.map((row, rowIndex) => {
               if (!("type" in row) || row.type !== "table_row") return null
               const isHeaderRow = block.table.has_column_header && rowIndex === 0
               return (
-                <tr key={row.id} className={isHeaderRow ? "bg-gray-700" : ""}>
+                <tr key={row.id} className={isHeaderRow ? "bg-muted" : ""}>
                   {row.table_row.cells.map((cell, cellIndex) =>
                     isHeaderRow ? (
-                      <th key={cellIndex} className="border border-gray-600 px-4 py-2 text-left">
+                      <th key={cellIndex} className="border px-4 py-2 bg-muted text-left">
                         {cell.map((richText, i) => (
                           <NotionRichText key={i} richText={richText} />
                         ))}
                       </th>
                     ) : (
-                      <td key={cellIndex} className="border border-gray-600 px-4 py-2">
+                      <td key={cellIndex} className="border px-4 py-2">
                         {cell.map((richText, i) => (
                           <NotionRichText key={i} richText={richText} />
                         ))}
@@ -74,7 +74,7 @@ export async function NotionBlock({ block }: Props) {
       const getYoutubeId = (fullUrl: string) => {
         // given this youtube url https://www.youtube.com/watch?v=UqJJktxCY9U or https://youtu.be/UqJJktxCY9U
         const url = fullUrl.split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/)
-        return url[2] !== undefined ? url[2].split(/[^0-9a-z_\-]/i)[0] : url[0]
+        return url[2] !== undefined ? url[2].split(/[^0-9a-z_-]/i)[0] : url[0]
       }
       return (
         <div className="mb-6 space-y-2">

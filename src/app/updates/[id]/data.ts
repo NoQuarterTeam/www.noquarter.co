@@ -1,9 +1,9 @@
 import type { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { redirect } from "next/navigation"
 import { cache } from "react"
 import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 import { NOTION_DB } from "../config"
-import { redirect } from "next/navigation"
 
 export const getPageContent = cache(async (id: string) => {
   const pages = await notion.databases.query({

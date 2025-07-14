@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${karla.variable}`}>
+    <html lang="en" className={`${karla.variable} dark`}>
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="black" />
       </head>
-      <body className="relative min-h-screen bg-black dark">
+      <body className="relative min-h-screen bg-black">
         {children}
         <Analytics />
       </body>

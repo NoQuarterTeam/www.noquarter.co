@@ -59,10 +59,10 @@ const getBlocks = cache(async (id: string) => {
   )
 })
 
-const getSafeProperty = (
+function getSafeProperty(
   page: PageObjectResponse | PartialPageObjectResponse | PartialDatabaseObjectResponse | DatabaseObjectResponse,
   propertyName: string,
-) => {
+) {
   if (!("properties" in page)) return `No ${propertyName}`
 
   const property = page.properties[propertyName]

@@ -39,6 +39,7 @@ export const getUpdates = unstable_cache(
     )
   },
   ["updates"],
+  { revalidate: 60 },
 )
 
 export type Update = Awaited<ReturnType<typeof getUpdates>>[number]

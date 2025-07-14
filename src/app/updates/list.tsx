@@ -1,10 +1,9 @@
-// "use client"
-
 import dayjs from "dayjs"
 import { NotionBlock } from "~/components/notion-block"
-import type { Update } from "./data"
+import { getUpdates, type Update } from "./data"
 
-export function List({ initialUpdates }: { initialUpdates: Update[] }) {
+export async function List({ searchParams }: { searchParams: Promise<{ project?: string }> }) {
+  const initialUpdates = await getUpdates(undefined, searchParams)
   // const [updates, setUpdates] = useState(initialUpdates)
 
   // useEffect(() => {

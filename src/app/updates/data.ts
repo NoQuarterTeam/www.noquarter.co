@@ -11,9 +11,12 @@ import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 import { NOTION_DB } from "./config"
 
-export const getUpdates = async (startCursor?: string, project?: string) => {
+export const getUpdates = async (startCursor?: string, searchParams?: Promise<{ project?: string }>) => {
   "use cache"
   cacheLife("days")
+
+  const project = searchParams ? (await searchParams).project : undefined
+
   const updates = await notion.databases.query({
     database_id: NOTION_DB,
     page_size: 20,

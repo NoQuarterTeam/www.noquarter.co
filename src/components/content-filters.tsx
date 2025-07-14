@@ -1,6 +1,7 @@
 "use client"
 import { useFilters } from "~/lib/stores"
 import { cn } from "~/lib/utils"
+import { Input } from "./ui/input"
 
 export function Filters() {
   const { filters, setSearch, toggleShowLiked, toggleTag } = useFilters()
@@ -8,9 +9,9 @@ export function Filters() {
   return (
     <div className="space-y-4">
       <div className="flex space-x-2">
-        <input
+        <Input
           onChange={(e) => setSearch(e.target.value)}
-          className="relative w-full rounded-none bg-black border border-white/30 hover:border-white/50 px-2 py-2 text-sm shadow-2xl transition-colors md:px-8 md:py-3 md:text-base placeholder:text-gray-400"
+          className="relative w-full rounded-none bg-black px-2 py-2 text-sm shadow-2xl h-auto md:px-8 md:py-3 md:text-base placeholder:text-gray-400"
           placeholder="What would you like to know?"
         />
       </div>

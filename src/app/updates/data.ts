@@ -1,35 +1,46 @@
-import type { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import type {
+  BlockObjectResponse,
+  DatabaseObjectResponse,
+  PageObjectResponse,
+  PartialDatabaseObjectResponse,
+  PartialPageObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints"
 import { redirect } from "next/navigation"
 import { cache } from "react"
 import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 import { NOTION_DB } from "./config"
 
-export const getPage = cache(async (id: string) => {
-  const pages = await notion.databases.query({
+export const getUpdates = cache(async (startCursor?: string, project?: string) => {
+  const updates = await notion.databases.query({
     database_id: NOTION_DB,
-    page_size: 1,
-    filter: { property: "ID", number: { equals: Number(id) } },
+    page_size: 20,
+    start_cursor: startCursor,
+    sorts: [{ property: "Date", direction: "descending" }],
+    filter: project ? { property: "Project", select: { equals: project } } : undefined,
   })
 
-  const page = pages.results[0] as PageObjectResponse
+  if (!updates) redirect("/")
 
-  if (!page) redirect("/updates")
-
-  // check name and typeguard that its a title property
-  const name = page.properties.Subject
-  if (name.type !== "title") redirect("/updates")
-  const title = name.title[0]?.plain_text
-
-  const blocks = await getBlocks(page.id)
-  return {
-    title,
-    page,
-    content: blocks,
-  }
+  return await Promise.all(
+    updates.results.map(async (update) => {
+      const blocks = await getBlocks(update.id)
+      return {
+        id: update.id,
+        uniqueId: getSafeProperty(update, "ID"),
+        title: getSafeProperty(update, "Subject"),
+        date: getSafeProperty(update, "Date"),
+        project: getSafeProperty(update, "Project"),
+        phase: getSafeProperty(update, "Phase"),
+        content: blocks,
+      }
+    }),
+  )
 })
 
-export const getBlocks = cache(async (id: string) => {
+export type Update = Awaited<ReturnType<typeof getUpdates>>[number]
+
+const getBlocks = cache(async (id: string) => {
   const pageContent = await notion.blocks.children.list({ block_id: id })
   return await Promise.all(
     (pageContent.results as BlockObjectResponse[]).map(async (block) => {
@@ -47,3 +58,29 @@ export const getBlocks = cache(async (id: string) => {
     }),
   )
 })
+
+const getSafeProperty = (
+  page: PageObjectResponse | PartialPageObjectResponse | PartialDatabaseObjectResponse | DatabaseObjectResponse,
+  propertyName: string,
+) => {
+  if (!("properties" in page)) return `No ${propertyName}`
+
+  const property = page.properties[propertyName]
+  if (!property) return `No ${propertyName}`
+
+  switch (property.type) {
+    case "unique_id":
+      return "number" in property.unique_id ? property.unique_id.number : undefined
+    case "title":
+      return property.title.map((text) => text.plain_text).join(" ")
+    case "date":
+      return property.date?.start
+    case "rich_text":
+      return property.rich_text.map((text) => text.plain_text).join(" ")
+    case "select":
+      if (!property.select) return undefined
+      return "name" in property.select ? property.select.name : undefined
+    default:
+      return `Invalid property type: ${property.type}`
+  }
+}

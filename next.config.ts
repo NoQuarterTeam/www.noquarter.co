@@ -22,6 +22,5 @@ export default {
   },
   experimental: {
     ppr: true,
-    useCache: true,
   },
 } satisfies NextConfig

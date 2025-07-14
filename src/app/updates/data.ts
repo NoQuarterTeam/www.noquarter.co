@@ -5,43 +5,41 @@ import type {
   PartialDatabaseObjectResponse,
   PartialPageObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints"
-import { cacheLife } from "next/dist/server/use-cache/cache-life"
+import { unstable_cache } from "next/cache"
 import { redirect } from "next/navigation"
 import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 import { NOTION_DB } from "./config"
 
-export const getUpdates = async (startCursor?: string, searchParams?: Promise<{ project?: string }>) => {
-  "use cache"
-  cacheLife("days")
+export const getUpdates = unstable_cache(
+  async (startCursor?: string, project?: string) => {
+    const updates = await notion.databases.query({
+      database_id: NOTION_DB,
+      page_size: 20,
+      start_cursor: startCursor,
+      sorts: [{ property: "Date", direction: "descending" }],
+      filter: project ? { property: "Project", select: { equals: project } } : undefined,
+    })
 
-  const project = searchParams ? (await searchParams).project : undefined
+    if (!updates) redirect("/")
 
-  const updates = await notion.databases.query({
-    database_id: NOTION_DB,
-    page_size: 20,
-    start_cursor: startCursor,
-    sorts: [{ property: "Date", direction: "descending" }],
-    filter: project ? { property: "Project", select: { equals: project } } : undefined,
-  })
-
-  if (!updates) redirect("/")
-
-  return await Promise.all(
-    updates.results.map(async (update) => {
-      const blocks = await getBlocks(update.id)
-      return {
-        id: update.id,
-        uniqueId: getSafeProperty(update, "ID"),
-        title: getSafeProperty(update, "Subject"),
-        date: getSafeProperty(update, "Date"),
-        project: getSafeProperty(update, "Project"),
-        phase: getSafeProperty(update, "Phase"),
-        content: blocks,
-      }
-    }),
-  )
-}
+    return await Promise.all(
+      updates.results.map(async (update) => {
+        const blocks = await getBlocks(update.id)
+        return {
+          id: update.id,
+          uniqueId: getSafeProperty(update, "ID"),
+          title: getSafeProperty(update, "Subject"),
+          date: getSafeProperty(update, "Date"),
+          project: getSafeProperty(update, "Project"),
+          phase: getSafeProperty(update, "Phase"),
+          content: blocks,
+        }
+      }),
+    )
+  },
+  ["updates"],
+)
 
 export type Update = Awaited<ReturnType<typeof getUpdates>>[number]
 

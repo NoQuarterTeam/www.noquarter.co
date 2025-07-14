@@ -3,14 +3,7 @@ import { NotionBlock } from "~/components/notion-block"
 import { getUpdates, type Update } from "./data"
 
 export async function List({ searchParams }: { searchParams: Promise<{ project?: string }> }) {
-  const initialUpdates = await getUpdates(undefined, searchParams)
-  // const [updates, setUpdates] = useState(initialUpdates)
-
-  // useEffect(() => {
-  //   const fetchUpdates = async () => {
-  //     const updates = await getUpdates()
-  //   }
-  // }, [])
+  const initialUpdates = await getUpdates(undefined, (await searchParams).project)
 
   const groupedByDate = initialUpdates.reduce(
     (acc, post) => {

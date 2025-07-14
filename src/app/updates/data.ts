@@ -5,13 +5,15 @@ import type {
   PartialDatabaseObjectResponse,
   PartialPageObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints"
+import { cacheLife } from "next/dist/server/use-cache/cache-life"
 import { redirect } from "next/navigation"
-import { cache } from "react"
 import { notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 import { NOTION_DB } from "./config"
 
-export const getUpdates = cache(async (startCursor?: string, project?: string) => {
+export const getUpdates = async (startCursor?: string, project?: string) => {
+  "use cache"
+  cacheLife("days")
   const updates = await notion.databases.query({
     database_id: NOTION_DB,
     page_size: 20,
@@ -36,11 +38,11 @@ export const getUpdates = cache(async (startCursor?: string, project?: string) =
       }
     }),
   )
-})
+}
 
 export type Update = Awaited<ReturnType<typeof getUpdates>>[number]
 
-const getBlocks = cache(async (id: string) => {
+const getBlocks = async (id: string) => {
   const pageContent = await notion.blocks.children.list({ block_id: id })
   return await Promise.all(
     (pageContent.results as BlockObjectResponse[]).map(async (block) => {
@@ -57,7 +59,7 @@ const getBlocks = cache(async (id: string) => {
       return block
     }),
   )
-})
+}
 
 function getSafeProperty(
   page: PageObjectResponse | PartialPageObjectResponse | PartialDatabaseObjectResponse | DatabaseObjectResponse,

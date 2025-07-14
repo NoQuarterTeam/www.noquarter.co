@@ -11,7 +11,7 @@ export function Filters() {
       <div className="flex space-x-2">
         <Input
           onChange={(e) => setSearch(e.target.value)}
-          className="relative w-full rounded-none bg-black px-2 py-2 text-sm shadow-2xl h-auto md:px-8 md:py-3 md:text-base placeholder:text-gray-400"
+          className="relative w-full rounded-none px-2 py-2 text-sm shadow-2xl h-auto md:px-8 md:py-3 md:text-base placeholder:text-gray-400"
           placeholder="What would you like to know?"
         />
       </div>

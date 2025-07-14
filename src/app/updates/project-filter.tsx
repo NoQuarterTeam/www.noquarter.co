@@ -21,7 +21,7 @@ export function ProjectFilter() {
         })
       }}
     >
-      <option value="">All</option>
+      <option value="">All Projects</option>
       <option value="No Quarter">No Quarter</option>
       <option value="Grey Men">Grey Men</option>
     </select>

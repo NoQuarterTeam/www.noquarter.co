@@ -34,7 +34,7 @@
         "@opentelemetry/api": "1.9.0",
         "@tailwindcss/forms": "^0.5.10",
         "@tailwindcss/postcss": "^4.1.11",
-        "@types/node": "18.19.119",
+        "@types/node": "18.19.120",
         "@types/react": "18.3.23",
         "@types/react-dom": "18.3.7",
         "@types/three": "0.178.1",
@@ -439,7 +439,7 @@
 
     "@types/diff-match-patch": ["@types/diff-match-patch@1.0.36", "", {}, "sha512-xFdR6tkm0MWvBfO8xXCSsinYxHcqkQUlcHeSpMC2ukzOb6lwQAfDmW+Qt0AvlGd8HpsS28qKsB+oPeJn9I39jg=="],
 
-    "@types/node": ["@types/node@18.19.119", "", { "dependencies": { "undici-types": "~5.26.4" } }, "sha512-d0F6m9itIPaKnrvEMlzE48UjwZaAnFW7Jwibacw9MNdqadjKNpUm9tfJYDwmShJmgqcoqYUX3EMKO1+RWiuuNg=="],
+    "@types/node": ["@types/node@18.19.120", "", { "dependencies": { "undici-types": "~5.26.4" } }, "sha512-WtCGHFXnVI8WHLxDAt5TbnCM4eSE+nI0QN2NJtwzcgMhht2eNz6V9evJrk+lwC8bCY8OWV5Ym8Jz7ZEyGnKnMA=="],
 
     "@types/prop-types": ["@types/prop-types@15.7.15", "", {}, "sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw=="],
 

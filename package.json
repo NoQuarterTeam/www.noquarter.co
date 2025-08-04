@@ -46,7 +46,7 @@
     "@types/node": "18.19.121",
     "@types/react": "18.3.23",
     "@types/react-dom": "18.3.7",
-    "@types/three": "0.178.1",
+    "@types/three": "0.179.0",
     "aws-crt": "1.27.3",
     "critters": "0.0.25",
     "postcss": "8.5.6",

@@ -44,7 +44,7 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "18.19.123",
-    "@types/react": "18.3.23",
+    "@types/react": "18.3.24",
     "@types/react-dom": "18.3.7",
     "@types/three": "0.179.0",
     "aws-crt": "1.27.3",

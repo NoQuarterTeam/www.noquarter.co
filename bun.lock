@@ -5,7 +5,7 @@
       "name": "www.noquarter.co",
       "dependencies": {
         "@aws-sdk/client-s3": "3.899.0",
-        "@aws-sdk/lib-storage": "3.899.0",
+        "@aws-sdk/lib-storage": "3.900.0",
         "@formkit/auto-animate": "1.0.0-beta.6",
         "@notionhq/client": "3.1.3",
         "@radix-ui/react-slot": "^1.2.3",
@@ -95,7 +95,7 @@
 
     "@aws-sdk/crt-loader": ["@aws-sdk/crt-loader@3.899.0", "", { "dependencies": { "@aws-sdk/util-user-agent-node": "3.899.0", "aws-crt": "^1.24.0", "tslib": "^2.6.2" } }, "sha512-lB8NSVOmmkGv0+Fqkvr+5JfWeGpVPMh4qp4URVfiJhr3GaEDaYVjZPximhzpE5ArbRnG0foub14D9Sx3lPk6qg=="],
 
-    "@aws-sdk/lib-storage": ["@aws-sdk/lib-storage@3.899.0", "", { "dependencies": { "@smithy/abort-controller": "^4.1.1", "@smithy/middleware-endpoint": "^4.2.5", "@smithy/smithy-client": "^4.6.5", "buffer": "5.6.0", "events": "3.3.0", "stream-browserify": "3.0.0", "tslib": "^2.6.2" }, "peerDependencies": { "@aws-sdk/client-s3": "^3.899.0" } }, "sha512-Goc8fGp/iHDczfc561mBFVoMR4pXalxM+xHDQwkGzYs/BHvCBfegwK6QisuLjC60002p5+tPSLecRvQve3JW7Q=="],
+    "@aws-sdk/lib-storage": ["@aws-sdk/lib-storage@3.900.0", "", { "dependencies": { "@smithy/abort-controller": "^4.1.1", "@smithy/middleware-endpoint": "^4.2.5", "@smithy/smithy-client": "^4.6.5", "buffer": "5.6.0", "events": "3.3.0", "stream-browserify": "3.0.0", "tslib": "^2.6.2" }, "peerDependencies": { "@aws-sdk/client-s3": "^3.899.0" } }, "sha512-qy10JUcr4oD5jM9rtD9EYzncmYAXdXhuf0O9+mWJADSbi6szRBC/mEek2OXYMJV9ztd1QmTlZj6qt3Paq+3ULw=="],
 
     "@aws-sdk/middleware-bucket-endpoint": ["@aws-sdk/middleware-bucket-endpoint@3.893.0", "", { "dependencies": { "@aws-sdk/types": "3.893.0", "@aws-sdk/util-arn-parser": "3.893.0", "@smithy/node-config-provider": "^4.2.2", "@smithy/protocol-http": "^5.2.1", "@smithy/types": "^4.5.0", "@smithy/util-config-provider": "^4.1.0", "tslib": "^2.6.2" } }, "sha512-H+wMAoFC73T7M54OFIezdHXR9/lH8TZ3Cx1C3MEBb2ctlzQrVCd8LX8zmOtcGYC8plrRwV+8rNPe0FMqecLRew=="],
 

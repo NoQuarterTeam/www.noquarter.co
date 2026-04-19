@@ -31,7 +31,7 @@
     "next": "^15.4.0-canary.129",
     "react": "19.2.5",
     "react-dom": "19.2.5",
-    "react-parallax-tilt": "1.7.323",
+    "react-parallax-tilt": "1.7.324",
     "tailwind-merge": "3.5.0",
     "tailwindcss-animate": "^1.0.7",
     "zod": "3.25.76",

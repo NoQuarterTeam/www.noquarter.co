@@ -23,7 +23,7 @@
         "next": "^15.4.0-canary.129",
         "react": "19.2.5",
         "react-dom": "19.2.5",
-        "react-parallax-tilt": "1.7.324",
+        "react-parallax-tilt": "1.7.326",
         "tailwind-merge": "3.5.0",
         "tailwindcss-animate": "^1.0.7",
         "zod": "3.25.76",
@@ -786,7 +786,7 @@
 
     "react-is": ["react-is@16.13.1", "", {}, "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="],
 
-    "react-parallax-tilt": ["react-parallax-tilt@1.7.324", "", { "peerDependencies": { "react": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-iOmPMoObfRwozzf6Dfpp2k5irtjNhng8jgRX9RZFz40bTeuQT5ZRZW7o0u8vhtRqNvWwlEBkl9++qzoW+p6eFg=="],
+    "react-parallax-tilt": ["react-parallax-tilt@1.7.326", "", { "peerDependencies": { "react": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-RrQp+zuP45QBzMBvznCBbNhN48XZrWMSu79CR3dqaTEKYAO3wz7wZhjn8+ZJXqM+1L+cGIr8h4rsUr4AzXWAQQ=="],
 
     "readable-stream": ["readable-stream@2.3.8", "", { "dependencies": { "core-util-is": "~1.0.0", "inherits": "~2.0.3", "isarray": "~1.0.0", "process-nextick-args": "~2.0.0", "safe-buffer": "~5.1.1", "string_decoder": "~1.1.1", "util-deprecate": "~1.0.1" } }, "sha512-8p0AUk4XODgIewSi0l8Epjs+EVnWiK7NoDIEGU0HhE7+ZyY8D1IMY7odu5lRrFXGg71L15KG8QrPmum45RTtdA=="],
 

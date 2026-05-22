@@ -13,8 +13,8 @@
     "extract-messages": "ts-node src/scripts/extract-messages.ts"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.1052.0",
-    "@aws-sdk/lib-storage": "3.1052.0",
+    "@aws-sdk/client-s3": "3.1053.0",
+    "@aws-sdk/lib-storage": "3.1053.0",
     "@formkit/auto-animate": "1.0.0-beta.6",
     "@notionhq/client": "3.1.3",
     "@radix-ui/react-slot": "^1.2.3",
@@ -38,7 +38,7 @@
     "zustand": "5.0.13"
   },
   "devDependencies": {
-    "@aws-sdk/signature-v4-crt": "3.1052.0",
+    "@aws-sdk/signature-v4-crt": "3.1053.0",
     "@biomejs/biome": "2.4.15",
     "@opentelemetry/api": "1.9.1",
     "@tailwindcss/forms": "^0.5.10",

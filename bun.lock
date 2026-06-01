@@ -36,7 +36,7 @@
         "@tailwindcss/forms": "^0.5.10",
         "@tailwindcss/postcss": "^4.1.11",
         "@types/node": "18.19.130",
-        "@types/react": "18.3.29",
+        "@types/react": "18.3.30",
         "@types/react-dom": "18.3.7",
         "@types/three": "0.184.1",
         "aws-crt": "1.31.0",
@@ -354,7 +354,7 @@
 
     "@types/prop-types": ["@types/prop-types@15.7.15", "", {}, "sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw=="],
 
-    "@types/react": ["@types/react@18.3.29", "", { "dependencies": { "@types/prop-types": "*", "csstype": "^3.2.2" } }, "sha512-ch0qJdr2JY0r04NXSprbK6TXOgnaJ1Tz23fm5W+z0/CBah6BSBc3n96h7K9GOtwh0HrilNWHIBzE1Ko4Dcw/Wg=="],
+    "@types/react": ["@types/react@18.3.30", "", { "dependencies": { "@types/prop-types": "*", "csstype": "^3.2.2" } }, "sha512-3ek6mwJL5/VBewBcY4S66cqlCtK3qi4WIq37Z0m/NHw1hjhI7274Mx1qz/+ggSzyBCOEf7eHjBN6INjPAWYfYw=="],
 
     "@types/react-dom": ["@types/react-dom@18.3.7", "", { "peerDependencies": { "@types/react": "^18.0.0" } }, "sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ=="],
 

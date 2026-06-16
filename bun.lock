@@ -39,7 +39,7 @@
         "@types/react": "18.3.31",
         "@types/react-dom": "18.3.7",
         "@types/three": "0.184.1",
-        "aws-crt": "1.32.1",
+        "aws-crt": "1.32.2",
         "critters": "0.0.25",
         "postcss": "8.5.15",
         "tailwindcss": "^4.1.11",
@@ -378,7 +378,7 @@
 
     "attr-accept": ["attr-accept@2.2.5", "", {}, "sha512-0bDNnY/u6pPwHDMoF0FieU354oBi0a8rD9FcsLwzcGWbc8KS8KPIi7y+s13OlVY+gMWc/9xEMUgNE6Qm8ZllYQ=="],
 
-    "aws-crt": ["aws-crt@1.32.1", "", { "dependencies": { "@aws-sdk/util-utf8-browser": "^3.259.0", "@httptoolkit/websocket-stream": "^6.0.1", "axios": "^1.12.2", "buffer": "^6.0.3", "crypto-js": "^4.2.0", "mqtt": "^4.3.8", "process": "^0.11.10" } }, "sha512-sHWj+jOEv/ujlrZxH4FyHB9+k2QkqeG46sCNvsusw3Z4G5PkD0Hh9bxWz+veQX0OxYA7ZKiuRylFRFwvZf336g=="],
+    "aws-crt": ["aws-crt@1.32.2", "", { "dependencies": { "@aws-sdk/util-utf8-browser": "^3.259.0", "@httptoolkit/websocket-stream": "^6.0.1", "axios": "^1.12.2", "buffer": "^6.0.3", "crypto-js": "^4.2.0", "mqtt": "^4.3.8", "process": "^0.11.10" } }, "sha512-aBnti9KsPVV9CI57ZJ2J9HqTtcr8ghOnFnjKzangCiOeXiV9EtK/+QyObcpn+AvcGvTxeh3ve12fAV0BWuqcIQ=="],
 
     "axios": ["axios@1.16.1", "", { "dependencies": { "follow-redirects": "^1.16.0", "form-data": "^4.0.5", "https-proxy-agent": "^5.0.1", "proxy-from-env": "^2.1.0" } }, "sha512-caYkukvroVPO8KrzuJEb50Hm07KwfBZPEC3VeFHTsqWHvKTsy54hjJz9BS/cdaypROE2rH6xvm9mHX4fgWkr3A=="],
 
@@ -785,6 +785,8 @@
     "@aws-crypto/sha256-js/@aws-sdk/types": ["@aws-sdk/types@3.840.0", "", { "dependencies": { "@smithy/types": "^4.3.1", "tslib": "^2.6.2" } }, "sha512-xliuHaUFZxEx1NSXeLLZ9Dyu6+EJVQKEoD+yM+zqUo3YDZ7medKJWY6fIOKiPX/N7XbLdBYwajb15Q7IL8KkeA=="],
 
     "@aws-crypto/util/@aws-sdk/types": ["@aws-sdk/types@3.840.0", "", { "dependencies": { "@smithy/types": "^4.3.1", "tslib": "^2.6.2" } }, "sha512-xliuHaUFZxEx1NSXeLLZ9Dyu6+EJVQKEoD+yM+zqUo3YDZ7medKJWY6fIOKiPX/N7XbLdBYwajb15Q7IL8KkeA=="],
+
+    "@aws-sdk/crt-loader/aws-crt": ["aws-crt@1.32.1", "", { "dependencies": { "@aws-sdk/util-utf8-browser": "^3.259.0", "@httptoolkit/websocket-stream": "^6.0.1", "axios": "^1.12.2", "buffer": "^6.0.3", "crypto-js": "^4.2.0", "mqtt": "^4.3.8", "process": "^0.11.10" } }, "sha512-sHWj+jOEv/ujlrZxH4FyHB9+k2QkqeG46sCNvsusw3Z4G5PkD0Hh9bxWz+veQX0OxYA7ZKiuRylFRFwvZf336g=="],
 
     "@aws-sdk/lib-storage/buffer": ["buffer@5.6.0", "", { "dependencies": { "base64-js": "^1.0.2", "ieee754": "^1.1.4" } }, "sha512-/gDYp/UtU0eA1ys8bOs9J6a+E/KWIY+DZ+Q2WESNUA0jFRsJOc0SNUO6xJ5SGA1xueg3NL65W6s+NY5l9cunuw=="],
 

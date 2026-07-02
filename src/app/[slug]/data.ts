@@ -1,12 +1,15 @@
 import type { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { cacheLife } from "next/cache"
 import { redirect } from "next/navigation"
-import { cache } from "react"
-import { notion } from "~/lib/notion"
+import { getContentDataSourceId, notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 
-export const getPageContent = cache(async (slug: string) => {
-  const pages = await notion.databases.query({
-    database_id: "e031ba1c28de4e3dbe8298e2da42ea68",
+export async function getPageContent(slug: string) {
+  "use cache"
+  cacheLife("max")
+
+  const pages = await notion.dataSources.query({
+    data_source_id: await getContentDataSourceId(),
     page_size: 1,
     filter: {
       and: [
@@ -47,4 +50,4 @@ export const getPageContent = cache(async (slug: string) => {
       }),
     ),
   }
-})
+}

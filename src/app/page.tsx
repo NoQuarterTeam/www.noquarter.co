@@ -1,14 +1,18 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { cacheLife } from "next/cache"
 import Image from "next/image"
 import { Filters } from "~/components/Filters"
 import { Content } from "~/components/content"
 import { formatPageProperties } from "~/lib/content"
-import { notion } from "~/lib/notion"
+import { getContentDataSourceId, notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 
 const getContent = async () => {
-  const content = await notion.databases.query({
-    database_id: "e031ba1c28de4e3dbe8298e2da42ea68",
+  "use cache"
+  cacheLife("max")
+
+  const content = await notion.dataSources.query({
+    data_source_id: await getContentDataSourceId(),
     filter: { property: "Public", checkbox: { equals: true } },
     sorts: [{ property: "Order", direction: "ascending" }],
   })

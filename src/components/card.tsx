@@ -1,34 +1,43 @@
 "use client"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useSyncExternalStore } from "react"
 import Tilt from "react-parallax-tilt"
 import type { Page } from "~/lib/content"
 import { cn } from "~/lib/utils"
 import { MaybeLink } from "./MaybeLink"
 
+const LIKES_KEY = "nq.likes"
+const LIKES_CHANGE_EVENT = "nq:likes-change"
+
+const subscribeToLikes = (onStoreChange: () => void) => {
+  window.addEventListener("storage", onStoreChange)
+  window.addEventListener(LIKES_CHANGE_EVENT, onStoreChange)
+
+  return () => {
+    window.removeEventListener("storage", onStoreChange)
+    window.removeEventListener(LIKES_CHANGE_EVENT, onStoreChange)
+  }
+}
+
+const getLikesSnapshot = () => localStorage.getItem(LIKES_KEY) ?? "[]"
+const getServerLikesSnapshot = () => "[]"
+const subscribeToMount = () => () => {}
+const getMountedSnapshot = () => true
+const getServerMountedSnapshot = () => false
+
 export function Card({ item, children }: { item: Page; children?: React.ReactNode }) {
-  const [isLoaded, setIsLoaded] = useState(false)
-  const [isLiked, setIsLiked] = useState(false)
-  useEffect(() => {
-    if (item.isLikeable) {
-      const storage = localStorage.getItem("nq.likes")
-      const likes: string[] = storage ? JSON.parse(storage) : []
-      const isLiked = likes.includes(item.title)
-      setIsLiked(isLiked)
-      setIsLoaded(true)
-    }
-  }, [item])
+  const isLoaded = useSyncExternalStore(subscribeToMount, getMountedSnapshot, getServerMountedSnapshot)
+  const likesSnapshot = useSyncExternalStore(subscribeToLikes, getLikesSnapshot, getServerLikesSnapshot)
+  const likes = JSON.parse(likesSnapshot) as string[]
+  const isLiked = likes.includes(item.title)
 
   const toggleSave = () => {
-    const storage = localStorage.getItem("nq.likes")
-    const likes: string[] = storage ? JSON.parse(storage) : []
     if (isLiked) {
-      localStorage.setItem("nq.likes", JSON.stringify(likes.filter((likedItem) => likedItem !== item.title)))
-      setIsLiked(false)
+      localStorage.setItem(LIKES_KEY, JSON.stringify(likes.filter((likedItem) => likedItem !== item.title)))
     } else {
-      localStorage.setItem("nq.likes", JSON.stringify([...likes, item.title]))
-      setIsLiked(true)
+      localStorage.setItem(LIKES_KEY, JSON.stringify([...likes, item.title]))
     }
+    window.dispatchEvent(new Event(LIKES_CHANGE_EVENT))
   }
 
   return (

@@ -1,10 +1,23 @@
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { cacheLife } from "next/cache"
 import Image from "next/image"
 import { notion } from "~/lib/notion"
 import { NotionRichText } from "./NotionRichText"
 
 interface Props {
   block: BlockObjectResponse
+}
+
+async function getBlockChildren(blockId: string) {
+  "use cache"
+  cacheLife("max")
+
+  const response = await notion.blocks.children.list({
+    block_id: blockId,
+    page_size: 50,
+  })
+
+  return response.results
 }
 
 export async function NotionBlock({ block }: Props) {
@@ -110,19 +123,11 @@ export async function NotionBlock({ block }: Props) {
       )
     case "column_list": {
       const blockId = block.id
-      const response = await notion.blocks.children.list({
-        block_id: blockId,
-        page_size: 50,
-      })
-      const columns = response.results
+      const columns = await getBlockChildren(blockId)
       return (
         <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${columns.length}, minmax(0, 1fr))` }}>
           {columns.map(async (column) => {
-            const colResponse = await notion.blocks.children.list({
-              block_id: column.id,
-              page_size: 50,
-            })
-            const block = colResponse.results[0] as BlockObjectResponse
+            const [block] = (await getBlockChildren(column.id)) as BlockObjectResponse[]
             return <NotionBlock key={column.id} block={block} />
           })}
         </div>

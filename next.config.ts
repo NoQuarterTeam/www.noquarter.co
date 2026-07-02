@@ -4,6 +4,7 @@ export default {
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    qualities: [30, 75],
     remotePatterns: [
       // notion external unsplash images
       { protocol: "https", hostname: "images.unsplash.com" },
@@ -14,13 +15,8 @@ export default {
       { protocol: "https", hostname: "prod-files-secure.s3.us-west-2.amazonaws.com" },
     ],
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    ppr: true,
-  },
+  cacheComponents: true,
 } satisfies NextConfig

@@ -1,12 +1,16 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
+import { cacheLife } from "next/cache"
 import { InstagramFeed } from "~/components/InstagramFeed"
 import { NotionBlock } from "~/components/NotionBlock"
-import { notion } from "~/lib/notion"
+import { getContentDataSourceId, notion } from "~/lib/notion"
 import { getPageContent } from "./data"
 
-export async function generateStaticParams() {
-  const pages = await notion.databases.query({
-    database_id: "e031ba1c28de4e3dbe8298e2da42ea68",
+async function getStaticPages() {
+  "use cache"
+  cacheLife("max")
+
+  const pages = await notion.dataSources.query({
+    data_source_id: await getContentDataSourceId(),
     filter: {
       and: [
         { property: "Public", checkbox: { equals: true } },
@@ -18,7 +22,13 @@ export async function generateStaticParams() {
     },
   })
 
-  return (pages.results as PageObjectResponse[])
+  return pages.results as PageObjectResponse[]
+}
+
+export async function generateStaticParams() {
+  const pages = await getStaticPages()
+
+  return pages
     .map((page) => ({
       slug: page.properties.Slug.type === "rich_text" ? page.properties.Slug.rich_text[0]?.plain_text : undefined,
     }))

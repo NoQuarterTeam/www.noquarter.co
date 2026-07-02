@@ -4,7 +4,7 @@ export default {
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
-    qualities: [30, 75],
+    qualities: [30, 70, 75],
     remotePatterns: [
       // notion external unsplash images
       { protocol: "https", hostname: "images.unsplash.com" },

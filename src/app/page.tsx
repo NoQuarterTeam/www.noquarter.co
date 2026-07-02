@@ -1,6 +1,7 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 import { cacheLife } from "next/cache"
 import Image from "next/image"
+import type { Metadata } from "next"
 import { Filters } from "~/components/Filters"
 import { Content } from "~/components/content"
 import { formatPageProperties } from "~/lib/content"
@@ -29,7 +30,7 @@ const getContent = async () => {
   )
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   description: "Check out some of our stuff",
 }
 
@@ -40,7 +41,7 @@ export default async function Page() {
       <div className="grid w-full grid-cols-1 gap-8 lg:grid-cols-2 md:gap-10">
         <div className="flex flex-start flex-col">
           <div className="pb-4">
-            <Image src="/logo.png" alt="No Quarter" width={100} height={50} />
+            <Image src="/logo.png" alt="No Quarter" width={100} height={50} className="h-auto w-[100px]" />
           </div>
           <h2 className="mb-4 block font-sans text-sm lg:hidden">{subheader}</h2>
 

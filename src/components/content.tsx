@@ -50,7 +50,9 @@ export function Content({ content }: { content: Page[] }) {
     { 0: [], 1: [], 2: [] } as { 0: Page[]; 1: Page[]; 2: Page[] },
   )
 
-  const [parent] = useAutoAnimate()
+  const [firstColumn] = useAutoAnimate()
+  const [secondColumn] = useAutoAnimate()
+  const [thirdColumn] = useAutoAnimate()
 
   if (filteredContent.length % 3 === 2) {
     contactColumn = 3
@@ -62,19 +64,19 @@ export function Content({ content }: { content: Page[] }) {
 
   return (
     <div className="grid w-full grid-cols-1 gap-6 lg:grid-cols-3">
-      <div className="space-y-6" ref={parent}>
+      <div className="space-y-6" ref={firstColumn}>
         {chunks[0].map((item) => (
           <Card key={item.id} item={item} />
         ))}
         {contactColumn === 1 && shouldShowContact && <Contact />}
       </div>
-      <div className="space-y-6" ref={parent}>
+      <div className="space-y-6" ref={secondColumn}>
         {chunks[1].map((item) => (
           <Card key={item.id} item={item} />
         ))}
         {contactColumn === 2 && shouldShowContact && <Contact />}
       </div>
-      <div className="space-y-6" ref={parent}>
+      <div className="space-y-6" ref={thirdColumn}>
         {chunks[2].map((item) => (
           <Card key={item.id} item={item} />
         ))}

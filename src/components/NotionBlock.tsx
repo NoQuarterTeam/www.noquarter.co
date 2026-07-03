@@ -1,6 +1,7 @@
 import type { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import { cacheLife } from "next/cache"
+import { cacheLife, cacheTag } from "next/cache"
 import Image from "next/image"
+import { NOTION_CACHE_TAG } from "~/lib/cache"
 import { notion } from "~/lib/notion"
 import { NotionRichText } from "./NotionRichText"
 
@@ -11,6 +12,7 @@ interface Props {
 async function getBlockChildren(blockId: string) {
   "use cache"
   cacheLife("max")
+  cacheTag(NOTION_CACHE_TAG)
 
   const response = await notion.blocks.children.list({
     block_id: blockId,
@@ -39,7 +41,7 @@ export async function NotionBlock({ block }: Props) {
             width={700}
             height={420}
             quality={70}
-            className="!max-h-[600px] object-contain"
+            className="max-h-[600px]! object-contain"
             alt={block.image.caption?.[0]?.plain_text || "No Quarter post image"}
           />
           {block.image.caption && block.image.caption.length > 0 ? (

@@ -1,9 +1,10 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import { cacheLife } from "next/cache"
+import { cacheLife, cacheTag } from "next/cache"
 import Image from "next/image"
 import type { Metadata } from "next"
 import { Filters } from "~/components/Filters"
 import { Content } from "~/components/content"
+import { NOTION_CACHE_TAG } from "~/lib/cache"
 import { formatPageProperties } from "~/lib/content"
 import { getContentDataSourceId, notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
@@ -11,6 +12,7 @@ import { upload } from "~/lib/s3"
 const getContent = async () => {
   "use cache"
   cacheLife("max")
+  cacheTag(NOTION_CACHE_TAG)
 
   const content = await notion.dataSources.query({
     data_source_id: await getContentDataSourceId(),

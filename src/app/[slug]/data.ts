@@ -1,12 +1,14 @@
 import type { BlockObjectResponse, PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import { cacheLife } from "next/cache"
+import { cacheLife, cacheTag } from "next/cache"
 import { redirect } from "next/navigation"
+import { NOTION_CACHE_TAG } from "~/lib/cache"
 import { getContentDataSourceId, notion } from "~/lib/notion"
 import { upload } from "~/lib/s3"
 
 export async function getPageContent(slug: string) {
   "use cache"
   cacheLife("max")
+  cacheTag(NOTION_CACHE_TAG)
 
   const pages = await notion.dataSources.query({
     data_source_id: await getContentDataSourceId(),

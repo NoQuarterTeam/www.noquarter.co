@@ -1,13 +1,15 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import { cacheLife } from "next/cache"
+import { cacheLife, cacheTag } from "next/cache"
 import { InstagramFeed } from "~/components/InstagramFeed"
 import { NotionBlock } from "~/components/NotionBlock"
+import { NOTION_CACHE_TAG } from "~/lib/cache"
 import { getContentDataSourceId, notion } from "~/lib/notion"
 import { getPageContent } from "./data"
 
 async function getStaticPages() {
   "use cache"
   cacheLife("max")
+  cacheTag(NOTION_CACHE_TAG)
 
   const pages = await notion.dataSources.query({
     data_source_id: await getContentDataSourceId(),

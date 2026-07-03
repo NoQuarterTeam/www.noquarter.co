@@ -1,10 +1,12 @@
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints"
-import { cacheLife } from "next/cache"
+import { cacheLife, cacheTag } from "next/cache"
+import { NOTION_CACHE_TAG } from "~/lib/cache"
 import { getContentDataSourceId, notion } from "~/lib/notion"
 
 async function getSitemapPages() {
   "use cache"
   cacheLife("max")
+  cacheTag(NOTION_CACHE_TAG)
 
   const content = await notion.dataSources.query({
     data_source_id: await getContentDataSourceId(),

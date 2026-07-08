@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@aws-sdk/signature-v4-crt": "3.1081.0",
-    "@biomejs/biome": "2.5.2",
+    "@biomejs/biome": "2.5.3",
     "@opentelemetry/api": "1.9.1",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.11",

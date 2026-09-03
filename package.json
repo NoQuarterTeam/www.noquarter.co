@@ -49,7 +49,7 @@
     "@types/three": "0.185.4",
     "aws-crt": "1.33.1",
     "critters": "0.0.25",
-    "postcss": "8.5.26",
+    "postcss": "8.5.28",
     "tailwindcss": "^4.1.11",
     "typescript": "5.9.3"
   }
